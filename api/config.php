@@ -11,6 +11,11 @@ if( !IN_DEV ) { // Gzip output.
 date_default_timezone_set('America/New_York');
 putenv('TZ=US/Eastern');
 
+// Load Facebook Fwk
+require_once 'facebook/facebook.php';
+define('APP_ID', ''); // TODO
+define('APP_SECRET', ''); // TODO
+
 // Class autoloader
 function __autoload( $className ) {
 	foreach( array('tools', 'models', 'controllers') as $folder ) {
