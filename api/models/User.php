@@ -5,9 +5,24 @@
  */
 class User {
 	private $instance;
+	private $info;
 
-	public User() {
+	public function User() {
 		$this->instance = FB::getUser();
+		try {
+			$this->info = FB::getInstance()->api('/me');
+		} catch(FacebookApiException $e) {}
+	}
+
+	/*!
+	 * Get the name of the user that is logged in.
+	 */
+	public function get() {
+		if(is_array($this->info)) {
+			return $this->info;
+		}
+
+		return '';
 	}
 
 	/*!
@@ -15,13 +30,6 @@ class User {
 	 * @return boolean
 	 */
 	public function isLoggedIn() {
-		if($this->instance !== false) {
-			try {
-				self::$instance->api('/me');
-				return true;
-			} catch(FacebookApiException $e) {}
-		}
-
-		return false;
+		return ($this->instance !== false && is_array($this->info) && count($this->info));
 	}
 }

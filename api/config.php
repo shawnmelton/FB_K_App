@@ -13,8 +13,8 @@ putenv('TZ=US/Eastern');
 
 // Load Facebook Fwk
 require_once 'facebook/facebook.php';
-define('APP_ID', ''); // TODO
-define('APP_SECRET', ''); // TODO
+define('APP_ID', '111378102282619'); // TODO
+define('APP_SECRET', '8d54f8fb41b33dde8630e41204edf5b7'); // TODO
 
 // Class autoloader
 function __autoload( $className ) {

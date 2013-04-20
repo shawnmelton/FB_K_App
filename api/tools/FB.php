@@ -10,7 +10,7 @@ class FB {
 	 * Have we established a connection to the Facebook Fwk?
 	 * @return boolean
 	 */
-	public static connected() {
+	public static function connected() {
 		if(self::$instance === false) {
 			self::init();
 		}
@@ -18,10 +18,25 @@ class FB {
 		return true;
 	}
 
+	public static function getInstance() {
+		return self::$instance;
+	}
+
 	/*!
 	 * Get the account of the logged in user.
 	 */
-	public static getUser() {
+	public static function getLoginUrl() {
+		if(self::connected()) {
+			return self::$instance->getLoginLink();
+		}
+
+		return false;
+	}
+
+	/*!
+	 * Get the account of the logged in user.
+	 */
+	public static function getUser() {
 		if(self::connected()) {
 			return self::$instance->getUser();
 		}
@@ -32,7 +47,7 @@ class FB {
 	/*!
 	 * Initialize Facebook connection.
 	 */
-	public static init() {
+	public static function init() {
 		self::$instance = new Facebook(array(
 			'appId'  => APP_ID,
   			'secret' => APP_SECRET

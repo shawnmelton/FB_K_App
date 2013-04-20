@@ -8,6 +8,6 @@ class Controller {
 	 */
 	public function notFound() {
 		header('HTTP/1.0 404 Not Found');
-		echo JSON::response('404 Not Found', false);
+		echo JSON::response('404 Not Found', 404);
 	}
 }

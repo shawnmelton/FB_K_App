@@ -4,10 +4,10 @@
  * @author Shawn Melton <shawn.a.melton@gmail.com>
  */
 class JSON {
-	public static function response($msg, $success) {
+	public static function response($msg, $code) {
 		return json_encode(array(
 			'response' => $msg,
-			'success' => ($success ? 1 : 0)
+			'code' => $code
 		));
 	}
 }
