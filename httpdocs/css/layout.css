@@ -1,1 +1,46 @@
-html {}
+html {
+	background: #fff;
+	font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+	body {
+		margin: 0;
+		padding: 18px 20px;
+	}
+		body > div {
+			width: 810px;
+			min-height: 622px;
+			background: url(/img/bg.jpg) no-repeat 0 0;
+		}
+
+			a.buttons {
+				display: block;
+				width: 164px;
+				height: 35px;
+				cursor: pointer;
+				outline: none;
+				background-image: url(/img/buttons.png);
+				background-repeat: no-repeat;
+			}
+				a.buttons > span { display: none; }
+			a.buttons:hover { background-position-x: -165px; }
+			a.buttons:active { background-position-x: -330px; }
+
+		/* Home View */
+		.home > img {
+			display: block;
+			margin: 135px auto 0;
+			width: 332px;
+			height: 134px;
+		}
+		.home > p {
+			margin: 45px 150px;
+			color: #01476b;
+			font-size: 17px;
+			text-align: center;
+		}
+		.home > a { margin: 0 auto; }
+		.home > a#getStarted {
+			display: none;
+			background-position-y: 0;
+		}
+		.home > a#login { background-position-y: -200px; }

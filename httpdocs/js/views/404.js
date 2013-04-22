@@ -5,9 +5,11 @@ define([
 	'text!templates/404.html'
 	], function($, _, Backbone, pageNotFoundHTML){
 		var pageNotFoundView = Backbone.View.extend({
-			content: $("body"),
+			content: $("#content"),
 			render: function(){
-				this.content.html(_.template(pageNotFoundHTML, {}));
+				this.content
+					.html(_.template(pageNotFoundHTML, {}))
+					.attr("class", "pageNotFound");
 			}
 		});
 		

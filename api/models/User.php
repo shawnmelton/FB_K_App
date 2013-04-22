@@ -24,12 +24,4 @@ class User {
 
 		return '';
 	}
-
-	/*!
-	 * Is the current user logged in?
-	 * @return boolean
-	 */
-	public function isLoggedIn() {
-		return ($this->instance !== false && is_array($this->info) && count($this->info));
-	}
 }

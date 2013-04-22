@@ -3,13 +3,16 @@ define([
 	'underscore',
 	'backbone',
 	'views/home',
-	'views/404'
-	], function($, _, Backbone, homeView, pageNotFoundView){
+	'views/404',
+	'views/stepOne'
+	], function($, _, Backbone, homeView, pageNotFoundView, stepOneView){
 		var AppRouter = Backbone.Router.extend({
 			routes: {
 				// Define some URL routes
 				'': 'showHome',
 				'/': 'showHome',
+
+				'step/*number': 'showStep',
 				
 				// Default
 				"*actions": 'defaultAction'
@@ -21,6 +24,10 @@ define([
 
 			show404: function() {
 				pageNotFoundView.render();
+			},
+
+			showStep: function(number) {
+				stepOneView.render();
 			},
 			
 			defaultAction: function(actions){
