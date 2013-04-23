@@ -1,1 +1,9 @@
 <h1>Step</h1>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+<% _.each(buckets, function(bucket) { %>
+<div class="bucket">
+	<img src="/img/<%= _.escape(bucket.src) %>" alt="Image Coming Soon">
+	<input type="radio" name="choice" value="<%= _.escape(bucket.value) %>">
+</div>
+<% }); %>
+<a class="buttons"><span>Next</span></a>

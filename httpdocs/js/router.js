@@ -27,7 +27,15 @@ define([
 			},
 
 			showStep: function(number) {
-				stepOneView.render();
+				number = parseInt(number);
+				if(number < 1 || number > 5) {
+					this.defaultAction();
+					return;
+				}
+
+				switch(number) {
+					case 1: stepOneView.render(); break;
+				}
 			},
 			
 			defaultAction: function(actions){

@@ -32,15 +32,41 @@ html {
 			width: 332px;
 			height: 134px;
 		}
+		.step > p,
 		.home > p {
 			margin: 45px 150px;
 			color: #01476b;
 			font-size: 17px;
 			text-align: center;
 		}
+		.step > a,
 		.home > a { margin: 0 auto; }
 		.home > a#getStarted {
 			display: none;
 			background-position-y: 0;
 		}
 		.home > a#login { background-position-y: -200px; }
+
+		/* Step */
+		
+		.bucket {
+			float: left;
+			margin-right: 15px;
+			cursor: pointer;
+			outline: none;
+			text-align: center;
+		}
+			.bucket > img {
+				display: block;
+				max-width: 125px;
+				margin-bottom: 15px;
+			}
+		.bucket.last { margin-right: 0; }
+		.bucket.last:after {
+			content: "."; 
+			visibility: hidden; 
+			display: block; 
+			height: 0; 
+			clear: both;
+		}
+		.step > a.buttons { background-position-y: -40px; }

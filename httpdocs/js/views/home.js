@@ -11,7 +11,7 @@ define([
 			 * Callback for when we fetch the current user's info.
 			 * Is this user logged in or do we need to authenticate them?
 			 */
-			callback: function(data) {
+			loadingUserCallback: function(data) {
 				if(data.response && data.response.name) {
 					$("#login").hide();
 					$("#getStarted").css("display", "block");
@@ -34,14 +34,14 @@ define([
 			 * Render this view;
 			 * Add content and present the proper button.
 			 */
-			render: function(){
+			render: function() {
 				this.content
 					.html(_.template(homeHTML, {
 						name: "Home"
 					}))
 					.attr("class", "home");
 
-				 $.getJSON("/api/users/get", this.callback);
+				 $.getJSON("/api/users/get", this.loadingUserCallback);
 			}
 		});
 		
