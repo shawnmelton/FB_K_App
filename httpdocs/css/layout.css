@@ -48,25 +48,23 @@ html {
 		.home > a#login { background-position-y: -200px; }
 
 		/* Step */
-		
-		.bucket {
-			float: left;
-			margin-right: 15px;
-			cursor: pointer;
-			outline: none;
-			text-align: center;
-		}
-			.bucket > img {
-				display: block;
-				max-width: 125px;
-				margin-bottom: 15px;
-			}
-		.bucket.last { margin-right: 0; }
-		.bucket.last:after {
-			content: "."; 
-			visibility: hidden; 
-			display: block; 
-			height: 0; 
+		#buckets { margin: 0 0 45px 50px; }
+		#buckets:after {
 			clear: both;
+			content: " ";
+			display: table;
 		}
+			.bucket {
+				float: left;
+				margin-right: 15px;
+				cursor: pointer;
+				outline: none;
+				text-align: center;
+			}
+				.bucket > img {
+					display: block;
+					max-width: 125px;
+					margin-bottom: 15px;
+				}
+			.bucket.last { margin-right: 0; }
 		.step > a.buttons { background-position-y: -40px; }
