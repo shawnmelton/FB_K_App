@@ -34,8 +34,6 @@ define([
 					return;
 				}
 
-				alert(User.get("name"));
-
 				number = parseInt(number);
 				if(number < 1 || number > 5) {
 					this.defaultAction();
@@ -52,9 +50,7 @@ define([
 		
 		var initialize = function(){
 			appRouter = new AppRouter();
-			Backbone.history.start({
-				pushState: true
-			});
+			// Routing is postponed until User model finishes authentication. See User.initialize()
 		};
 		
 		return {

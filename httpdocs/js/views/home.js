@@ -9,7 +9,8 @@ define([
 			user: false,
 
 			events: {
-				"click #getStarted": "getStartedClickCallback"
+				"click #getStarted": "getStartedClickCallback",
+				"click #login": "loginClickCallback"
 			},
 
 			getStartedClickCallback: function() {
@@ -21,24 +22,24 @@ define([
 			},
 
 			/**
-			 * We require users to log in.
+			 * Handle the login prompt when the user clicks to 
+			 * login with FB.
 			 */
-			onGuestUser: function() {
-				$.getJSON("/api/users/loginUrl", function(data) {
-					if(data.response && data.response.url) {
-						$("#login").attr("href", data.response.url);
-					}
-				});
+			loginClickCallback: function() {
+				var _this = this;
+				FB.login(function(response) {
+					console.log(response);
+			        if (response.authResponse) {
+			    		_this.user.populate();
+			    		_this.getStartedClickCallback();
+			        }
+			    });
 			},
 
 			/**
 			 * Show the get started button.
 			 */
-			onLoggedInUser: function(data) {
-				this.user.set({
-		 			name: data.response.name
-		 		});
-
+			onLoggedInUser: function() {
 				$("#login").hide();
 				$("#getStarted").css("display", "block");
 			},
@@ -56,14 +57,9 @@ define([
 					.attr("class", "home");
 
 				// Either get logged in user or provide the login link.
-				var _this = this;
-				$.getJSON("/api/users/get", function(data) {
-				 	if(data.response && data.response.name) {
-				 		_this.onLoggedInUser(data);
-					} else {
-						_this.onGuestUser();
-					}
-				});
+				if(this.user.isLoggedIn()) {
+					this.onLoggedInUser();
+				}
 			}
 		});
 		

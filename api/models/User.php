@@ -4,14 +4,15 @@
  * @author Shawn Melton <shawn.a.melton@gmail.com>
  */
 class User {
-	private $instance;
 	private $info;
 
 	public function User() {
-		$this->instance = FB::getUser();
-		try {
-			$this->info = FB::getInstance()->api('/me');
-		} catch(FacebookApiException $e) {}
+		$user = FB::getInstance()->getUser();
+		if($user || true) {
+			try {
+				$this->info = FB::getInstance()->api('/me');
+			} catch(FacebookApiException $e) {}
+		}
 	}
 
 	/*!

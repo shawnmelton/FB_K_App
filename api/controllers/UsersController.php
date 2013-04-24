@@ -20,8 +20,11 @@ class UsersController {
 	 * Get the link needed for the user to login.
 	 */
 	public function loginUrl() {
+		$http = (isset($_SERVER['HTTPS']) && ($_SERVER['HTTPS'] === 'on' || $_SERVER['HTTPS'] == 1)) ? 'https' : 'http';
 		echo JSON::response(array(
-			'url' => FB::getLoginUrl()
+			'url' => FB::getInstance()->getLoginUrl(array(
+				'redirect_uri' => $http .'://'. $_SERVER['HTTP_HOST'] .'/'
+			))
 		), 200);
 	}
 }

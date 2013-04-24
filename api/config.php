@@ -7,6 +7,8 @@ if( !IN_DEV ) { // Gzip output.
 	error_reporting(-1);
 }
 
+session_start();
+
 // Set default timezone
 date_default_timezone_set('America/New_York');
 putenv('TZ=US/Eastern');
