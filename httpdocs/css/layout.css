@@ -48,7 +48,15 @@ html {
 		.home > a#login { background-position-y: -200px; }
 
 		/* Step */
-		#buckets { margin: 0 0 45px 50px; }
+		.step > h2 {
+			margin: 35px 0 0;
+			font-size: 54px;
+			color: #01476b;
+			text-transform: uppercase;
+			text-align: center;
+		}
+		.step > p { margin: 25px 150px; }
+		#buckets { margin: 0 0 25px 50px; }
 		#buckets:after {
 			clear: both;
 			content: " ";
@@ -68,3 +76,11 @@ html {
 				}
 			.bucket.last { margin-right: 0; }
 		.step > a.buttons { background-position-y: -40px; }
+		.qCount {
+			margin-top: 80px;
+			text-align: center;
+			font-weight: bold;
+			font-size: 14px;
+			color: #fff;
+			text-shadow: 0 0 1px #000;
+		}

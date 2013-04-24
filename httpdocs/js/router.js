@@ -4,8 +4,8 @@ define([
 	'backbone',
 	'views/home',
 	'views/404',
-	'views/stepOne'
-	], function($, _, Backbone, homeView, pageNotFoundView, stepOneView){
+	'views/step'
+	], function($, _, Backbone, homeView, pageNotFoundView, stepView){
 		var AppRouter = Backbone.Router.extend({
 			routes: {
 				// Define some URL routes
@@ -33,9 +33,7 @@ define([
 					return;
 				}
 
-				switch(number) {
-					case 1: stepOneView.render(); break;
-				}
+				stepView.render(number);
 			},
 			
 			defaultAction: function(actions){

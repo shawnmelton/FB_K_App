@@ -5,9 +5,9 @@ define([
 	'text!templates/404.html'
 	], function($, _, Backbone, pageNotFoundHTML){
 		var pageNotFoundView = Backbone.View.extend({
-			content: $("#content"),
+			el: "#content",
 			render: function(){
-				this.content
+				this.$el
 					.html(_.template(pageNotFoundHTML, {}))
 					.attr("class", "pageNotFound");
 			}

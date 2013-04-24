@@ -5,7 +5,18 @@ define([
 	'text!templates/home.html'
 	], function($, _, Backbone, homeHTML){
 		var homeView = Backbone.View.extend({
-			content: $("#content"),
+			el: "#content",
+
+			events: {
+				"click #getStarted": "getStartedClickCallback"
+			},
+
+			getStartedClickCallback: function() {
+				appRouter.navigate("/step/1", {
+					trigger:true,
+					replace:true
+				});
+			},
 
 			/**
 			 * Callback for when we fetch the current user's info.
@@ -15,12 +26,6 @@ define([
 				if(data.response && data.response.name) {
 					$("#login").hide();
 					$("#getStarted").css("display", "block");
-					$("#getStarted").click(function() {
-						appRouter.navigate("/step/1", {
-							trigger:true,
-							replace:true
-						});
-					});
 				} else {
 					$.getJSON("/api/users/loginUrl", function(data) {
 						if(data.response && data.response.url) {
@@ -35,7 +40,7 @@ define([
 			 * Add content and present the proper button.
 			 */
 			render: function() {
-				this.content
+				this.$el
 					.html(_.template(homeHTML, {
 						name: "Home"
 					}))
