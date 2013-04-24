@@ -4,8 +4,9 @@ define([
 	'backbone',
 	'views/home',
 	'views/404',
-	'views/step'
-	], function($, _, Backbone, homeView, pageNotFoundView, stepView){
+	'views/step',
+	'models/user'
+	], function($, _, Backbone, homeView, pageNotFoundView, stepView, User){
 		var AppRouter = Backbone.Router.extend({
 			routes: {
 				// Define some URL routes
@@ -19,7 +20,7 @@ define([
 			},
 			
 			showHome: function(){
-				homeView.render();
+				homeView.render(User);
 			},
 
 			show404: function() {
@@ -27,6 +28,14 @@ define([
 			},
 
 			showStep: function(number) {
+				// Make sure the user has logged in.
+				if(!User.get("isLoggedIn")) {
+					this.showHome();
+					return;
+				}
+
+				alert(User.get("name"));
+
 				number = parseInt(number);
 				if(number < 1 || number > 5) {
 					this.defaultAction();

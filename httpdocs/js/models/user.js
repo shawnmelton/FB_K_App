@@ -4,6 +4,10 @@ define([
 	"backbone"
 	], function($, _, Backbone){
 		var User = Backbone.Model.extend({
+			name: "",
+			hometown: "",
+			loggedIn: false,
+
 			initialize: function() {
 
 			}

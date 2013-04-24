@@ -27,7 +27,7 @@ class FB {
 	 */
 	public static function getLoginUrl() {
 		if(self::connected()) {
-			return self::$instance->getLoginLink();
+			return self::$instance->getLoginUrl();
 		}
 
 		return false;
