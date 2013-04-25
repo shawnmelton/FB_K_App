@@ -75,7 +75,12 @@ html {
 					margin-bottom: 15px;
 				}
 			.bucket.last { margin-right: 0; }
-		.step > a.buttons { background-position-y: -40px; }
+		.step > a#next { background-position-y: -40px; }
+		.step > a#see-your-results { 
+			display: none;
+			background-position-y: -80px; 
+		}
+
 		.qCount {
 			margin-top: 80px;
 			text-align: center;

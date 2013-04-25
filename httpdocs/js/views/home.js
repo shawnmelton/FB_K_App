@@ -15,7 +15,7 @@ define([
 
 			getStartedClickCallback: function() {
 				this.user.set({isLoggedIn: true});
-				appRouter.navigate("/step/1", {
+				appRouter.navigate("/questions/1", {
 					trigger:true,
 					replace:true
 				});

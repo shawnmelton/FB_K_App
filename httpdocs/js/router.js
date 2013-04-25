@@ -5,15 +5,16 @@ define([
 	'views/home',
 	'views/404',
 	'views/step',
+	'views/results',
 	'models/user'
-	], function($, _, Backbone, homeView, pageNotFoundView, stepView, User){
+	], function($, _, Backbone, homeView, pageNotFoundView, stepView, resultsView, User){
 		var AppRouter = Backbone.Router.extend({
 			routes: {
 				// Define some URL routes
 				'': 'showHome',
 				'/': 'showHome',
-
-				'step/*number': 'showStep',
+				'questions/*number': 'showStep',
+				'see-your-results': 'seeYourResults',
 				
 				// Default
 				"*actions": 'defaultAction'
@@ -25,6 +26,10 @@ define([
 
 			show404: function() {
 				pageNotFoundView.render();
+			},
+
+			showSeeYourResults: function() {
+				resultsView.render(User);
 			},
 
 			showStep: function(number) {

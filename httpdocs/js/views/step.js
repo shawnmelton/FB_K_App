@@ -9,7 +9,8 @@ define([
 			step: 0,
 
 			events: {
-				"click .buttons": "loadNextClickCallback",
+				"click #next": "loadNextClickCallback",
+				"click #see-your-results": "seeYourResultsClickCallback",
 				"click .bucket": "bucketClickCallback"
 			},
 
@@ -54,7 +55,7 @@ define([
 			 */
 			loadNextClickCallback: function() {
 				if(this.step < 5 && this.getCheckedValue() !== false) { // one of the buckets has been selected.
-					appRouter.navigate("/step/"+ (this.step + 1), {
+					appRouter.navigate("/questions/"+ (this.step + 1), {
 						trigger:true,
 						replace:true
 					});
@@ -68,7 +69,7 @@ define([
 			render: function(number) {
 				this.step = number;
 				var _this = this;
-				$.getJSON("/api/steps/load/?number="+ this.step, function(data) {
+				$.getJSON("/api/steps/load?number="+ this.step, function(data) {
 					_this.$el
 						.html(_.template(stepHTML, {
 							"title": _this.getTitle(),
@@ -77,8 +78,26 @@ define([
 						}))
 						.attr("class", "step");
 
+					if(_this.step == 5) {
+						$("#next").hide(function() {
+							$("#see-your-results").css("display", "block");
+						});
+					}
+
 					$(".bucket").last().addClass("last");
 				});
+			},
+
+			/**
+			 * Callback for when user clicks on "See Your Results" button
+			 */
+			seeYourResultsClickCallback: function() {
+				if(this.getCheckedValue() !== false) { // one of the buckets has been selected.
+					appRouter.navigate("/see-your-results", {
+						trigger:true,
+						replace:true
+					});
+				}
 			}
 		});
 		
