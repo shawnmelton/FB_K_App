@@ -14,7 +14,7 @@ define([
 				'': 'showHome',
 				'/': 'showHome',
 				'questions/*number': 'showStep',
-				'see-your-results': 'seeYourResults',
+				'see-your-results': 'showSeeYourResults',
 				
 				// Default
 				"*actions": 'defaultAction'
@@ -29,6 +29,7 @@ define([
 			},
 
 			showSeeYourResults: function() {
+				console.log("Got here");
 				resultsView.render(User);
 			},
 

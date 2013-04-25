@@ -39,6 +39,7 @@ html {
 			font-size: 17px;
 			text-align: center;
 		}
+		.results > a,
 		.step > a,
 		.home > a { margin: 0 auto; }
 		.home > a#getStarted {
@@ -48,12 +49,14 @@ html {
 		.home > a#login { background-position-y: -200px; }
 
 		/* Step */
+		.results > h2,
 		.step > h2 {
 			margin: 35px 0 0;
 			font-size: 54px;
 			color: #01476b;
 			text-transform: uppercase;
 			text-align: center;
+			text-shadow: 0 0 1px #000;
 		}
 		.step > p { margin: 25px 150px; }
 		#buckets { margin: 0 0 25px 50px; }
@@ -89,3 +92,25 @@ html {
 			color: #fff;
 			text-shadow: 0 0 1px #000;
 		}
+
+		/* See Your Results */
+		.results > img {
+			display: block;
+			margin: 0 auto;
+		}
+		.results > h4,
+		.results > p { text-align: center; }
+		.results > h4 {
+			margin: 10px 0;
+			color: #666;
+			font-weight: normal;
+			font-size: 17px;
+		}
+		.results > p {
+			width: 670px;
+			margin: 0 auto;
+			color: #666;
+		}
+			a#get-directions { background-position-y: -120px; }
+			a#share-your-results { background-position-y: -160px; }
+

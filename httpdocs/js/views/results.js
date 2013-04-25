@@ -33,15 +33,14 @@ define([
 			 * into the view based on api feedback.
 			 */
 			render: function(usr) {
-				this.set({user: usr});
-
+				this.user = usr;
 				var _this = this;
 				$.getJSON("/api/results/get", function(data) {
 					_this.$el
 						.html(_.template(resultsHTML, {
 							"firstName": _this.user.get("firstName"),
 							"style": "",
-							"image": "",
+							"image": "coming-soon.png",
 							"locationsUrl": _this.getDirectionsUrl()
 						}))
 						.attr("class", "results");
