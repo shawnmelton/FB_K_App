@@ -31,7 +31,7 @@ define([
 			showSeeYourResults: function() {
 				// Make sure the user has logged in.
 				if(!User.get("isLoggedIn")) {
-					this.showHome();
+					appRouter.navigate("/", {trigger:true, replace:true});
 					return;
 				}
 				
@@ -41,7 +41,7 @@ define([
 			showStep: function(number) {
 				// Make sure the user has logged in.
 				if(!User.get("isLoggedIn")) {
-					this.showHome();
+					appRouter.navigate("/", {trigger:true, replace:true});
 					return;
 				}
 

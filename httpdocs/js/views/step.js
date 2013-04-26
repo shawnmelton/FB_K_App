@@ -2,8 +2,9 @@ define([
 	"jquery",
 	"underscore",
 	"backbone",
-	'text!templates/step.html'
-	], function($, _, Backbone, stepHTML){
+	'text!templates/step.html',
+	'text!templates/error.html'
+	], function($, _, Backbone, stepHTML, errorHTML){
 		var stepView = Backbone.View.extend({
 			el: "#content",
 			step: 0,
@@ -11,7 +12,8 @@ define([
 			events: {
 				"click #next": "loadNextClickCallback",
 				"click #see-your-results": "seeYourResultsClickCallback",
-				"click .bucket": "bucketClickCallback"
+				"click .bucket": "bucketClickCallback",
+				"click #error": "hideErrorMsg"
 			},
 
 			/**
@@ -50,15 +52,22 @@ define([
 				}
 			},
 
+			hideErrorMsg: function() {
+				$("#error").remove();
+			},
+
 			/**
 			 * Handle what happens when the Next button is clicked.
 			 */
 			loadNextClickCallback: function() {
+				this.hideErrorMsg();
 				if(this.step < 5 && this.getCheckedValue() !== false) { // one of the buckets has been selected.
 					appRouter.navigate("/questions/"+ (this.step + 1), {
 						trigger:true,
 						replace:true
 					});
+				} else {
+					this.showErrorMsg();
 				}
 			},
 
@@ -92,12 +101,21 @@ define([
 			 * Callback for when user clicks on "See Your Results" button
 			 */
 			seeYourResultsClickCallback: function() {
+				this.hideErrorMsg();
 				if(this.getCheckedValue() !== false) { // one of the buckets has been selected.
 					appRouter.navigate("/see-your-results", {
 						trigger:true,
 						replace:true
 					});
+				} else {
+					this.showErrorMsg();
 				}
+			},
+
+			showErrorMsg: function() {
+				this.$el.append(_.template(errorHTML, {
+					"message": "Please select the option that best fits you."
+				}));
 			}
 		});
 		
