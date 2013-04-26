@@ -11,6 +11,9 @@ html {
 			min-height: 622px;
 			background: url(/img/bg.jpg) no-repeat 0 0;
 		}
+		div#wrapper.transitional { background-image: url(/img/transitional-bg.png); }
+		div#wrapper.modern { background-image: url(/img/modern-bg.png); }
+		div#wrapper.traditional { background-image: url(/img/traditional-bg.png); }
 
 			a.buttons {
 				display: block;
@@ -108,9 +111,48 @@ html {
 		}
 		.results > p {
 			width: 670px;
-			margin: 0 auto;
+			margin: 25px auto;
 			color: #666;
 		}
-			a#get-directions { background-position-y: -120px; }
+		#products { margin: 25px 0 10px; }
+			#products:after,
+			#products > div:after {
+				clear: both;
+				content: " ";
+				display: table;
+			}
+			#products > div {
+				float: left;
+				width: 370px;
+				padding: 0 10px 0 20px;
+				margin-bottom: 50px;
+			}
+				#products > div > img {
+					float: left;
+					margin-right: 15px;
+					border: 1px solid #d2d2d2;
+					width: 178px;
+				}
+				#products > div > strong,
+				#products > div > h3 {
+					font-size: 17px;
+					color: #01476b;
+				}
+				#products > div > h3 { margin: 20px 0 25px; }
+				#products > div > strong {
+					display: block;
+					margin-bottom: 1px;
+				}
+				#products > div > p {
+					margin: 0;
+					color: #666;
+					font-size: 14px;
+					line-height: 17px;
+				}
+
+			a#get-directions { 
+				margin-bottom: 50px;
+				background-position-y: -120px;
+			}
 			a#share-your-results { background-position-y: -160px; }
 

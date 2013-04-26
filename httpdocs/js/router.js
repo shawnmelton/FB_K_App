@@ -29,7 +29,12 @@ define([
 			},
 
 			showSeeYourResults: function() {
-				console.log("Got here");
+				// Make sure the user has logged in.
+				if(!User.get("isLoggedIn")) {
+					this.showHome();
+					return;
+				}
+				
 				resultsView.render(User);
 			},
 

@@ -39,11 +39,14 @@ define([
 					_this.$el
 						.html(_.template(resultsHTML, {
 							"firstName": _this.user.get("firstName"),
-							"style": "",
+							"style": data.response.style,
 							"image": "coming-soon.png",
-							"locationsUrl": _this.getDirectionsUrl()
+							"locationsUrl": _this.getDirectionsUrl(),
+							"products": data.response.products
 						}))
 						.attr("class", "results");
+
+						$("#wrapper").addClass(data.response.style);
 				});
 			},
 
