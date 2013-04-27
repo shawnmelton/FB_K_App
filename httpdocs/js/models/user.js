@@ -5,6 +5,7 @@ define([
 	"models/states"
 	], function($, _, Backbone, States){
 		var User = Backbone.Model.extend({
+			userName: "",
 			firstName: "",
 			lastName: "",
 			city: "",
@@ -37,7 +38,8 @@ define([
 				FB.api('/me', function(response) {
 					_this.set({
 						firstName: response.first_name,
-						lastName: response.last_name
+						lastName: response.last_name,
+						userName: response.username
 					});
 
 					if(response.hometown && response.hometown.name) {

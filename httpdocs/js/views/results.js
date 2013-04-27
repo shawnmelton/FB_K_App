@@ -12,10 +12,6 @@ define([
 				"click #share-your-results": "shareYourResultsClickCallback"
 			},
 
-			getDirectionsClickCallback: function() {
-
-			},
-
 			/**
 			 * Get the url for directions to the nearest showroom.  If the user doens't have location
 			 * information, then send them to the Locations Finder page on the site.
@@ -39,8 +35,9 @@ define([
 					_this.$el
 						.html(_.template(resultsHTML, {
 							"firstName": _this.user.get("firstName"),
+							"lastName": _this.user.get("lastName"),
 							"style": data.response.style,
-							"image": "coming-soon.png",
+							"userName": _this.user.get("userName"),
 							"locationsUrl": _this.getDirectionsUrl(),
 							"products": data.response.products
 						}))

@@ -67,7 +67,7 @@ html {
 			text-shadow: 0 0 1px #000;
 		}
 		.step > p { margin: 25px 150px; }
-		#buckets { margin: 0 0 25px 50px; }
+		#buckets { margin: 0 0 25px 100px; }
 		#buckets:after {
 			clear: both;
 			content: " ";
@@ -75,7 +75,7 @@ html {
 		}
 			.bucket {
 				float: left;
-				margin-right: 15px;
+				margin-right: 120px;
 				cursor: pointer;
 				outline: none;
 				text-align: center;
@@ -106,6 +106,7 @@ html {
 		}
 
 		/* See Your Results */
+		.results > h2 { margin-bottom: 30px; }
 		.results > img {
 			display: block;
 			margin: 0 auto;

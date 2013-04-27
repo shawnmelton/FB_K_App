@@ -16,14 +16,6 @@ class Steps {
 			array(
 				'src' => 'coming-soon.png',
 				'value' => 'value will go here'
-			),
-			array(
-				'src' => 'coming-soon.png',
-				'value' => 'value will go here'
-			),
-			array(
-				'src' => 'coming-soon.png',
-				'value' => 'value will go here'
 			)
 		);
 	}
