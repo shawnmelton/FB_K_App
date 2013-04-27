@@ -24,6 +24,14 @@ define([
 				return "http://www.ferguson.com/locations-finder";
 			},
 
+			getProfilePictureSize: function(style) {
+				switch(style) {
+					case "modern": return "width=98&height=105";
+					case "transitional": return "width=91&height=84";
+					case "traditional": return "width=130&height=128";
+				}
+			},
+
 			/**
 			 * Fetch all of the bucket information and dynamically populate information
 			 * into the view based on api feedback.
@@ -38,12 +46,13 @@ define([
 							"lastName": _this.user.get("lastName"),
 							"style": data.response.style,
 							"userName": _this.user.get("userName"),
+							"photoSize": _this.getProfilePictureSize(data.response.style),
 							"locationsUrl": _this.getDirectionsUrl(),
 							"products": data.response.products
 						}))
 						.attr("class", "results");
 
-						$("#wrapper").addClass(data.response.style);
+						$("#wrapper, #portrait").addClass(data.response.style);
 				});
 			},
 

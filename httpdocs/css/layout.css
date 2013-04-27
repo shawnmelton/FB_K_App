@@ -97,7 +97,7 @@ html {
 			.step > a#see-your-results:active { background-position: -330px -80px; }
 
 		.qCount {
-			margin-top: 80px;
+			margin-top: 30px;
 			text-align: center;
 			font-weight: bold;
 			font-size: 14px;
@@ -107,6 +107,25 @@ html {
 
 		/* See Your Results */
 		.results > h2 { margin-bottom: 30px; }
+		#portrait { margin: 0 auto; }
+		#portrait.modern {
+			background: url(/img/modern-frame.png) no-repeat 0 0;
+			width: 130px;
+			height: 135px;
+			padding: 32px 0 0 32px;
+		}
+		#portrait.transitional {
+			background: url(/img/transitional-frame.png) no-repeat 0 0;
+			width: 127px;
+			height: 121px;
+			padding: 38px 0 0 35px;
+		}
+		#portrait.traditional {
+			background: url(/img/traditional-frame.png) no-repeat 0 0;
+			width: 144px;
+			height: 143px;
+			padding: 14px 0 0 15px;
+		}
 		.results > img {
 			display: block;
 			margin: 0 auto;
@@ -160,15 +179,19 @@ html {
 					line-height: 17px;
 				}
 
-			a#get-directions { 
-				margin-bottom: 50px;
-				background-position: 0 -120px;
-			}
+			a#get-directions { background-position: 0 -120px; }
 				a#get-directions:hover { background-position: -165px -120px; }
 				a#get-directions:active { background-position: -330px -120px; }
 			a#share-your-results { background-position: 0 -160px; }
 				a#share-your-results:hover { background-position: -165px -160px; }
 				a#share-your-results:active { background-position: -330px -160px; }
+
+		.buttonShadow {
+			margin: 40px auto 0;
+			width: 198px;
+			height: 11px;
+			background: url(/img/button-shadow.png) no-repeat 0 0;
+		}
 
 		/* Error Message */
 		#error {

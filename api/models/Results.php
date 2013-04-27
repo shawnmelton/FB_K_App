@@ -2,7 +2,7 @@
 class Results {
 	public static function determine() {
 		return array(
-			'style' => 'traditional',
+			'style' => 'transitional',
 			'products' => array(
 				array(
 					'src' => 'coming-soon.png',
