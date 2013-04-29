@@ -56,8 +56,18 @@ define([
 				});
 			},
 
+			/* The current user's facebook status update message. */
 			shareYourResultsClickCallback: function() {
-
+				FB.ui({
+					method: 'feed',
+					name: 'Ferguson',
+					link: 'http://shop.ferguson.com/',
+					picture: 'http://shawnmelton.me/img/logo.png',
+					caption: 'Bath, Kitchen & Lighting Gallery',
+					description: 'Description will go here.'
+				}, function(response) {
+					console.log(response);
+				});
 			}
 		});
 		
