@@ -1,3 +1,3 @@
 <?php
-require_once '../api/config.php';
+require_once '../facebook.ferguson.api/config.php';
 Router::run();

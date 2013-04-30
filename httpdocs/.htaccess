@@ -1,9 +1,9 @@
 RewriteEngine on
-RewriteBase /
+RewriteBase /facebook.ferguson.com/
 
 RewriteCond %{SCRIPT_FILENAME} !-f
 RewriteCond %{SCRIPT_FILENAME} !-d
-RewriteCond %{REQUEST_URI} ^/api/* [NC]
+RewriteCond %{REQUEST_URI} ^/facebook.ferguson.com/api/* [NC]
 RewriteRule . api.php [L]
 
 RewriteCond %{SCRIPT_FILENAME} !-f

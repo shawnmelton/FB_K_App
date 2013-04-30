@@ -11,6 +11,10 @@ class Router {
 		// Default to 404 failure
 		$controller = 'Controller';
 		$action = 'notFound';
+
+		if(isset($bits[1]) && preg_match('/facebook\.ferguson\.com/i', $bits[1])) {
+			array_shift($bits);
+		}
 		
 		// Determine controller
 		if(isset($bits[2]) && ($bits[2] = strtolower(preg_replace('/\W/', '', $bits[2]))) != '') {

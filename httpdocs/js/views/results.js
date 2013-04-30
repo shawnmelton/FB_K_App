@@ -39,7 +39,7 @@ define([
 			render: function(usr) {
 				this.user = usr;
 				var _this = this;
-				$.getJSON("/api/results/get", function(data) {
+				$.getJSON("/facebook.ferguson.com/api/results/get", function(data) {
 					_this.$el
 						.html(_.template(resultsHTML, {
 							"firstName": _this.user.get("firstName"),

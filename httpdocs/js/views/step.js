@@ -62,7 +62,7 @@ define([
 			loadNextClickCallback: function() {
 				this.hideErrorMsg();
 				if(this.step < 5 && this.getCheckedValue() !== false) { // one of the buckets has been selected.
-					appRouter.navigate("/questions/"+ (this.step + 1), {
+					appRouter.navigate("/facebook.ferguson.com/questions/"+ (this.step + 1), {
 						trigger:true,
 						replace:true
 					});
@@ -78,7 +78,7 @@ define([
 			render: function(number) {
 				this.step = number;
 				var _this = this;
-				$.getJSON("/api/steps/load?number="+ this.step, function(data) {
+				$.getJSON("/facebook.ferguson.com/api/steps/load?number="+ this.step, function(data) {
 					_this.$el
 						.html(_.template(stepHTML, {
 							"title": _this.getTitle(),
@@ -103,7 +103,7 @@ define([
 			seeYourResultsClickCallback: function() {
 				this.hideErrorMsg();
 				if(this.getCheckedValue() !== false) { // one of the buckets has been selected.
-					appRouter.navigate("/see-your-results", {
+					appRouter.navigate("/facebook.ferguson.com/see-your-results", {
 						trigger:true,
 						replace:true
 					});

@@ -9,11 +9,11 @@ html {
 		div#wrapper {
 			width: 810px;
 			min-height: 622px;
-			background: url(/img/bg.jpg) no-repeat 0 0;
+			background: url(../img/bg.jpg) no-repeat 0 0;
 		}
-		div#wrapper.transitional { background-image: url(/img/transitional-bg.png); }
-		div#wrapper.modern { background-image: url(/img/modern-bg.png); }
-		div#wrapper.traditional { background-image: url(/img/traditional-bg.png); }
+		div#wrapper.transitional { background-image: url(../img/transitional-bg.png); }
+		div#wrapper.modern { background-image: url(../img/modern-bg.png); }
+		div#wrapper.traditional { background-image: url(../img/traditional-bg.png); }
 
 			a.buttons {
 				display: block;
@@ -21,7 +21,7 @@ html {
 				height: 35px;
 				cursor: pointer;
 				outline: none;
-				background-image: url(/img/buttons.png);
+				background-image: url(../img/buttons.png);
 				background-repeat: no-repeat;
 			}
 				a.buttons > span { display: none; }
@@ -109,19 +109,19 @@ html {
 		.results > h2 { margin-bottom: 30px; }
 		#portrait { margin: 0 auto; }
 		#portrait.modern {
-			background: url(/img/modern-frame.png) no-repeat 0 0;
+			background: url(../img/modern-frame.png) no-repeat 0 0;
 			width: 130px;
 			height: 135px;
 			padding: 32px 0 0 32px;
 		}
 		#portrait.transitional {
-			background: url(/img/transitional-frame.png) no-repeat 0 0;
+			background: url(../img/transitional-frame.png) no-repeat 0 0;
 			width: 127px;
 			height: 121px;
 			padding: 38px 0 0 35px;
 		}
 		#portrait.traditional {
-			background: url(/img/traditional-frame.png) no-repeat 0 0;
+			background: url(../img/traditional-frame.png) no-repeat 0 0;
 			width: 144px;
 			height: 143px;
 			padding: 14px 0 0 15px;
@@ -190,7 +190,7 @@ html {
 			margin: 40px auto 0;
 			width: 198px;
 			height: 11px;
-			background: url(/img/button-shadow.png) no-repeat 0 0;
+			background: url(../img/button-shadow.png) no-repeat 0 0;
 		}
 
 		/* Error Message */
@@ -221,6 +221,6 @@ html {
 				width: 12px;
 				cursor: pointer;
 				outline: none;
-				background: url(/img/close-x.gif) no-repeat 0 0;
+				background: url(../img/close-x.gif) no-repeat 0 0;
 			}
 				#error > a > span { display: none; }

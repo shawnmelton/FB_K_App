@@ -11,13 +11,13 @@ define([
 		var AppRouter = Backbone.Router.extend({
 			routes: {
 				// Define some URL routes
-				'': 'showHome',
-				'/': 'showHome',
-				'questions/*number': 'showStep',
-				'see-your-results': 'showSeeYourResults',
+				'facebook.ferguson.com': 'showHome',
+				'facebook.ferguson.com/': 'showHome',
+				'facebook.ferguson.com/questions/*number': 'showStep',
+				'facebook.ferguson.com/see-your-results': 'showSeeYourResults',
 				
 				// Default
-				"*actions": 'defaultAction'
+				"facebook.ferguson.com/*actions": 'defaultAction'
 			},
 			
 			showHome: function(){
@@ -31,7 +31,7 @@ define([
 			showSeeYourResults: function() {
 				// Make sure the user has logged in.
 				if(!User.get("isLoggedIn")) {
-					appRouter.navigate("/", {trigger:true, replace:true});
+					appRouter.navigate("/facebook.ferguson.com/", {trigger:true, replace:true});
 					return;
 				}
 				
@@ -41,7 +41,7 @@ define([
 			showStep: function(number) {
 				// Make sure the user has logged in.
 				if(!User.get("isLoggedIn")) {
-					appRouter.navigate("/", {trigger:true, replace:true});
+					appRouter.navigate("/facebook.ferguson.com/", {trigger:true, replace:true});
 					return;
 				}
 
