@@ -44,7 +44,7 @@ define([
 						.html(_.template(resultsHTML, {
 							"firstName": _this.user.get("firstName"),
 							"lastName": _this.user.get("lastName"),
-							"style": data.response.style,
+							"style": _this.user.getStyle(),
 							"userName": _this.user.get("userName"),
 							"photoSize": _this.getProfilePictureSize(data.response.style),
 							"locationsUrl": _this.getDirectionsUrl(),

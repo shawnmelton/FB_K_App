@@ -46,12 +46,12 @@ define([
 				}
 
 				number = parseInt(number);
-				if(number < 1 || number > 5) {
+				if(number < 1 || number > 6) {
 					this.defaultAction();
 					return;
 				}
 
-				stepView.render(number);
+				stepView.render(number, User);
 			},
 			
 			defaultAction: function(actions){

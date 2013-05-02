@@ -12,6 +12,22 @@ define([
 			state: "",
 			loggedIn: false,
 
+			/**
+			 * Based on the style score, get the style that applies to this user.
+			 * If all scores are equal, the user is transitional.
+			 */
+			getStyle: function() {
+				if(this.get("modern") > this.get("traditional") && this.get("modern") > this.get("transitional")) {
+					return "modern";
+				}
+
+				if(this.get("traditional") > this.get("transitional") && this.get("traditional") > this.get("modern")) {
+					return "traditional";
+				}
+
+				return "transitional";
+			},
+
 			initialize: function() {
 				var _this = this;
 				FB.getLoginStatus(function(response) {
@@ -39,13 +55,38 @@ define([
 					_this.set({
 						firstName: response.first_name,
 						lastName: response.last_name,
-						userName: response.username
+						userName: response.username,
+						modern: 0,
+						traditional: 0,
+						transitional: 0
 					});
 
 					if(response.hometown && response.hometown.name) {
 						_this.setHometown(response.hometown.name);
 					}
     			});
+			},
+
+			/**
+			 * Score the user's style preference.
+			 */
+			scoreStyle: function(style) {
+				style = style.toLowerCase();
+				if(this.validStyle(style)) {
+					if(style === "modern") {
+						this.set({
+							modern: (parseInt(this.get(style)) + 1)
+						});
+					} else if(style === "traditional") {
+						this.set({
+							traditional: (parseInt(this.get(style)) + 1)
+						});
+					} else {
+						this.set({
+							transitional: (parseInt(this.get(style)) + 1)
+						});
+					}
+				}
 			},
 
 			/**
@@ -60,6 +101,15 @@ define([
 						state: States.convertToAbbreviation(hometown.substring(hometown.indexOf(",") + 2))
 					});
 				}
+			},
+
+			/**
+			 * Make sure the provided style is a valid selection.
+			 * @param String
+			 * @return boolean
+			 */
+			validStyle: function(style) {
+				return (style === "modern" || style === "traditional" || style === "transitional");
 			}
 		});
 		

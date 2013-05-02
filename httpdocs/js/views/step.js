@@ -8,6 +8,7 @@ define([
 		var stepView = Backbone.View.extend({
 			el: "#content",
 			step: 0,
+			user: false,
 
 			events: {
 				"click #next": "loadNextClickCallback",
@@ -38,20 +39,6 @@ define([
 				return value;
 			},
 
-			/**
-			 * Get the appropriate title for this view.
-			 * @return String
-			 */
-			getTitle: function() {
-				switch(this.step) {
-					case 1: return "First";
-					case 2: return "Second";
-					case 3: return "Third";
-					case 4: return "Fourth";
-					case 5: return "Fifth";
-				}
-			},
-
 			hideErrorMsg: function() {
 				$("#error").remove();
 			},
@@ -61,7 +48,10 @@ define([
 			 */
 			loadNextClickCallback: function() {
 				this.hideErrorMsg();
-				if(this.step < 5 && this.getCheckedValue() !== false) { // one of the buckets has been selected.
+				var chkdValue = this.getCheckedValue();
+				if(this.step < 6 && chkdValue !== false) { // one of the buckets has been selected.
+					this.user.scoreStyle(chkdValue);
+
 					appRouter.navigate("/facebook.ferguson.com/questions/"+ (this.step + 1), {
 						trigger:true,
 						replace:true
@@ -75,25 +65,31 @@ define([
 			 * Fetch all of the bucket information and dynamically populate information
 			 * into the view based on api feedback.
 			 */
-			render: function(number) {
+			render: function(number, usr) {
 				this.step = number;
+				this.user = usr;
 				var _this = this;
-				$.getJSON("/facebook.ferguson.com/api/steps/load?number="+ this.step, function(data) {
-					_this.$el
-						.html(_.template(stepHTML, {
-							"title": _this.getTitle(),
-							"buckets": data.response,
-							"step": _this.step
-						}))
-						.attr("class", "step");
+				$.getJSON("/facebook.ferguson.com/api/steps/load", {
+					number: this.step,
+					style: this.user.getStyle()
+				}, function(data) {
+					if(data.response && data.response.question) {
+						_this.$el
+							.html(_.template(stepHTML, {
+								"title": data.response.question,
+								"buckets": data.response.options,
+								"step": _this.step
+							}))
+							.attr("class", "step");
 
-					if(_this.step == 5) {
-						$("#next").hide(function() {
-							$("#see-your-results").css("display", "block");
-						});
+						if(_this.step == 6) {
+							$("#next").hide(function() {
+								$("#see-your-results").css("display", "block");
+							});
+						}
+
+						$(".bucket").last().addClass("last");
 					}
-
-					$(".bucket").last().addClass("last");
 				});
 			},
 
