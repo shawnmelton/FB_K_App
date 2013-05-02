@@ -24,6 +24,7 @@ class Steps {
 	public static function firstStep() {
 		return array(
 			'question' => 'First Style Question',
+			'purpose' => 'style',
 			'options' => array(
 				array(
 					'name' => 'Modern',
@@ -50,6 +51,7 @@ class Steps {
 	public static function secondStep() {
 		return array(
 			'question' => 'Second Style Question',
+			'purpose' => 'style',
 			'options' => array(
 				array(
 					'name' => 'Modern',
@@ -76,6 +78,7 @@ class Steps {
 	public static function thirdStep() {
 		return array(
 			'question' => 'Third Style Question',
+			'purpose' => 'style',
 			'options' => array(
 				array(
 					'name' => 'Modern',
@@ -102,20 +105,21 @@ class Steps {
 	public static function fourthStep($style) {
 		return array(
 			'question' => 'Color Question',
+			'purpose' => 'color',
 			'options' => array(
 				array(
 					'name' => 'Brass',
-					'src' => 'coming-soon.png',
+					'src' => $style .'/color/brass.png',
 					'value' => 'brass'
 				),
 				array(
 					'name' => 'Stainless Steel',
-					'src' => 'coming-soon.png',
+					'src' => $style .'/color/stainless-steel.png',
 					'value' => 'stainless-steel'
 				),
 				array(
 					'name' => 'Other',
-					'src' => 'coming-soon.png',
+					'src' => $style .'/color/other.png',
 					'value' => 'other'
 				)
 			)
@@ -128,20 +132,21 @@ class Steps {
 	public static function fifthStep($style) {
 		return array(
 			'question' => 'Cost Question',
+			'purpose' => 'cost',
 			'options' => array(
 				array(
 					'name' => 'High',
-					'src' => 'coming-soon.png',
+					'src' => $style .'/cost/high.png',
 					'value' => 'high'
 				),
 				array(
 					'name' => 'Moderate',
-					'src' => 'coming-soon.png',
+					'src' => $style .'/cost/moderate.png',
 					'value' => 'moderate'
 				),
 				array(
 					'name' => 'Low',
-					'src' => 'coming-soon.png',
+					'src' => $style .'/cost/low.png',
 					'value' => 'low'
 				)
 			)
@@ -154,20 +159,21 @@ class Steps {
 	public static function sixthStep($style) {
 		return array(
 			'question' => 'Function Question',
+			'purpose' => 'operation',
 			'options' => array(
 				array(
 					'name' => 'High',
-					'src' => 'coming-soon.png',
+					'src' => $style .'/function/high.png',
 					'value' => 'high'
 				),
 				array(
-					'name' => 'Moderate',
-					'src' => 'coming-soon.png',
-					'value' => 'moderate'
+					'name' => 'Medium',
+					'src' => $style .'/function/medium.png',
+					'value' => 'medium'
 				),
 				array(
 					'name' => 'Low',
-					'src' => 'coming-soon.png',
+					'src' => $style .'/function/low.png',
 					'value' => 'low'
 				)
 			)

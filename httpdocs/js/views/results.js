@@ -39,7 +39,14 @@ define([
 			render: function(usr) {
 				this.user = usr;
 				var _this = this;
-				$.getJSON("/facebook.ferguson.com/api/results/get", function(data) {
+
+				console.log(this.user);
+				$.getJSON("/facebook.ferguson.com/api/results/get", {
+					style: this.user.getStyle(),
+					color: this.user.get("color"),
+					cost: this.user.get("cost"),
+					operation: this.user.get("operation")
+				}, function(data) {
 					_this.$el
 						.html(_.template(resultsHTML, {
 							"firstName": _this.user.get("firstName"),
@@ -66,7 +73,7 @@ define([
 					caption: 'Bath, Kitchen & Lighting Gallery',
 					description: 'Description will go here.'
 				}, function(response) {
-					console.log(response);
+					// console.log(response);
 				});
 			}
 		});

@@ -9,6 +9,7 @@ define([
 			el: "#content",
 			step: 0,
 			user: false,
+			purpose: false,
 
 			events: {
 				"click #next": "loadNextClickCallback",
@@ -50,7 +51,12 @@ define([
 				this.hideErrorMsg();
 				var chkdValue = this.getCheckedValue();
 				if(this.step < 6 && chkdValue !== false) { // one of the buckets has been selected.
-					this.user.scoreStyle(chkdValue);
+					switch(this.purpose) {
+						case "style": this.user.scoreStyle(chkdValue); break;
+						case "color": this.user.set({color: chkdValue}); break;
+						case "cost": this.user.set({cost: chkdValue}); break;
+					}
+					
 
 					appRouter.navigate("/facebook.ferguson.com/questions/"+ (this.step + 1), {
 						trigger:true,
@@ -74,6 +80,7 @@ define([
 					style: this.user.getStyle()
 				}, function(data) {
 					if(data.response && data.response.question) {
+						_this.purpose = data.response.purpose; // What will the question help us determine?
 						_this.$el
 							.html(_.template(stepHTML, {
 								"title": data.response.question,
@@ -98,7 +105,9 @@ define([
 			 */
 			seeYourResultsClickCallback: function() {
 				this.hideErrorMsg();
-				if(this.getCheckedValue() !== false) { // one of the buckets has been selected.
+				var chkdValue = this.getCheckedValue();
+				if(chkdValue !== false) { // one of the buckets has been selected.
+					this.user.set({operation: chkdValue})
 					appRouter.navigate("/facebook.ferguson.com/see-your-results", {
 						trigger:true,
 						replace:true
