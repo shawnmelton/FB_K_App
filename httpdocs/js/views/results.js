@@ -39,8 +39,6 @@ define([
 			render: function(usr) {
 				this.user = usr;
 				var _this = this;
-
-				console.log(this.user);
 				$.getJSON("/facebook.ferguson.com/api/results/get", {
 					style: this.user.getStyle(),
 					color: this.user.get("color"),
@@ -53,13 +51,13 @@ define([
 							"lastName": _this.user.get("lastName"),
 							"style": _this.user.getStyle(),
 							"userName": _this.user.get("userName"),
-							"photoSize": _this.getProfilePictureSize(data.response.style),
+							"photoSize": _this.getProfilePictureSize(_this.user.getStyle()),
 							"locationsUrl": _this.getDirectionsUrl(),
-							"products": data.response.products
+							"products": data.response
 						}))
 						.attr("class", "results");
 
-						$("#wrapper, #portrait").addClass(data.response.style);
+						$("#wrapper, #portrait").addClass(_this.user.getStyle());
 				});
 			},
 

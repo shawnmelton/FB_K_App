@@ -5,7 +5,7 @@
 class Steps {
 	public static function get() {
 		$number = isset($_GET['number']) ? intval($_GET['number']) : 0;
-		$style = isset($_GET['style']) ? $_GET['style'] : false;
+		$style = isset($_GET['style']) ? strtolower($_GET['style']) : '';
 		switch($number) {
 			case 1: return self::firstStep();
 			case 2: return self::secondStep();
