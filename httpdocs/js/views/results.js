@@ -32,6 +32,19 @@ define([
 				}
 			},
 
+			locateNearestShowroom: function() {
+				$.getJSON("/facebook.ferguson.com/api/showrooms/find", {
+					city: this.user.get("city"),
+					state: this.user.get("state")
+				}, function(data) {
+					if(data.response && data.response.name) {
+						$("#showroom-address").html(data.response.street_address +", "+ 
+							data.response.city +", "+ data.response.state +" "+ data.response.zip_code).show();
+						$("#get-directions").attr("href", data.response.url);
+					}
+				});
+			},
+
 			/**
 			 * Fetch all of the bucket information and dynamically populate information
 			 * into the view based on api feedback.
@@ -58,6 +71,8 @@ define([
 						.attr("class", "results");
 
 						$("#wrapper, #portrait").addClass(_this.user.getStyle());
+
+						_this.locateNearestShowroom();
 				});
 			},
 

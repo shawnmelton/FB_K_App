@@ -139,7 +139,7 @@ html {
 		.results > h4,
 		.results > p { text-align: center; }
 		.results > h4 {
-			margin: 10px 0;
+			margin: 10px 0 5px;
 			color: #666;
 			font-weight: normal;
 			font-size: 17px;
@@ -184,12 +184,24 @@ html {
 					line-height: 17px;
 				}
 
-			a#get-directions { background-position: 0 -120px; }
+			a#get-directions {
+				background-position: 0 -120px;
+				margin-top: 5px;
+			}
 				a#get-directions:hover { background-position: -165px -120px; }
 				a#get-directions:active { background-position: -330px -120px; }
 			a#share-your-results { background-position: 0 -160px; }
 				a#share-your-results:hover { background-position: -165px -160px; }
 				a#share-your-results:active { background-position: -330px -160px; }
+
+			#showroom-address {
+				font-size: 17px;
+				font-weight: bold;
+				margin: 1px 0 10px;
+				color: #01476b;
+				text-align: center;
+				display: none;
+			}
 
 		.buttonShadow {
 			margin: 40px auto 0;
