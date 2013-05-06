@@ -9,14 +9,14 @@ class ShowroomsController {
 	 * Expecting query string parameters city and state.
 	 */
 	public function find() {
-		$city = isset($_GET['city']) ? $_GET['city'] : '';
-		$state = isset($_GET['state']) ? $_GET['state'] : '';
-		$geolocation = $this->getGeolocationInfo($city, $state);
+		$locator = new Geolocator((isset($_GET['city']) ? $_GET['city'] : ''),
+			(isset($_GET['state']) ? $_GET['state'] : ''));
+		$geolocation = $locator->locate();
 		$result = array();
 		if(is_array($geolocation)) {
 			$sth = DB::get()->prepare('
-				SELECT name, street_address, showrooms.city,
-					showrooms.state, zip_code, url, (
+				SELECT street_address, showrooms.city,
+					showrooms.state, zip_code, url, TRUNCATE(
 					(
 						ACOS(
 							SIN(:lat * PI() / 180) * 
@@ -25,7 +25,7 @@ class ShowroomsController {
 							COS(lat * PI() / 180) * 
 							COS((:lng - lng) * PI() / 180)
 						) * 180 / PI()
-					) * 60 * 1.1515
+					) * 60 * 1.1515, 1
 				) AS distance 
 				FROM zip_codes
 					JOIN showrooms ON (code = SUBSTRING(zip_code, 1 ,5))
@@ -45,36 +45,5 @@ class ShowroomsController {
 		}
 
 		echo JSON::response($result, 200);
-	}
-
-	/**
-	 * Get the latitude and longitude for a given city.
-	 * @param String
-	 * @param String
-	 * @return array - return false if we were not able to match city/state.
-	 */
-	public function getGeolocationInfo($city, $state) {
-		$sth = DB::get()->prepare('
-			SELECT lat, lng
-			FROM zip_codes
-			WHERE city = :city
-			AND abbr = :abbr
-			LIMIT 1
-		');
-
-		$sth->execute(array(
-			':city' => $city,
-			':abbr' => $state
-		));
-
-		if($sth->rowCount() > 0) {
-			$result = $sth->fetch(PDO::FETCH_OBJ);
-			return array(
-				'lat' => $result->lat,
-				'lng' => $result->lng
-			);
-		}
-
-		return false;
 	}
 }

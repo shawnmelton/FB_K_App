@@ -37,7 +37,7 @@ define([
 					city: this.user.get("city"),
 					state: this.user.get("state")
 				}, function(data) {
-					if(data.response && data.response.name) {
+					if(data.response && data.response.street_address) {
 						$("#showroom-address").html(data.response.street_address +", "+ 
 							data.response.city +", "+ data.response.state +" "+ data.response.zip_code).show();
 						$("#get-directions").attr("href", data.response.url);

@@ -19,6 +19,23 @@ define([
 			},
 
 			/**
+			 * Add a bounce effect to the bucket being hovered.
+			 */
+			addButtonBoundEffect: function() {
+				$(".bucket").hover(function() {
+					$(this).animate({
+						marginTop: "-10px",
+						paddingBottom: "10px"
+					}, 150);
+				}, function() {
+					$(this).animate({
+						marginTop: "0px",
+						paddingBottom: "0px"
+					}, 150);
+				});
+			},
+
+			/**
 			 * Handle what happens when a bucket is clicked.
 			 */
 			bucketClickCallback: function(event) {
@@ -56,7 +73,6 @@ define([
 						case "color": this.user.set({color: chkdValue}); break;
 						case "cost": this.user.set({cost: chkdValue}); break;
 					}
-					
 
 					appRouter.navigate("/facebook.ferguson.com/questions/"+ (this.step + 1), {
 						trigger:true,
@@ -96,6 +112,8 @@ define([
 						}
 
 						$(".bucket").last().addClass("last");
+
+						_this.addButtonBoundEffect();
 					}
 				});
 			},
