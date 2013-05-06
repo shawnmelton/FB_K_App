@@ -24,8 +24,8 @@ define([
 			addButtonBoundEffect: function() {
 				$(".bucket").hover(function() {
 					$(this).animate({
-						marginTop: "-10px",
-						paddingBottom: "10px"
+						marginTop: "-5px",
+						paddingBottom: "5px"
 					}, 150);
 				}, function() {
 					$(this).animate({
