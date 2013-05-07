@@ -3,45 +3,43 @@ define([
 	'underscore',
 	'backbone',
 	'views/home',
-	'views/404',
 	'views/step',
 	'views/results',
 	'models/user'
-	], function($, _, Backbone, homeView, pageNotFoundView, stepView, resultsView, User){
+	], function($, _, Backbone, homeView, stepView, resultsView, User){
 		var AppRouter = Backbone.Router.extend({
 			routes: {
-				// Define some URL routes
-				'facebook.ferguson.com': 'showHome',
-				'facebook.ferguson.com/': 'showHome',
-				'facebook.ferguson.com/questions/*number': 'showStep',
-				'facebook.ferguson.com/see-your-results': 'showSeeYourResults',
-				
-				// Default
-				"facebook.ferguson.com/*actions": 'defaultAction'
+				"facebook.ferguson.com/*extra": 'show404'
+			},
+
+			initialize: function() {
+				this.route(/^(facebook.ferguson.com){0,1}(\/){0,1}$/, "showHome");
+				this.route(/^(facebook.ferguson.com){0,1}\/questions\/([0-9]+)$/, "showStep");
+				this.route(/^(facebook.ferguson.com){0,1}\/see-your-results$/, "showSeeYourResults");
 			},
 			
-			showHome: function(){
+			showHome: function(domain){
 				homeView.render(User);
 			},
 
-			show404: function() {
-				pageNotFoundView.render();
+			show404: function(extra) {
+				appRouter.navigate(fbkUrlroot, {trigger:true, replace:true});
 			},
 
-			showSeeYourResults: function() {
+			showSeeYourResults: function(domain) {
 				// Make sure the user has logged in.
 				if(!User.get("isLoggedIn")) {
-					appRouter.navigate("/facebook.ferguson.com/", {trigger:true, replace:true});
+					appRouter.navigate(fbkUrlroot, {trigger:true, replace:true});
 					return;
 				}
 				
 				resultsView.render(User);
 			},
 
-			showStep: function(number) {
+			showStep: function(domain, number) {
 				// Make sure the user has logged in.
 				if(!User.get("isLoggedIn")) {
-					appRouter.navigate("/facebook.ferguson.com/", {trigger:true, replace:true});
+					appRouter.navigate(fbkUrlroot, {trigger:true, replace:true});
 					return;
 				}
 
@@ -52,10 +50,6 @@ define([
 				}
 
 				stepView.render(number, User);
-			},
-			
-			defaultAction: function(actions){
-				this.show404();
 			}
 		});
 		

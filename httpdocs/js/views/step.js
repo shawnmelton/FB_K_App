@@ -74,7 +74,7 @@ define([
 						case "cost": this.user.set({cost: chkdValue}); break;
 					}
 
-					appRouter.navigate("/facebook.ferguson.com/questions/"+ (this.step + 1), {
+					appRouter.navigate(fbkUrlroot +"questions/"+ (this.step + 1), {
 						trigger:true,
 						replace:true
 					});
@@ -91,7 +91,7 @@ define([
 				this.step = number;
 				this.user = usr;
 				var _this = this;
-				$.getJSON("/facebook.ferguson.com/api/steps/load", {
+				$.getJSON(fbkUrlroot +"api/steps/load", {
 					number: this.step,
 					style: this.user.getStyle()
 				}, function(data) {
@@ -126,7 +126,7 @@ define([
 				var chkdValue = this.getCheckedValue();
 				if(chkdValue !== false) { // one of the buckets has been selected.
 					this.user.set({operation: chkdValue})
-					appRouter.navigate("/facebook.ferguson.com/see-your-results", {
+					appRouter.navigate(fbkUrlroot +"see-your-results", {
 						trigger:true,
 						replace:true
 					});

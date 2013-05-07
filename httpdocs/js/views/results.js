@@ -33,7 +33,7 @@ define([
 			},
 
 			locateNearestShowroom: function() {
-				$.getJSON("/facebook.ferguson.com/api/showrooms/find", {
+				$.getJSON(fbkUrlroot +"api/showrooms/find", {
 					city: this.user.get("city"),
 					state: this.user.get("state")
 				}, function(data) {
@@ -52,7 +52,7 @@ define([
 			render: function(usr) {
 				this.user = usr;
 				var _this = this;
-				$.getJSON("/facebook.ferguson.com/api/results/get", {
+				$.getJSON(fbkUrlroot +"api/results/get", {
 					style: this.user.getStyle(),
 					color: this.user.get("color"),
 					cost: this.user.get("cost"),
