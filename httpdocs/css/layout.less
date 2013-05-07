@@ -77,7 +77,8 @@ html {
 			text-shadow: 0 0 1px #000;
 		}
 		.step > p { margin: 25px 150px; }
-		#buckets { 
+		#buckets {
+			min-height: 215px;
 			margin: 0 0 25px 85px;
 
 			&:after {
@@ -93,13 +94,13 @@ html {
 				outline: none;
 				text-align: center;
 
-				img {
+				>img {
 					display: block;
 					max-width: 160px;
 					margin-bottom: 15px;
 				}
 
-				strong {
+				>strong {
 					display: block;
 					margin: 10px 0;
 					text-transform: uppercase;
@@ -109,15 +110,20 @@ html {
 				&.last { margin-right: 0; }
 			}
 
-		.step > a#next { background-position: 0 -40px; }
-			.step > a#next:hover { background-position: -165px -40px; }
-			.step > a#next:active { background-position: -330px -40px; }
+		.step > a#next {
+			background-position: 0 -40px;
+
+			&:hover { background-position: -165px -40px; }
+			&:active { background-position: -330px -40px; }
+		}
+			
 		.step > a#see-your-results { 
 			display: none;
 			background-position: 0 -80px;
+
+			&:hover { background-position: -165px -80px; }
+			&:active { background-position: -330px -80px; }
 		}
-			.step > a#see-your-results:hover { background-position: -165px -80px; }
-			.step > a#see-your-results:active { background-position: -330px -80px; }
 
 		.qCount {
 			margin-top: 30px;
@@ -276,6 +282,6 @@ html {
 				outline: none;
 				background: url(../img/close-x.gif) no-repeat 0 0;
 			}
-				a > span { display: none; }
+				>a > span { display: none; }
 		}
 			
