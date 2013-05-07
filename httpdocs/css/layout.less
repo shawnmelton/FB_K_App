@@ -1,3 +1,7 @@
+@blue: #01476b;
+@fontSize: 14px;
+@errorBGColor: #fee;
+
 html {
 	background: #fff;
 	font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -10,10 +14,11 @@ html {
 			width: 810px;
 			min-height: 622px;
 			background: url(../img/bg.jpg) no-repeat 0 0;
+
+			&.transitional { background-image: url(../img/transitional/bg.png); }
+			&.modern { background-image: url(../img/modern/bg.png); }
+			&.traditional { background-image: url(../img/traditional/bg.png); }
 		}
-		div#wrapper.transitional { background-image: url(../img/transitional/bg.png); }
-		div#wrapper.modern { background-image: url(../img/modern/bg.png); }
-		div#wrapper.traditional { background-image: url(../img/traditional/bg.png); }
 
 			a.buttons {
 				display: block;
@@ -23,8 +28,9 @@ html {
 				outline: none;
 				background-image: url(../img/buttons.png);
 				background-repeat: no-repeat;
+
+				span { display: none; }
 			}
-				a.buttons > span { display: none; }
 
 		#content { position: relative; }
 
@@ -38,8 +44,8 @@ html {
 		.step > p,
 		.home > p {
 			margin: 45px 150px;
-			color: #01476b;
-			font-size: 17px;
+			color: @blue;
+			font-size: @fontSize + 3;
 			text-align: center;
 		}
 		.results > a,
@@ -48,30 +54,37 @@ html {
 		.home > a#getStarted {
 			display: none;
 			background-position: 0 0;
+
+			&:hover { background-position: -165px 0; }
+			&:active { background-position: -330px 0; }
 		}
-			.home > a#getStarted:hover { background-position: -165px 0; }
-			.home > a#getStarted:active { background-position: -330px 0; }
-		.home > a#login { background-position: 0 -200px; }
-			.home > a#login:hover { background-position: -165px -200px; }
-			.home > a#login:active { background-position: -330px -200px; }
+		.home > a#login { 
+			background-position: 0 -200px;
+
+			&:hover { background-position: -165px -200px; }
+			&:active { background-position: -330px -200px; }
+		}
 
 		/* Step */
 		.results > h2,
 		.step > h2 {
 			margin: 35px 0 0;
-			font-size: 54px;
+			font-size: @fontSize + 40;
 			line-height: 52px;
-			color: #01476b;
+			color: @blue;
 			text-transform: uppercase;
 			text-align: center;
 			text-shadow: 0 0 1px #000;
 		}
 		.step > p { margin: 25px 150px; }
-		#buckets { margin: 0 0 25px 85px; }
-		#buckets:after {
-			clear: both;
-			content: " ";
-			display: table;
+		#buckets { 
+			margin: 0 0 25px 85px;
+
+			&:after {
+				clear: both;
+				content: " ";
+				display: table;
+			}
 		}
 			.bucket {
 				float: left;
@@ -79,19 +92,23 @@ html {
 				cursor: pointer;
 				outline: none;
 				text-align: center;
-			}
-				.bucket > img {
+
+				img {
 					display: block;
 					max-width: 160px;
 					margin-bottom: 15px;
 				}
-				.bucket > strong {
+
+				strong {
 					display: block;
 					margin: 10px 0;
 					text-transform: uppercase;
-					color: #01476b;
+					color: @blue;
 				}
-			.bucket.last { margin-right: 0; }
+
+				&.last { margin-right: 0; }
+			}
+
 		.step > a#next { background-position: 0 -40px; }
 			.step > a#next:hover { background-position: -165px -40px; }
 			.step > a#next:active { background-position: -330px -40px; }
@@ -106,99 +123,118 @@ html {
 			margin-top: 30px;
 			text-align: center;
 			font-weight: bold;
-			font-size: 14px;
+			font-size: @fontSize;
 			color: #fff;
 			text-shadow: 0 0 1px #000;
 		}
 
 		/* See Your Results */
 		.results > h2 { margin-bottom: 30px; }
-		#portrait { margin: 0 auto; }
-		#portrait.modern {
-			background: url(../img/modern/frame.png) no-repeat 0 0;
-			width: 130px;
-			height: 135px;
-			padding: 32px 0 0 32px;
-		}
-		#portrait.transitional {
-			background: url(../img/transitional/frame.png) no-repeat 0 0;
-			width: 127px;
-			height: 121px;
-			padding: 38px 0 0 35px;
-		}
-		#portrait.traditional {
-			background: url(../img/traditional/frame.png) no-repeat 0 0;
-			width: 144px;
-			height: 143px;
-			padding: 14px 0 0 15px;
-		}
-		.results > img {
-			display: block;
+		#portrait { 
 			margin: 0 auto;
+
+			&.modern {
+				background: url(../img/modern/frame.png) no-repeat 0 0;
+				width: 130px;
+				height: 135px;
+				padding: 32px 0 0 32px;
+			}
+				&.modern > img { width: 99px; }
+			&.transitional {
+				background: url(../img/transitional/frame.png) no-repeat 0 0;
+				width: 91px;
+				height: 121px;
+				padding: 38px 36px 0 35px;
+			}
+				&.transitional > img { width: 91px; }
+			&.traditional {
+				background: url(../img/traditional/frame.png) no-repeat 0 0;
+				width: 144px;
+				height: 143px;
+				padding: 14px 0 0 15px;
+			}
 		}
-		.results > h4,
-		.results > p { text-align: center; }
-		.results > h4 {
-			margin: 10px 0 5px;
-			color: #666;
-			font-weight: normal;
-			font-size: 17px;
+		
+		.results {
+			>img {
+				display: block;
+				margin: 0 auto;
+			}
+			>h4, >p { text-align: center; }
+			>h4 {
+				margin: 10px 0 5px;
+				color: #666;
+				font-weight: normal;
+				font-size: @fontSize + 3;
+			}
+			>p {
+				width: 670px;
+				margin: 25px auto;
+				color: #666;
+			}
 		}
-		.results > p {
-			width: 670px;
-			margin: 25px auto;
-			color: #666;
-		}
-		#products { margin: 25px 0 10px; }
-			#products:after,
-			#products > div:after {
+
+		#products {
+			margin: 25px 0 10px;
+
+			&:after,
+			div:after {
 				clear: both;
 				content: " ";
 				display: table;
 			}
-			#products > div {
+
+			>div {
 				float: left;
 				width: 370px;
 				padding: 0 10px 0 20px;
 			}
-				#products > div > img {
+				>div > img {
 					float: left;
 					margin: 0 15px 50px 0;
 					border: 1px solid #d2d2d2;
 					width: 178px;
 				}
-				#products > div > strong,
-				#products > div > h3 {
-					font-size: 17px;
-					color: #01476b;
+				>div > strong,
+				>div > h3 {
+					font-size: @fontSize + 3;
+					color: @blue;
 				}
-				#products > div > h3 { margin: 20px 0 25px; }
-				#products > div > strong {
+				>div > h3 { margin: 20px 0 25px; }
+				>div > strong {
 					display: block;
 					margin-bottom: 1px;
 				}
-				#products > div > p {
+				>div > p {
 					margin: 0;
 					color: #666;
-					font-size: 14px;
+					font-size: @fontSize;
 					line-height: 17px;
 				}
+		}
+			
 
 			a#get-directions {
 				background-position: 0 -120px;
 				margin-top: 5px;
+
+				&:hover { background-position: -165px -120px; }
+				&:active { background-position: -330px -120px; }
 			}
-				a#get-directions:hover { background-position: -165px -120px; }
-				a#get-directions:active { background-position: -330px -120px; }
-			a#share-your-results { background-position: 0 -160px; }
-				a#share-your-results:hover { background-position: -165px -160px; }
-				a#share-your-results:active { background-position: -330px -160px; }
+				
+			a#share-your-results { 
+				background-position: 0 -160px;
+
+				&:hover { background-position: -165px -160px; }
+				&:active { background-position: -330px -160px; }
+			}
+				
 
 			#showroom-address {
-				font-size: 17px;
+				font-size: @fontSize + 3;
 				font-weight: bold;
 				margin: 1px 0 15px;
-				color: #01476b;
+				color: @blue;
 				text-align: center;
 				display: none;
 			}
@@ -219,17 +255,17 @@ html {
 			padding: 13px 15px;
 			text-align: center;
 			font-weight: bold;
-			font-size: 14px;
+			font-size: @fontSize;
 			border: 2px solid #900;
 			color: #833;
-			background: #fee;
-			background: -webkit-linear-gradient(#fee, #f7f7f7);
-			background: -moz-linear-gradient(#fee, #f7f7f7);
-			background: -ms-linear-gradient(#fee, #f7f7f7);
-			background: -o-linear-gradient(#fee, #f7f7f7);
-			background: linear-gradient(#fee, #f7f7f7);
-		}
-			#error > a {
+			background: @errorBGColor;
+			background: -webkit-linear-gradient(@errorBGColor, desaturate(@errorBGColor, 80%));
+			background: -moz-linear-gradient(@errorBGColor, desaturate(@errorBGColor, 80%));
+			background: -ms-linear-gradient(@errorBGColor, desaturate(@errorBGColor, 80%));
+			background: -o-linear-gradient(@errorBGColor, desaturate(@errorBGColor, 80%));
+			background: linear-gradient(@errorBGColor, desaturate(@errorBGColor, 80%));
+
+			>a {
 				display: block;
 				position: absolute;
 				top: 3px;
@@ -240,4 +276,6 @@ html {
 				outline: none;
 				background: url(../img/close-x.gif) no-repeat 0 0;
 			}
-				#error > a > span { display: none; }
+				a > span { display: none; }
+		}
+			
