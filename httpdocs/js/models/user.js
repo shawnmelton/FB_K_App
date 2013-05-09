@@ -10,6 +10,9 @@ define([
 			lastName: "",
 			city: "",
 			state: "",
+			color: "",
+			cost: "",
+			operation: "",
 			loggedIn: false,
 
 			/**
@@ -62,10 +65,13 @@ define([
 					modern: 0,
 					traditional: 0,
 					transitional: 0,
+					color: "",
+					cost: "",
+					operation: "",
 					loggedIn: true
 				});
 
-				this.setHometown("Tampa Bay, FL");
+				this.setHometown("Los Angeles, CA");
 			},
 
 			/**
@@ -87,6 +93,20 @@ define([
 						_this.setHometown(response.hometown.name);
 					}
     			});
+			},
+
+			/**
+			 * Clear out any scores the user may have.
+			 */
+			resetScores: function() {
+				this.set({
+					modern: 0,
+					traditional: 0,
+					transitional: 0,
+					color: "",
+					cost: "",
+					operation: ""
+				});
 			},
 
 			/**

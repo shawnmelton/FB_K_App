@@ -2,14 +2,14 @@
 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 <div id="buckets">
 	<% _.each(buckets, function(bucket) { %>
-	<div class="bucket">
+	<div>
 		<img src="<%= domain %>img/<%= _.escape(bucket.src) %>" alt="Image Coming Soon">
 		<strong><%= bucket.name %></strong>
 		<input type="radio" name="choice" value="<%= _.escape(bucket.value) %>">
 	</div>
 	<% }); %>
 </div>
-<a class="buttons" id="next"><span>Next</span></a>
-<a class="buttons" id="see-your-results"><span>See Your Results</span></a>
+<a class="buttons disabled" id="next"><span>Next</span></a>
+<a class="buttons disabled" id="see-your-results"><span>See Your Results</span></a>
 <div class="buttonShadow"></div>
 <div class="qCount">Question <%= step %> of 6</div>

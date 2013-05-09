@@ -9,7 +9,8 @@ define([
 			user: false,
 
 			events: {
-				"click #share-your-results": "shareYourResultsClickCallback"
+				"click a#share-your-results": "shareYourResultsClickCallback",
+				"click #retake-quiz > a": "retakeQuiz"
 			},
 
 			/**
@@ -40,7 +41,8 @@ define([
 					if(data.response && data.response.street_address) {
 						$("#showroom-address").html(data.response.street_address +", "+ 
 							data.response.city +", "+ data.response.state +" "+ data.response.zip_code).show();
-						$("#get-directions").attr("href", data.response.url);
+						$("#get-directions").attr("href", "https://maps.google.com?q="+ data.response.street_address +"+"+ 
+							data.response.city +"+"+ data.response.state +"+"+ data.response.zip_code);
 					}
 				});
 			},
@@ -75,6 +77,21 @@ define([
 
 						_this.locateNearestShowroom();
 				});
+			},
+
+			/**
+			 * User wants to retake the quiz because we didn't get the results correct.
+			 * Reset the user's selections, but present a new set of preference questions.
+			 */
+			retakeQuiz: function() {
+				$("#wrapper, #portrait").removeClass(this.user.getStyle());
+				this.user.resetScores();
+				appRouter.navigate(fbkUrlroot +"questions/1", {
+					trigger:true,
+					replace:true
+				});
+
+				// TODO change questions.
 			},
 
 			/* The current user's facebook status update message. */

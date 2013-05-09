@@ -1,6 +1,9 @@
 @blue: #01476b;
 @fontSize: 14px;
 @errorBGColor: #fee;
+@productWidth: 370px;
+@retakeQuizDarkBlue: #144e6d;
+@retakeQuizLightBlue: #3b7c9e;
 
 html {
 	background: #fff;
@@ -79,15 +82,22 @@ html {
 		.step > p { margin: 25px 150px; }
 		#buckets {
 			min-height: 215px;
-			margin: 0 0 25px 85px;
+			padding: 0 0 25px 85px;
+			background: url(../img/loading.gif) no-repeat center center;
 
 			&:after {
 				clear: both;
 				content: " ";
 				display: table;
 			}
-		}
-			.bucket {
+
+			&.loaded {
+				background: none;
+				>div { display: block; }
+			}
+
+			>div {
+				display: none;
 				float: left;
 				margin-right: 80px;
 				cursor: pointer;
@@ -109,12 +119,21 @@ html {
 
 				&.last { margin-right: 0; }
 			}
+		}
 
 		.step > a#next {
 			background-position: 0 -40px;
 
 			&:hover { background-position: -165px -40px; }
 			&:active { background-position: -330px -40px; }
+			&.disabled {
+				cursor: default;
+				opacity: 0.5;
+				filter: alpha(opacity=50);
+
+				&:hover,
+				&:active { background-position: 0 -40px; }
+			}
 		}
 			
 		.step > a#see-your-results { 
@@ -123,6 +142,14 @@ html {
 
 			&:hover { background-position: -165px -80px; }
 			&:active { background-position: -330px -80px; }
+			&.disabled {
+				cursor: default;
+				opacity: 0.5;
+				filter: alpha(opacity=50);
+
+				&:hover,
+				&:active { background-position: 0 -80px; }
+			}
 		}
 
 		.qCount {
@@ -181,7 +208,7 @@ html {
 		}
 
 		#products {
-			margin: 25px 0 10px;
+			margin: 25px 0 40px;
 
 			&:after,
 			div:after {
@@ -192,7 +219,7 @@ html {
 
 			>div {
 				float: left;
-				width: 370px;
+				width: @productWidth;
 				padding: 0 10px 0 20px;
 			}
 				>div > img {
@@ -217,6 +244,40 @@ html {
 					font-size: @fontSize;
 					line-height: 17px;
 				}
+			>div#retake-quiz {
+				width: @productWidth - 35;
+				padding: 10px 20px 25px;
+				margin-left: 25px;
+				background: @retakeQuizDarkBlue;
+				background: -o-linear-gradient(@retakeQuizDarkBlue, @retakeQuizLightBlue);
+				background: -ms-linear-gradient(@retakeQuizDarkBlue, @retakeQuizLightBlue);
+				background: linear-gradient(@retakeQuizDarkBlue, @retakeQuizLightBlue);
+
+				>h4 {
+					color: #fff;
+					margin: 0 0 10px;
+					font-size: @fontSize + 22;
+				}
+				>p {
+					color: #fff;
+					margin: 0;
+					font-size: @fontSize;
+				}
+				>a {
+					display: block;
+					height: 43px;
+					width: 172px;
+					background: url(../img/retakeQuizButton.png) no-repeat 0 0;
+					margin: 30px auto 0;
+					cursor: pointer;
+					outline: none;
+
+					&:hover { background-position: 0 -43px; }
+					&:active { background-position: 0 -86px; }
+
+					>span { display: none; }
+				}
+			}
 		}
 			
 

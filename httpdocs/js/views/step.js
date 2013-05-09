@@ -2,9 +2,8 @@ define([
 	"jquery",
 	"underscore",
 	"backbone",
-	'text!templates/step.html',
-	'text!templates/error.html'
-	], function($, _, Backbone, stepHTML, errorHTML){
+	'text!templates/step.html'
+	], function($, _, Backbone, stepHTML){
 		var stepView = Backbone.View.extend({
 			el: "#content",
 			step: 0,
@@ -14,15 +13,22 @@ define([
 			events: {
 				"click #next": "loadNextClickCallback",
 				"click #see-your-results": "seeYourResultsClickCallback",
-				"click .bucket": "bucketClickCallback",
-				"click #error": "hideErrorMsg"
+				"click #buckets > div": "bucketClickCallback"
+			},
+
+			/**
+			 * "Next" button (or "See Your Results"), should be deactivated
+			 * until the user has made a selection.
+			 */
+			activateNextButton: function() {
+				$("#next, #see-your-results").removeClass("disabled");
 			},
 
 			/**
 			 * Add a bounce effect to the bucket being hovered.
 			 */
 			addButtonBoundEffect: function() {
-				$(".bucket").hover(function() {
+				$("#buckets > div").hover(function() {
 					$(this).animate({
 						marginTop: "-5px",
 						paddingBottom: "5px"
@@ -40,6 +46,7 @@ define([
 			 */
 			bucketClickCallback: function(event) {
 				$(event.currentTarget).find("input").prop("checked", true);
+				this.activateNextButton();
 			},
 
 			/**
@@ -57,15 +64,10 @@ define([
 				return value;
 			},
 
-			hideErrorMsg: function() {
-				$("#error").remove();
-			},
-
 			/**
 			 * Handle what happens when the Next button is clicked.
 			 */
 			loadNextClickCallback: function() {
-				this.hideErrorMsg();
 				var chkdValue = this.getCheckedValue();
 				if(this.step < 6 && chkdValue !== false) { // one of the buckets has been selected.
 					switch(this.purpose) {
@@ -78,8 +80,6 @@ define([
 						trigger:true,
 						replace:true
 					});
-				} else {
-					this.showErrorMsg();
 				}
 			},
 
@@ -112,9 +112,10 @@ define([
 							});
 						}
 
-						$(".bucket").last().addClass("last");
+						$("#buckets > div").last().addClass("last");
 
 						_this.addButtonBoundEffect();
+						setTimeout(_this.showOptions, 500);						
 					}
 				});
 			},
@@ -123,7 +124,6 @@ define([
 			 * Callback for when user clicks on "See Your Results" button
 			 */
 			seeYourResultsClickCallback: function() {
-				this.hideErrorMsg();
 				var chkdValue = this.getCheckedValue();
 				if(chkdValue !== false) { // one of the buckets has been selected.
 					this.user.set({operation: chkdValue})
@@ -131,15 +131,14 @@ define([
 						trigger:true,
 						replace:true
 					});
-				} else {
-					this.showErrorMsg();
 				}
 			},
 
-			showErrorMsg: function() {
-				this.$el.append(_.template(errorHTML, {
-					"message": "Please select the option that best fits you."
-				}));
+			/**
+			 * Hide loading and reveal the options for this step/question.
+			 */
+			showOptions: function() {
+				$("#buckets").addClass("loaded");
 			}
 		});
 		
