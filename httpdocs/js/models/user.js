@@ -29,6 +29,11 @@ define([
 			},
 
 			initialize: function() {
+				if(fbkDevMode) {  // Avoid FB auth in dev mode.
+					this.loadTestData();
+					return;
+				}
+
 				var _this = this;
 				FB.getLoginStatus(function(response) {
 					if (response.status === 'connected') {
@@ -44,6 +49,23 @@ define([
 
 			isLoggedIn: function() {
 				return this.get("loggedIn");
+			},
+
+			/**
+			 * Load test information for when we are in development mode.
+			 */
+			loadTestData: function() {
+				this.set({
+					firstName: "John",
+					lastName: "Doe",
+					userName: "shawn.a.melton",
+					modern: 0,
+					traditional: 0,
+					transitional: 0,
+					loggedIn: true
+				});
+
+				this.setHometown("Tampa Bay, FL");
 			},
 
 			/**

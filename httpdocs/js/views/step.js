@@ -101,7 +101,8 @@ define([
 							.html(_.template(stepHTML, {
 								"title": data.response.question,
 								"buckets": data.response.options,
-								"step": _this.step
+								"step": _this.step,
+								"domain": fbkUrlroot
 							}))
 							.attr("class", "step");
 

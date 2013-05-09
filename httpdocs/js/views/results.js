@@ -66,7 +66,8 @@ define([
 							"userName": _this.user.get("userName"),
 							"photoSize": _this.getProfilePictureSize(_this.user.getStyle()),
 							"locationsUrl": _this.getDirectionsUrl(),
-							"products": data.response
+							"products": data.response,
+							"domain": fbkUrlroot
 						}))
 						.attr("class", "results");
 

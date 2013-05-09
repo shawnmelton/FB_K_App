@@ -3,7 +3,7 @@
 <div id="buckets">
 	<% _.each(buckets, function(bucket) { %>
 	<div class="bucket">
-		<img src="/facebook.ferguson.com/img/<%= _.escape(bucket.src) %>" alt="Image Coming Soon">
+		<img src="<%= domain %>img/<%= _.escape(bucket.src) %>" alt="Image Coming Soon">
 		<strong><%= bucket.name %></strong>
 		<input type="radio" name="choice" value="<%= _.escape(bucket.value) %>">
 	</div>

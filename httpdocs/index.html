@@ -4,22 +4,26 @@
 		<title>Ferguson Bath, Kitchen &amp; Lighting Gallery</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<meta http-equiv="Content-Encoding" content="gzip">
-		<base href="/facebook.ferguson.com/">
+		<base href="/">
 		<link rel="stylesheet/less" type="text/css" href="css/layout.less">
 		<script type="text/javascript" src="js/libs/less.js"></script>
 		<script type="text/javascript" data-main="js/bootstrap" src="js/libs/require.js"></script>
 		<!--[if lt IE 9]><script src="js/libs/html5.js"></script><![endif]-->
 		<script type="text/javascript">
-			window.fbkUrlroot = "/facebook.ferguson.com/";
-			window.fbAsyncInit = function() {
-				// init the FB JS SDK
-				FB.init({
-					appId      : '111378102282619',                        // App ID from the app dashboard
-					channelUrl : '//swaydevsite.com/facebook.ferguson.com//channel.html', // Channel file for x-domain comms
-					status     : true,                                 // Check Facebook Login status
-					xfbml      : true                                  // Look for social plugins on the page
-				});
-			};
+			window.fbkDevMode = true;
+			window.fbkUrlroot = fbkDevMode ? "/" : "/facebook.ferguson.com/";
+
+			if(!fbkDevMode) {
+				window.fbAsyncInit = function() {
+					// init the FB JS SDK
+					FB.init({
+						appId      : '111378102282619',
+						channelUrl : '//swaydevsite.com/facebook.ferguson.com//channel.html',
+						status     : true,
+						xfbml      : true
+					});
+				};
+			}
 		</script>
 	</head>
 	<body>

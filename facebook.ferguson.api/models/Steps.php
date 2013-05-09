@@ -108,14 +108,14 @@ class Steps {
 			'purpose' => 'color',
 			'options' => array(
 				array(
-					'name' => 'Brass',
-					'src' => $style .'/color/brass.png',
-					'value' => 'brass'
+					'name' => 'Gold',
+					'src' => $style .'/color/gold.png',
+					'value' => 'gold'
 				),
 				array(
-					'name' => 'Stainless Steel',
-					'src' => $style .'/color/stainless-steel.png',
-					'value' => 'stainless-steel'
+					'name' => 'Silver',
+					'src' => $style .'/color/silver.png',
+					'value' => 'silver'
 				),
 				array(
 					'name' => 'Other',

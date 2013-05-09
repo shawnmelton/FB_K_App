@@ -52,7 +52,8 @@ define([
 				this.user = usr;
 				this.$el
 					.html(_.template(homeHTML, {
-						name: "Home"
+						name: "Home",
+						domain: fbkUrlroot
 					}))
 					.attr("class", "home");
 
