@@ -168,8 +168,8 @@ class Steps {
 				),
 				array(
 					'name' => 'Medium',
-					'src' => $style .'/function/medium.png',
-					'value' => 'medium'
+					'src' => $style .'/function/moderate.png',
+					'value' => 'moderate'
 				),
 				array(
 					'name' => 'Low',
