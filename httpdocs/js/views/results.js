@@ -112,11 +112,11 @@ define([
 			shareYourResultsClickCallback: function() {
 				FB.ui({
 					method: 'feed',
-					name: 'Ferguson',
-					link: 'http://shop.ferguson.com/',
-					picture: 'http://shawnmelton.me/img/logo.png',
-					caption: 'Bath, Kitchen & Lighting Gallery',
-					description: 'Description will go here.'
+					name: "I'm "+ this.user.getStyle(),
+					link: 'http://swaydevsite.com/facebook.ferguson.com/',
+					picture: 'http://swaydevsite.com/facebook.ferguson.com/img/logo.png',
+					caption: 'Ferguson Asks, "What\'s Your Style?"',
+					description: 'Uncover your own style, and learn how Ferguson can help you bring your vision of your perfect bathroom to life.'
 				}, function(response) {
 					// console.log(response);
 				});

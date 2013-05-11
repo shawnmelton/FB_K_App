@@ -23,7 +23,7 @@ class Steps {
 	 */
 	public static function firstStep() {
 		return array(
-			'question' => 'First Style Question',
+			'question' => 'An <span>Expression</span> Of You.',
 			'purpose' => 'style',
 			'options' => array(
 				array(
@@ -50,7 +50,7 @@ class Steps {
 	 */
 	public static function secondStep() {
 		return array(
-			'question' => 'Second Style Question',
+			'question' => 'Your <span>Taste.</span> Your <span>Vision.</span>',
 			'purpose' => 'style',
 			'options' => array(
 				array(
@@ -77,7 +77,7 @@ class Steps {
 	 */
 	public static function thirdStep() {
 		return array(
-			'question' => 'Third Style Question',
+			'question' => 'A Choice <span>All Your Own.</span>',
 			'purpose' => 'style',
 			'options' => array(
 				array(
@@ -104,7 +104,7 @@ class Steps {
 	 */
 	public static function fourthStep($style) {
 		return array(
-			'question' => 'Color Question',
+			'question' => '<span>Color</span> To Canvas.',
 			'purpose' => 'color',
 			'options' => array(
 				array(
@@ -131,7 +131,7 @@ class Steps {
 	 */
 	public static function fifthStep($style) {
 		return array(
-			'question' => 'Cost Question',
+			'question' => '<span>Perfection</span> Is Priceless.',
 			'purpose' => 'cost',
 			'options' => array(
 				array(
@@ -158,7 +158,7 @@ class Steps {
 	 */
 	public static function sixthStep($style) {
 		return array(
-			'question' => 'Function Question',
+			'question' => 'The <span>Beauty</span> In Every Day.',
 			'purpose' => 'operation',
 			'options' => array(
 				array(
@@ -167,7 +167,7 @@ class Steps {
 					'value' => 'high'
 				),
 				array(
-					'name' => 'Medium',
+					'name' => 'Moderate',
 					'src' => $style .'/function/moderate.png',
 					'value' => 'moderate'
 				),
