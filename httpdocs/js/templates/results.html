@@ -1,6 +1,6 @@
 <h2><%= firstName %>, You're <span><%= style %></span></h2>
 <div id="portrait"><img src="https://graph.facebook.com/<%= userName %>/picture?<%= photoSize %>" alt="<%= firstName %> <%= lastName %>"></div>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+<p id="style-message"></p>
 <a class="buttons" id="share-your-results"><span>Share Your Results</span></a>
 <div id="products">
 <% _.each(products, function(product) { %>

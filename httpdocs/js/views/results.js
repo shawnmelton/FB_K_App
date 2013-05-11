@@ -2,8 +2,11 @@ define([
 	"jquery",
 	"underscore",
 	"backbone",
-	'text!templates/results.html'
-	], function($, _, Backbone, resultsHTML){
+	'text!templates/results.html',
+	'text!templates/resultsMessages/traditional.html',
+	'text!templates/resultsMessages/transitional.html',
+	'text!templates/resultsMessages/modern.html'
+	], function($, _, Backbone, resultsHTML, traditionalHTML, transitionalHTML, modernHTML){
 		var resultsView = Backbone.View.extend({
 			el: "#content",
 			user: false,
@@ -75,6 +78,7 @@ define([
 
 						$("#wrapper, #portrait").addClass(_this.user.getStyle());
 
+						_this.setStyleMessage();
 						_this.locateNearestShowroom();
 				});
 			},
@@ -92,6 +96,16 @@ define([
 				});
 
 				// TODO change questions.
+			},
+
+			setStyleMessage: function() {
+				if(this.user.getStyle() == "modern") {
+					$("#style-message").html(_.template(modernHTML));
+				} else if(this.user.getStyle() == "traditional") {
+					$("#style-message").html(_.template(traditionalHTML));
+				} else {
+					$("#style-message").html(_.template(transitionalHTML));
+				}
 			},
 
 			/* The current user's facebook status update message. */
