@@ -24,54 +24,54 @@ class Products {
 
 	public static function set() {
 		// Modern
-		self::add('modern', 'lights', 'high', 'gold product coming soon ...', 'coming soon ...');
-		self::add('modern', 'lights', 'moderate', 'silver product coming soon ...', 'coming soon ...');
-		self::add('modern', 'lights', 'low', 'other product coming soon ...', 'coming soon ...');
-		self::add('modern', 'fixtures-faucets', 'high', 'GROHE ATRIO 19168000 THERMO VALVE TRIM; 27135000 SHOWERHEAD; 27414000 SHOWER ARM IN CHROME (MUST ORDER RI VALVE SEPARATE) CHROME FINISH', 'coming soon ...');
-		self::add('modern', 'fixtures-faucets', 'moderate', 'Pfister PR898GLC/P0X8310A "Saxton" Single Handle Tub & Shower Faucet', 'coming soon ...');
-		self::add('modern', 'fixtures-faucets', 'low', 'MOEN TS3715 SHOWER FAUCET IN CHROME (MUST ORDER VALVE SEPARATE)', 'coming soon ...');
-		self::add('modern', 'accessories', 'gold', 'GROHE ATRIO 40313000 TOILET PAPER HOLDER IN CHROME', 'coming soon ...');
-		self::add('modern', 'accessories', 'silver', 'BRIZO 694675PC ODIN TOWEL RING IN CHROME', 'coming soon ...');
-		self::add('modern', 'accessories', 'other', 'MOEN YB8818 90 DEGREE 18" TOWEL BAR IN CHROME', 'coming soon ...');
-		self::add('modern', 'toilets', 'high', 'KOHLER K3797 REVE TOILET IN WHITE', 'coming soon ...');
-		self::add('modern', 'toilets', 'moderate', 'KOHLER K6299/K6284 VEIL WALL HUNG TOILET IN WHITE', 'coming soon ...');
-		self::add('modern', 'toilets', 'low', 'KOHLER K3753 PERSUADE CIRC TOILET IN WHITE', 'coming soon ...');
-		self::add('modern', 'baths-showers', 'gold', 'KOHLER K894-F62 REVE FREESTANDING TUB IN WHITE', 'coming soon ...');
-		self::add('modern', 'baths-showers', 'silver', 'KOHLER EXPANSE K1118  BATH ONLY IN WHITE', 'coming soon ...');
-		self::add('modern', 'baths-showers', 'other', 'Kohler K11344-0 "Escale"', 'coming soon ...');
+		self::add('modern', 'lights', 'high', 'Hudson Valley Lighting "Southport" Bathroom Light', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.');
+		self::add('modern', 'lights', 'moderate', 'Brizo "Odin" 1 Bulb Wall Sconce', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.');
+		self::add('modern', 'lights', 'low', 'Minka Lighting "City Square" 3 Bulb Bathroom Light', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.');
+		self::add('modern', 'fixtures-faucets', 'high', 'Grohe "Thermo Valve" Showerhead', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.');
+		self::add('modern', 'fixtures-faucets', 'moderate', 'Pfister "Saxton" Shower Faucet', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.');
+		self::add('modern', 'fixtures-faucets', 'low', 'Moen "90 Degree" Shower Faucet', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.');
+		self::add('modern', 'accessories', 'gold', 'Grohe "Atrio" Toilet Paper Holder', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.');
+		self::add('modern', 'accessories', 'silver', 'Brizo "Odin" Towel Ring', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.');
+		self::add('modern', 'accessories', 'other', 'Moen "90 Degree" Towel Bar', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.');
+		self::add('modern', 'toilets', 'high', 'Kohler "Reve" One Piece Toilet', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.');
+		self::add('modern', 'toilets', 'moderate', 'Kohler "Veil" Wall Hung Toilet', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.');
+		self::add('modern', 'toilets', 'low', 'Kohler "Persuade Circ" Two Piece Toilet', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.');
+		self::add('modern', 'baths-showers', 'gold', 'Kohler "Reve" Freestanding Tub', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.');
+		self::add('modern', 'baths-showers', 'silver', 'Kohler "Expanse" Soaking Tub', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.');
+		self::add('modern', 'baths-showers', 'other', 'Kohler "Escale" Tub', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.');
 
 		// Traditional
-		self::add('traditional', 'lights', 'high', 'gold product coming soon ...', 'coming soon ...');
-		self::add('traditional', 'lights', 'moderate', 'silver product coming soon ...', 'coming soon ...');
-		self::add('traditional', 'lights', 'low', 'other product coming soon ...', 'coming soon ...');
-		self::add('traditional', 'fixtures-faucets', 'high', 'ROHL PALLADIAN AKIT92LM SHOWER ONLY FAUCET IN POL NICKEL', 'coming soon ...');
-		self::add('traditional', 'fixtures-faucets', 'moderate', 'DELTA T14297LHP/H795 CASSIDY SHOWER ONLY FAUCET', 'coming soon ...');
-		self::add('traditional', 'fixtures-faucets', 'low', 'Kohler KT15611-7-CP "Coralais" Shower Faucet', 'coming soon ...');
-		self::add('traditional', 'accessories', 'gold', 'ROHL PALLADIAN A688630 TOWEL BAR 30" POL NICKEL', 'coming soon ...');
-		self::add('traditional', 'accessories', 'silver', 'DELTA 79724 CASSIDY 24" TOWEL BAR IN CHROME', 'coming soon ...');
-		self::add('traditional', 'accessories', 'other', 'MOEN CSIYB8218CH ROTHBURY 24" TOWEL BAR IN CHROME', 'coming soon ...');
-		self::add('traditional', 'toilets', 'high', 'KOHLER K3940 KATHRYN TOILET', 'coming soon ...');
-		self::add('traditional', 'toilets', 'moderate', 'KOHLER K3827 BANCROFT TOILET', 'coming soon ...');
-		self::add('traditional', 'toilets', 'low', 'KOHLER K3837 DEVONSHIRE TOILET', 'coming soon ...');
-		self::add('traditional', 'baths-showers', 'gold', 'KOHLER K809-GO KATHRYN BUBBLE MASSAGE TUB IN WHITE', 'coming soon ...');
-		self::add('traditional', 'baths-showers', 'silver', 'KOHLER BANCROFT K1158-H2 BUBBLE MASSAGE TUB', 'coming soon ...');
-		self::add('traditional', 'baths-showers', 'other', 'KOHLER K1184 DEVONSHIRE BATH', 'coming soon ...');
+		self::add('traditional', 'lights', 'high', 'Metropolitan 3 Bulb Bathroom Light', 'Classic as it is classy, this three bulb bathroom light in polished nickel from Metropolitan Lighting Fixture Co. exudes elegance.');
+		self::add('traditional', 'lights', 'moderate', 'Feiss "Harvard"  3 Bulb Bathroom Light', 'Its classic three bulb look at a reasonable price makes the "Harvard" bathroom light ideal for any traditional canvas.');
+		self::add('traditional', 'lights', 'low', 'Sea Gull "Sagemore" Two Bulb Bathroom Light', 'A classic feel at an affordable price; Sea Gull\'s "Sagemore" model brings your bathroom to life.');
+		self::add('traditional', 'fixtures-faucets', 'high', 'Rohl "Palladian" Shower Faucet', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.');
+		self::add('traditional', 'fixtures-faucets', 'moderate', 'Delta "Cassidy" Shower Faucet', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.');
+		self::add('traditional', 'fixtures-faucets', 'low', 'Kohler "Coralais" Shower Faucet', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.');
+		self::add('traditional', 'accessories', 'gold', 'Rohl "Palladian" Towel Bar', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.');
+		self::add('traditional', 'accessories', 'silver', 'Delta "Cassidy" Towel Bar', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.');
+		self::add('traditional', 'accessories', 'other', 'Moen "Rothbury" Towel Bar', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.');
+		self::add('traditional', 'toilets', 'high', 'Kohler "Kathryn" Toilet', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.');
+		self::add('traditional', 'toilets', 'moderate', 'Kohler "Bancroft" Toilet', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.');
+		self::add('traditional', 'toilets', 'low', 'Kohler "Devonshire" Toilet', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.');
+		self::add('traditional', 'baths-showers', 'gold', 'Kohler "Kathryn" Bubble Massage Tub', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.');
+		self::add('traditional', 'baths-showers', 'silver', 'Kohler "Bancroft" Bubble Massage Tub', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.');
+		self::add('traditional', 'baths-showers', 'other', 'Kohler "Devonshire" Bubble Massage Tub', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.');
 	
 		// Transitional
-		self::add('transitional', 'lights', 'high', 'gold product coming soon ...', 'coming soon ...');
-		self::add('transitional', 'lights', 'moderate', 'silver product coming soon ...', 'coming soon ...');
-		self::add('transitional', 'lights', 'low', 'other product coming soon ...', 'coming soon ...');
-		self::add('transitional', 'fixtures-faucets', 'high', 'KOHLER KT16234-4-CP MARGAUX SHOWER FAUCET IN CHROME (MUST ORDER RI VALVE SEPARATE)', 'coming soon ...');
-		self::add('transitional', 'fixtures-faucets', 'moderate', 'DELTA T14292SS ADDISION SHOWER FAUCET IN SS (MUST ORDER RI VALVE SEPARATE)', 'coming soon ...');
-		self::add('transitional', 'fixtures-faucets', 'low', 'PFISTER R897FEK PARK AVENUE SHOWER FCT TRIM  IN BRUSHED NICKEL (MUST ORDER RI VALVE OX8)', 'coming soon ...');
-		self::add('transitional', 'accessories', 'gold', 'KOHLER K16253-CP MARGAUX DOUBLE TOWEL BAR IN CHROME', 'coming soon ...');
-		self::add('transitional', 'accessories', 'silver', 'DELTA 79246SS ADDISON TOWEL RING IN SS', 'coming soon ...');
-		self::add('transitional', 'accessories', 'other', 'PFISTER BRBFE1K PARK AVENUE TWL RING IN BRUSHED NICKEL', 'coming soon ...');
-		self::add('transitional', 'toilets', 'high', 'Kohler K3597-NF-47 "San Raphael" One Piece Toilet', 'coming soon ...');
-		self::add('transitional', 'toilets', 'moderate', 'KOHLER K3950 TRESHAM', 'coming soon ...');
-		self::add('transitional', 'toilets', 'low', 'Kohler K3755-0 "Kelston" Two Piece Toilet', 'coming soon ...');
-		self::add('transitional', 'baths-showers', 'gold', 'KOHLER K1124-VB ARCHER VIBRACOUSTIC BATH', 'coming soon ...');
-		self::add('transitional', 'baths-showers', 'silver', 'Mirabelle MIRPRS6032RWH "Provincetown"', 'coming soon ...');
-		self::add('transitional', 'baths-showers', 'other', 'KOHLER K1124-VB ARCHER VIBRACOUSTIC BATH', 'coming soon ...');	
+		self::add('transitional', 'lights', 'high', 'Kohler "Margaux" 1 Bulb Wall Sconce', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.');
+		self::add('transitional', 'lights', 'moderate', 'Progress "Addison" 3 Bulb Bathroom Light', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.');
+		self::add('transitional', 'lights', 'low', 'Maxim "Conical" Two Bulb Bathroom Light', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.');
+		self::add('transitional', 'fixtures-faucets', 'high', 'Kohler "Margaux" Shower Faucet', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.');
+		self::add('transitional', 'fixtures-faucets', 'moderate', 'Delta "Addision" Shower Faucet', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.');
+		self::add('transitional', 'fixtures-faucets', 'low', 'Pfister "Park Avenue" Shower Faucet', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.');
+		self::add('transitional', 'accessories', 'gold', 'Kohler "Margaux" Double Towel Bar', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.');
+		self::add('transitional', 'accessories', 'silver', 'Delta "Addision" Towel Ring', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.');
+		self::add('transitional', 'accessories', 'other', 'Pfister "Park Avenue" Towel Ring', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.');
+		self::add('transitional', 'toilets', 'high', 'Kohler "San Raphael" One Piece Toilet', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.');
+		self::add('transitional', 'toilets', 'moderate', 'Kohler "Tresham" Two Piece Toilet', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.');
+		self::add('transitional', 'toilets', 'low', 'Kohler "Kelston" Two Piece Toilet', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.');
+		self::add('transitional', 'baths-showers', 'gold', 'Kohler "Archer" Vibracoustic Tub', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.');
+		self::add('transitional', 'baths-showers', 'silver', 'Mirabelle "Provincetown" Tub', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.');
+		self::add('transitional', 'baths-showers', 'other', 'Kohler"Bellwether" Soaking Tub', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.');	
 	}
 }

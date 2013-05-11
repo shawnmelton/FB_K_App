@@ -107,7 +107,7 @@ define([
 							.attr("class", "step");
 
 						if(_this.step == 6) {
-							$("#next").hide(function() {
+							$("#next").fadeOut(function() {
 								$("#see-your-results").css("display", "block");
 							});
 						}

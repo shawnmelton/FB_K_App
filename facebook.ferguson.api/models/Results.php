@@ -14,10 +14,10 @@ class Results {
 		
 		// Not showing lights as of yet.
 		return array(
-			Products::get($style, 'toilets', $cost),
+			Products::get($style, 'lights', $cost),
 			Products::get($style, 'fixtures-faucets', $function),
-			Products::get($style, 'baths-showers', $color),
 			Products::get($style, 'toilets', $cost),
+			Products::get($style, 'baths-showers', $color),
 			Products::get($style, 'accessories', $color)
 		);
 	}
