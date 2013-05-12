@@ -92,14 +92,16 @@ define([
 				this.user = usr;
 				var _this = this;
 				$.getJSON(fbkUrlroot +"api/steps/load", {
-					number: this.step,
-					style: this.user.getStyle()
+					placement: this.step,
+					style: this.user.getStyle(),
+					version: this.user.get("version")
 				}, function(data) {
-					if(data.response && data.response.question) {
+					if(data.response && data.response.heading) {
 						_this.purpose = data.response.purpose; // What will the question help us determine?
 						_this.$el
 							.html(_.template(stepHTML, {
-								"title": data.response.question,
+								"heading": data.response.heading,
+								"subheading": data.response.subHeading,
 								"buckets": data.response.options,
 								"step": _this.step,
 								"domain": fbkUrlroot

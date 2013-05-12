@@ -14,6 +14,7 @@ define([
 			cost: "",
 			operation: "",
 			loggedIn: false,
+			version: 1,
 
 			/**
 			 * Based on the style score, get the style that applies to this user.
@@ -68,7 +69,8 @@ define([
 					color: "",
 					cost: "",
 					operation: "",
-					loggedIn: true
+					loggedIn: true,
+					version: 1
 				});
 
 				this.setHometown("Los Angeles, CA");
@@ -86,7 +88,8 @@ define([
 						userName: response.username,
 						modern: 0,
 						traditional: 0,
-						transitional: 0
+						transitional: 0,
+						version: 1
 					});
 
 					if(response.hometown && response.hometown.name) {
@@ -97,6 +100,7 @@ define([
 
 			/**
 			 * Clear out any scores the user may have.
+			 * Update version 
 			 */
 			resetScores: function() {
 				this.set({
@@ -107,6 +111,12 @@ define([
 					cost: "",
 					operation: ""
 				});
+
+				if(parseInt(this.get("version")) == 1) {
+					this.set({version: 2});
+				} else {
+					this.set({version: 1});
+				}
 			},
 
 			/**

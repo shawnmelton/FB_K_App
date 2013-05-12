@@ -112,7 +112,7 @@ define([
 			shareYourResultsClickCallback: function() {
 				FB.ui({
 					method: 'feed',
-					name: "I'm "+ this.user.getStyle(),
+					name: ("I'm "+ this.user.getStyle()).toUpperCase(),
 					link: 'http://swaydevsite.com/facebook.ferguson.com/',
 					picture: 'http://swaydevsite.com/facebook.ferguson.com/img/logo.png',
 					caption: 'Ferguson Asks, "What\'s Your Style?"',
