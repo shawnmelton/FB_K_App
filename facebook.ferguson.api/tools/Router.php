@@ -5,8 +5,6 @@
  */
 class Router {
 	static function run() {
-		header('Content-type: text/plain');
-
 		$bits = explode('/', str_replace($_SERVER['QUERY_STRING'], '', $_SERVER['REQUEST_URI']));
 		$siteroot = dirname(dirname(__FILE__));
 		

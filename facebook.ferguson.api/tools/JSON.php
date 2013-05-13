@@ -5,6 +5,7 @@
  */
 class JSON {
 	public static function response($msg, $code) {
+		header('Content-type: text/plain');
 		return json_encode(array(
 			'response' => $msg,
 			'code' => $code

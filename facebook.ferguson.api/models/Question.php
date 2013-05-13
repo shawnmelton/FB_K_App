@@ -14,6 +14,29 @@ class Question {
 		$this->version = $v;
 	}
 
+	/**
+	 * Format the cost, color and function options to the necessary format.
+	 */
+	private function generateOptionsArr($options, $version, $folder) {
+		return array(
+			array(
+				'name' => $options[$version - 1][0]['text'],
+				'src' => strtolower($folder .'/'. $options[$version - 1][0]['value'] .'-v'. $version .'.png'),
+				'value' => strtolower($options[$version - 1][0]['value'])
+			),
+			array(
+				'name' => $options[$version - 1][1]['text'],
+				'src' => strtolower($folder .'/'. $options[$version - 1][1]['value'] .'-v'. $version .'.png'),
+				'value' => strtolower($options[$version - 1][1]['value'])
+			),
+			array(
+				'name' => $options[$version - 1][2]['text'],
+				'src' => strtolower($folder .'/'. $options[$version - 1][2]['value'] .'-v'. $version .'.png'),
+				'value' => strtolower($options[$version - 1][2]['value'])
+			)
+		);
+	}
+
 	public function getArray() {
 		return array(
 			'heading' => $this->getHeading(),
@@ -23,44 +46,107 @@ class Question {
 		);
 	}
 
+	/**
+	 * Color Options are: Gold, Silver, Other.
+	 */
 	private function getColorOptions() {
-		return array(
+		$options = array(
 			array(
-				'name' => 'Gold',
-				'src' => $this->style .'/color/gold-v'. $this->version .'.png',
-				'value' => 'gold'
-			),
-			array(
-				'name' => 'Silver',
-				'src' => $this->style .'/color/silver-v'. $this->version .'.png',
-				'value' => 'silver'
-			),
-			array(
-				'name' => 'Other',
-				'src' => $this->style .'/color/other-v'. $this->version .'.png',
-				'value' => 'other'
+				array(
+					'text' => 'Gold',
+					'value' => 'gold'
+				), array(
+					'text' => 'Silver',
+					'value' => 'silver'
+				), array(
+					'text' => 'Funky',
+					'value' => 'other'
+				)
+			), array(
+				array(
+					'text' => 'Autumn',
+					'value' => 'gold'
+				), array(
+					'text' => 'Winter',
+					'value' => 'silver'
+				), array(
+					'text' => 'Spring',
+					'value' => 'other'
+				)
+			), array(
+				array(
+					'text' => 'Warm Tones',
+					'value' => 'gold'
+				), array(
+					'text' => 'Cold Tones',
+					'value' => 'silver'
+				), array(
+					'text' => 'Bold tones',
+					'value' => 'other'
+				)
+			), array(
+				array(
+					'text' => 'Saucer and plate',
+					'value' => 'gold'
+				), array(
+					'text' => 'Stainless thermos',
+					'value' => 'silver'
+				), array(
+					'text' => 'Crazy mug',
+					'value' => 'other'
+				)
 			)
 		);
+
+		// Default to 1 if its out of scope.
+		$version = !isset($options[$this->version - 1]) ? 1 : $this->version;
+		return $this->generateOptionsArr($options, $version, $this->style .'/color');
 	}
 
+	/**
+	 * Cost Options are: Low, High, Moderate.
+	 */
 	private function getCostOptions() {
-		return array(
+		$options = array(
 			array(
-				'name' => 'High',
-				'src' => $this->style .'/cost/high-v'. $this->version .'.png',
-				'value' => 'high'
-			),
-			array(
-				'name' => 'Moderate',
-				'src' => $this->style .'/cost/moderate-v'. $this->version .'.png',
-				'value' => 'moderate'
-			),
-			array(
-				'name' => 'Low',
-				'src' => $this->style .'/cost/low-v'. $this->version .'.png',
-				'value' => 'low'
+				array(
+					'text' => 'Something quick at home',
+					'value' => 'low'
+				), array(
+					'text' => '5-star restaurant',
+					'value' => 'high'
+				), array(
+					'text' => 'A local eatery',
+					'value' => 'moderate'
+				)
+			), array(
+				array(
+					'text' => 'Out on the lawn',
+					'value' => 'low'
+				), array(
+					'text' => 'Backstage passes',
+					'value' => 'high'
+				), array(
+					'text' => 'Row K, Seat 6',
+					'value' => 'moderate'
+				)
+			), array(
+				array(
+					'text' => 'First class',
+					'value' => 'high'
+				), array(
+					'text' => 'Coach',
+					'value' => 'moderate'
+				), array(
+					'text' => '70 MPH on the highway',
+					'value' => 'low'
+				)
 			)
 		);
+
+		// Default to 1 if its out of scope.
+		$version = !isset($options[$this->version - 1]) ? 1 : $this->version;
+		return $this->generateOptionsArr($options, $version, $this->style .'/cost');
 	}
 
 	private function getHeading() {
@@ -89,24 +175,61 @@ class Question {
 		return array();
 	}
 
+	/**
+	 * Function Options are: Low, Moderate, High.
+	 */
 	private function getOperationOptions() {
-		return array(
+		$options = array(
 			array(
-				'name' => 'High',
-				'src' => $this->style .'/cost/high-v'. $this->version .'.png',
-				'value' => 'high'
-			),
-			array(
-				'name' => 'Moderate',
-				'src' => $this->style .'/cost/moderate-v'. $this->version .'.png',
-				'value' => 'moderate'
-			),
-			array(
-				'name' => 'Low',
-				'src' => $this->style .'/cost/low-v'. $this->version .'.png',
-				'value' => 'low'
+				array(
+					'text' => 'Under 30 minutes',
+					'value' => 'low'
+				), array(
+					'text' => '30 minutes to an hour',
+					'value' => 'moderate'
+				), array(
+					'text' => 'Over an hour',
+					'value' => 'high'
+				)
+			), array(
+				array(
+					'text' => 'Get in and get out',
+					'value' => 'low'
+				), array(
+					'text' => 'Wash, rinse, and repeat',
+					'value' => 'moderate'
+				), array(
+					'text' => 'Sing karaoke \'til the water runs cold',
+					'value' => 'high'
+				)
+			), array(
+				array(
+					'text' => 'Almost never',
+					'value' => 'high'
+				), array(
+					'text' => 'Every once in a while',
+					'value' => 'moderate'
+				), array(
+					'text' => 'Every day',
+					'value' => 'low'
+				)
+			), array(
+				array(
+					'text' => 'Almost never',
+					'value' => 'low'
+				), array(
+					'text' => 'Every once in a while',
+					'value' => 'moderate'
+				), array(
+					'text' => 'All the time',
+					'value' => 'high'
+				)
 			)
 		);
+
+		// Default to 1 if its out of scope.
+		$version = !isset($options[$this->version - 1]) ? 1 : $this->version;
+		return $this->generateOptionsArr($options, $version, $this->style .'/function');
 	}
 
 	private function getPurpose() {
@@ -122,38 +245,137 @@ class Question {
 		return '';
 	}
 
+	/**
+	 * Style options are presented as follows: Traditional, Modern, Transitional
+	 */
 	private function getStyleOptions() {
-		return array(
+		$options = array(
 			array(
-				'name' => 'Modern',
-				'src' => 'modern/question-'. $this->placement .'-v'. $this->version .'.png',
-				'value' => 'modern'
-			),
-			array(
-				'name' => 'Transitional',
-				'src' => 'transitional/question-'. $this->placement .'-v'. $this->version .'.png',
-				'value' => 'transitional'
-			),
-			array(
-				'name' => 'Traditional',
-				'src' => 'traditional/question-'. $this->placement .'-v'. $this->version .'.png',
-				'value' => 'traditional'
+				array(
+					'text' => 'Roses',
+					'value' => 'Traditional'
+				), array(
+					'text' => 'Orchids',
+					'value' => 'modern'
+				), array(
+					'text' => 'Daises',
+					'value' => 'transitional'
+				)
+			), array(
+				array(
+					'text' => 'A glass of red',
+					'value' => 'Traditional'
+				), array(
+					'text' => 'A layered martini',
+					'value' => 'modern'
+				), array(
+					'text' => 'A craft beer',
+					'value' => 'transitional'
+				)
+			), array(
+				array(
+					'text' => 'Indie films',
+					'value' => 'modern'
+				), array(
+					'text' => 'Dramas',
+					'value' => 'traditional'
+				), array(
+					'text' => 'Romantic comedies',
+					'value' => 'transitional'
+				)
+			), array(
+				array(
+					'text' => 'An island getaway',
+					'value' => 'traditional'
+				), array(
+					'text' => 'An Italian vineyard tour',
+					'value' => 'transitional'
+				), array(
+					'text' => 'New York Fashion Week',
+					'value' => 'modern'
+				)
+			), array(
+				array(
+					'text' => 'At a beachouse with friends',
+					'value' => 'transitional'
+				), array(
+					'text' => 'At home with the bubbly',
+					'value' => 'traditional'
+				), array(
+					'text' => 'At an invite-only party',
+					'value' => 'modern'
+				)
 			)
 		);
+
+		$index = ((($this->version - 1) * 3) + $this->placement) - 1;
+		if($index >= count($options)) {
+			$index %= count($options);
+		}
+
+		return $this->generateOptionsArr($options, ($index + 1), 'style-questions');
+	}
+
+	/**
+	 * Rotate through the total headings, making sure we display a unique
+	 * question set (3 questions) each time.
+	 */
+	private function getStyleSubheading() {
+		$options = array(
+			'I\'d most like to receive a bouquet of:',
+			'On a night out with friends I\'ll order a:',
+			'My favorite flicks are usually:',
+			'My dream vacation would be:',
+			'I\'d rather spend New Year\'s Eve:'
+		);
+
+		$index = ((($this->version - 1) * 3) + $this->placement) - 1;
+		if($index >= count($options)) {
+			$index %= count($options);
+		}
+
+		return isset($options[$index]) ? $options[$index] : '';
 	}
 
 	private function getSubheading() {
 		switch($this->placement) {
 			case 1:
 			case 2:
-			case 3:
-			case 5:
-			case 6: return 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.';
+			case 3: return $this->getStyleSubheading();
 			
 			// Color
-			case 4: return $this->version == 1 ? 
-				'What color is most of your jewelry?' : 
-				'Which is your favorite color pair of shoes?';
+			case 4: 
+				switch($this->version) {
+					case 1: return 'My favorite pair of earrings are:';
+					case 2: return 'My favorite season is:';
+					case 3: return 'I typically go for:';
+					case 4: return 'Which of these looks most like your coffee cup?';
+				}
+
+				return '';
+
+			// Cost
+			case 5: 
+				switch($this->version) {
+					case 1: return 'My typical dinner is:';
+					case 2: return 'The type of tickets I usually purchase are:';
+					case 3: return 'When I fly, I typically go:';
+					case 4: return 'My typical dinner is:'; // Temporary fix since we are missing 4th heading for this category.
+				}
+
+				return '';
+
+			// Function
+			case 6: 
+				switch($this->version) {
+					case 1: return 'I spend about this much time getting ready:';
+					case 2: return 'In the shower I:';
+					case 3: return 'I take a bath:';
+					case 4: return 'I enjoy massages:';
+				}
+
+				return '';
+
 		}
 
 		return '';

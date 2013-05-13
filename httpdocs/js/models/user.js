@@ -112,8 +112,9 @@ define([
 					operation: ""
 				});
 
-				if(parseInt(this.get("version")) == 1) {
-					this.set({version: 2});
+				var version = parseInt(this.get("version"));
+				if(version < 4) {
+					this.set({version: version + 1});
 				} else {
 					this.set({version: 1});
 				}
