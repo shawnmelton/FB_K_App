@@ -42,7 +42,7 @@ define([
 					state: this.user.get("state")
 				}, function(data) {
 					if(data.response && data.response.street_address) {
-						$("#showroom-address").html(data.response.street_address +", "+ 
+						$("#my-showroom > h5").html(data.response.street_address +", "+ 
 							data.response.city +", "+ data.response.state +" "+ data.response.zip_code).show();
 						$("#get-directions").attr("href", "https://maps.google.com?q="+ data.response.street_address +"+"+ 
 							data.response.city +"+"+ data.response.state +"+"+ data.response.zip_code);

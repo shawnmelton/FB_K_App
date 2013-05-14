@@ -200,22 +200,16 @@ html {
 				display: block;
 				margin: 0 auto;
 			}
-			>h4, >p { text-align: center; }
-			>h4 {
-				margin: 10px 0 5px;
-				color: #666;
-				font-weight: normal;
-				font-size: @fontSize + 3;
-			}
 			>p {
 				width: 670px;
 				margin: 25px auto;
 				color: #666;
+				text-align: center;
 			}
 		}
 
 		#products {
-			margin: 25px 0 40px;
+			margin: 25px 0 10px;
 
 			&:after,
 			div:after {
@@ -228,90 +222,124 @@ html {
 				float: left;
 				width: @productWidth;
 				padding: 0 10px 0 20px;
-			}
-				>div > img {
+
+				>img {
 					float: left;
 					margin: 0 15px 50px 0;
 					border: 1px solid #d2d2d2;
 					width: 178px;
 				}
-				>div > strong,
-				>div > h3 { font-size: @fontSize + 3; }
-				>div > h3 { 
-					margin: 20px 0 25px;
+				>strong,
+				>h3 { font-size: @fontSize + 3; }
+				>h3 { 
+					margin: 0 0 25px;
 					color: @blue;
+					line-height: 20px;
 				}
-				>div > strong {
+				>strong {
 					display: block;
 					margin-bottom: 1px;
 					color: #999;
 				}
-				>div > p {
+				>p {
 					margin: 0;
 					color: #666;
 					font-size: @fontSize;
 					line-height: 17px;
 				}
-			>div#retake-quiz {
+			}
+
+			>div#my-showroom {
 				width: @productWidth - 35;
-				padding: 10px 20px 25px;
+				padding: 20px 20px 25px;
 				margin-left: 25px;
-				background: @retakeQuizDarkBlue;
-				background: -o-linear-gradient(@retakeQuizDarkBlue, @retakeQuizLightBlue);
-				background: -ms-linear-gradient(@retakeQuizDarkBlue, @retakeQuizLightBlue);
-				background: linear-gradient(@retakeQuizDarkBlue, @retakeQuizLightBlue);
+				text-align: center;
+
+				&:after,
+				div:after {
+					clear: both;
+					content: " ";
+					display: table;
+				}
 
 				>h4 {
-					color: #fff;
-					margin: 0 0 10px;
-					font-size: @fontSize + 22;
-				}
-				>p {
-					color: #fff;
-					margin: 0;
+					margin: 10px 0 5px;
+					color: #666;
+					font-weight: normal;
 					font-size: @fontSize;
 				}
-				>a {
-					display: block;
-					height: 43px;
-					width: 172px;
-					background: url(../img/retakeQuizButton.png) no-repeat 0 0;
-					margin: 30px auto 0;
-					cursor: pointer;
-					outline: none;
-
-					&:hover { background-position: 0 -43px; }
-					&:active { background-position: 0 -86px; }
-
-					>span { display: none; }
+				>h5 {
+					font-size: @fontSize;
+					font-weight: bold;
+					margin: 1px 0 15px;
+					color: @blue;
+					display: none;
 				}
+				>a#get-directions {
+					background-position: 0 -120px;
+					margin: 8px auto 15px;
+
+					&:hover { background-position: -165px -120px; }
+					&:active { background-position: -330px -120px; }
+				}
+				>a#download-results {
+					display: block;
+					float: left;
+					outline: none;
+					cursor: pointer;
+					font-weight: bold;
+					color: @blue;
+					text-decoration: none;
+					font-size: @fontSize;
+					height: 20px;
+					line-height: 20px;
+					padding-right: 24px;
+					margin-left: 87px;
+					background: url(../img/pdf-icon.png) no-repeat top right;
+
+					&:hover { color: #369; }
+					&:active { color: #222; }
+				}
+			}	
+		}
+
+		#retake-quiz {
+			width: 434px;
+			padding: 25px 58px 0;
+			margin: 0 auto;
+			background: url(../img/retakeQuizDivider.png) no-repeat 0 0;
+			text-align: center;
+
+			>h4 {
+				color: #999;
+				margin: 0 0 20px;
+				font-size: @fontSize + 10;
+			}
+			>p {
+				color: #666;
+				margin: 0;
+				font-size: @fontSize;
+			}
+			>a {
+				display: block;
+				height: 43px;
+				width: 172px;
+				background: url(../img/retakeQuizButton.png) no-repeat 0 0;
+				margin: 30px auto 0;
+				cursor: pointer;
+				outline: none;
+
+				&:hover { background-position: 0 -43px; }
+				&:active { background-position: 0 -86px; }
+
+				>span { display: none; }
 			}
 		}
-			
-
-			a#get-directions {
-				background-position: 0 -120px;
-				margin-top: 5px;
-
-				&:hover { background-position: -165px -120px; }
-				&:active { background-position: -330px -120px; }
-			}
-				
 			a#share-your-results { 
 				background-position: 0 -160px;
 
 				&:hover { background-position: -165px -160px; }
 				&:active { background-position: -330px -160px; }
-			}
-				
-
-			#showroom-address {
-				font-size: @fontSize + 3;
-				font-weight: bold;
-				margin: 1px 0 15px;
-				color: @blue;
-				text-align: center;
-				display: none;
 			}
 
 		.buttonShadow {

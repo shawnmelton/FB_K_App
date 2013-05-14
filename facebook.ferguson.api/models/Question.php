@@ -100,7 +100,7 @@ class Question {
 
 		// Default to 1 if its out of scope.
 		$version = !isset($options[$this->version - 1]) ? 1 : $this->version;
-		return $this->generateOptionsArr($options, $version, $this->style .'/color');
+		return $this->generateOptionsArr($options, $version, 'questions/color');
 	}
 
 	/**
@@ -146,17 +146,17 @@ class Question {
 
 		// Default to 1 if its out of scope.
 		$version = !isset($options[$this->version - 1]) ? 1 : $this->version;
-		return $this->generateOptionsArr($options, $version, $this->style .'/cost');
+		return $this->generateOptionsArr($options, $version, 'questions/cost');
 	}
 
 	private function getHeading() {
 		switch($this->placement) {
-		 	case 1: return 'An <span>Expression</span> Of You.';
-		 	case 2: return 'Your <span>Taste.</span> Your <span>Vision.</span>';
-		 	case 3: return 'A Choice <span>All Your Own.</span>';
-		 	case 4: return '<span>Color</span> To Canvas.';
-		 	case 5: return '<span>Perfection</span> Is Priceless.';
-		 	case 6: return 'The <span>Beauty</span> In Every Day.';
+		 	case 1: return 'An Expression Of You.';
+		 	case 2: return 'Your Taste. Your Vision.';
+		 	case 3: return 'A Choice All Your Own.';
+		 	case 4: return 'Color To Canvas.';
+		 	case 5: return 'Perfection Is Priceless.';
+		 	case 6: return 'The Beauty In Every Day.';
 		}
 		
 		return '';
@@ -199,7 +199,7 @@ class Question {
 					'text' => 'Wash, rinse, and repeat',
 					'value' => 'moderate'
 				), array(
-					'text' => 'Sing karaoke \'til the water runs cold',
+					'text' => 'Sing \'til the water runs cold',
 					'value' => 'high'
 				)
 			), array(
@@ -229,7 +229,7 @@ class Question {
 
 		// Default to 1 if its out of scope.
 		$version = !isset($options[$this->version - 1]) ? 1 : $this->version;
-		return $this->generateOptionsArr($options, $version, $this->style .'/function');
+		return $this->generateOptionsArr($options, $version, 'questions/function');
 	}
 
 	private function getPurpose() {
@@ -313,7 +313,7 @@ class Question {
 			$index %= count($options);
 		}
 
-		return $this->generateOptionsArr($options, ($index + 1), 'style-questions');
+		return $this->generateOptionsArr($options, ($index + 1), 'questions/style');
 	}
 
 	/**
@@ -323,7 +323,7 @@ class Question {
 	private function getStyleSubheading() {
 		$options = array(
 			'I\'d most like to receive a bouquet of:',
-			'On a night out with friends I\'ll order a:',
+			'On a night out with friends I\'ll order:',
 			'My favorite flicks are usually:',
 			'My dream vacation would be:',
 			'I\'d rather spend New Year\'s Eve:'
@@ -369,7 +369,7 @@ class Question {
 			case 6: 
 				switch($this->version) {
 					case 1: return 'I spend about this much time getting ready:';
-					case 2: return 'In the shower I:';
+					case 2: return 'In the shower I usually:';
 					case 3: return 'I take a bath:';
 					case 4: return 'I enjoy massages:';
 				}
