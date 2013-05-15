@@ -46,7 +46,7 @@ define([
 					}
 
 					Backbone.history.start({
-						pushState: true
+						pushState: !!(window.history && window.history.pushState)
 					});
 				});
 			},

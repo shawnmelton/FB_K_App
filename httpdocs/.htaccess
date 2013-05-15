@@ -13,3 +13,13 @@ RewriteRule . index.html [L]
 <FilesMatch "\.(js|css|html)$">
 	Header append Vary Accept-Encoding
 </FilesMatch>
+
+# gzip compression.
+<IfModule mod_deflate.c>
+	# html, xml, css, and js:
+	AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/x-javascript text/javascript application/javascript application/json
+	# webfonts and svg:
+	<FilesMatch "\.(ttf|otf|eot|svg)$" >
+		SetOutputFilter DEFLATE
+	</FilesMatch>
+</IfModule>

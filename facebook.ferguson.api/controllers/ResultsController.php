@@ -5,13 +5,13 @@
  */
 class ResultsController {
 	public function get() {
+		Results::setUserInfo();
 		echo JSON::response(Results::determine(), 200);
 	}
 
 	public function pdf() {
 		$pdf = new PDF();
-		$pdf->setStyle('transitional');
-		$pdf->setUserInfo('John', 'john.doe');
+		$pdf->setInfo();
 		$pdf->generate();
 	}
 }

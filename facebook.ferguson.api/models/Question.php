@@ -110,7 +110,7 @@ class Question {
 		$options = array(
 			array(
 				array(
-					'text' => 'Something quick at home',
+					'text' => 'Something quick<br>at home',
 					'value' => 'low'
 				), array(
 					'text' => '5-star restaurant',
@@ -138,7 +138,7 @@ class Question {
 					'text' => 'Coach',
 					'value' => 'moderate'
 				), array(
-					'text' => '70 MPH on the highway',
+					'text' => '70 MPH on<br>the highway',
 					'value' => 'low'
 				)
 			)
@@ -185,7 +185,7 @@ class Question {
 					'text' => 'Under 30 minutes',
 					'value' => 'low'
 				), array(
-					'text' => '30 minutes to an hour',
+					'text' => '30 minutes to<br>an hour',
 					'value' => 'moderate'
 				), array(
 					'text' => 'Over an hour',
@@ -196,10 +196,10 @@ class Question {
 					'text' => 'Get in and get out',
 					'value' => 'low'
 				), array(
-					'text' => 'Wash, rinse, and repeat',
+					'text' => 'Wash, rinse,<br>and repeat',
 					'value' => 'moderate'
 				), array(
-					'text' => 'Sing \'til the water runs cold',
+					'text' => 'Sing \'til the water<br>runs cold',
 					'value' => 'high'
 				)
 			), array(
@@ -288,21 +288,21 @@ class Question {
 					'text' => 'An island getaway',
 					'value' => 'traditional'
 				), array(
-					'text' => 'An Italian vineyard tour',
+					'text' => 'An Italian<br>vineyard tour',
 					'value' => 'transitional'
 				), array(
-					'text' => 'New York Fashion Week',
+					'text' => 'New York<br>Fashion Week',
 					'value' => 'modern'
 				)
 			), array(
 				array(
-					'text' => 'At a beachouse with friends',
+					'text' => 'At a beachouse<br>with friends',
 					'value' => 'transitional'
 				), array(
-					'text' => 'At home with the bubbly',
+					'text' => 'At home with<br>the bubbly',
 					'value' => 'traditional'
 				), array(
-					'text' => 'At an invite-only party',
+					'text' => 'At an invite-<br>only party',
 					'value' => 'modern'
 				)
 			)

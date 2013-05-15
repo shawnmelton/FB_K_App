@@ -21,6 +21,9 @@ class PDF {
 		$this->pdf->AddFont('myriadpro-bold', '', 'MyriadPro-Bold.php');
 
 		$this->imgPath = dirname(dirname(dirname(__FILE__))) .'/httpdocs/img';
+		if(!file_exists($this->imgPath)) {
+			$this->imgPath = dirname(dirname(dirname(__FILE__))) .'/facebook.ferguson.com/img';
+		}
 	}
 
 	public function generate() {
@@ -40,12 +43,14 @@ class PDF {
 		$this->pdf->Output('Ferguson-Results.pdf', 'I');
 	}
 
-	public function setStyle($style) {
-		$this->style = $style;
-	}
+	public function setInfo() {
+		$info = array();
+		if(isset($_SESSION['_userInfo']) && is_array($_SESSION['_userInfo']) && count($_SESSION['_userInfo'])) {
+			$info = $_SESSION['_userInfo'];
+		}
 
-	public function setUserInfo($firstName, $userName) {
-		$this->firstName = $firstName;
-		$this->userName = $userName;
+		$this->style = isset($info['style']) ? $info['style'] : '';
+		$this->firstName = isset($info['firstName']) ? $info['firstName'] : '';
+		$this->userName = isset($info['userName']) ? $info['userName'] : '';
 	}
 }

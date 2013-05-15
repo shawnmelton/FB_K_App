@@ -9,16 +9,13 @@ define([
 	], function($, _, Backbone, homeView, stepView, resultsView, User){
 		var AppRouter = Backbone.Router.extend({
 			routes: {
-				'facebook.ferguson.com/*actions': 'show404'
-			},
-
-			initialize: function() {				
-				this.route(/^(facebook.ferguson.com){0,1}(\/){0,1}$/, "showHome");
-				this.route(/^(facebook.ferguson.com){0,1}(\/){0,1}questions\/([0-9]+)$/, "showStep");
-				this.route(/^(facebook.ferguson.com){0,1}(\/){0,1}see-your-results$/, "showSeeYourResults");
+				'(:domain/)': 'showHome',
+				'(:domain/)questions/:number': 'showStep',
+				'(:domain/)see-your-results': 'showSeeYourResults',
+				'(:domain/)*actions': 'show404'
 			},
 			
-			showHome: function(domain, slash){
+			showHome: function(domain){
 				homeView.render(User);
 			},
 
@@ -26,7 +23,7 @@ define([
 				appRouter.navigate(fbkUrlroot, {trigger:true, replace:true});
 			},
 
-			showSeeYourResults: function(domain, slash) {
+			showSeeYourResults: function(domain) {
 				// Make sure the user has logged in.
 				if(!User.get("isLoggedIn")) {
 					appRouter.navigate(fbkUrlroot, {trigger:true, replace:true});
@@ -36,7 +33,7 @@ define([
 				resultsView.render(User);
 			},
 
-			showStep: function(domain, slash, number) {
+			showStep: function(domain, number) {
 				// Make sure the user has logged in.
 				if(!User.get("isLoggedIn")) {
 					appRouter.navigate(fbkUrlroot, {trigger:true, replace:true});
@@ -63,7 +60,7 @@ define([
 
 			if(fbkDevMode) { // Start routing immediately if in dev mode.
 				Backbone.history.start({
-					pushState: true
+					pushState: !!(window.history && window.history.pushState)
 				});
 			}
 		};

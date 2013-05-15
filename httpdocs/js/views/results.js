@@ -61,7 +61,9 @@ define([
 					style: this.user.getStyle(),
 					color: this.user.get("color"),
 					cost: this.user.get("cost"),
-					operation: this.user.get("operation")
+					operation: this.user.get("operation"),
+					userName: this.user.get("userName"),
+					firstName: this.user.get("firstName")
 				}, function(data) {
 					_this.$el
 						.html(_.template(resultsHTML, {

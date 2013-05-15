@@ -4,21 +4,55 @@
  * @author Shawn Melton <shawn.a.melton@gmail.com>
  */
 class Results {
+	static private $userInfo = array();
+
 	public static function determine() {
-		$style = isset($_GET['style']) ? strtolower($_GET['style']) : '';
-		$color = isset($_GET['color']) ? strtolower($_GET['color']) : '';
-		$cost = isset($_GET['cost']) ? strtolower($_GET['cost']) : '';
-		$function = isset($_GET['operation']) ? strtolower($_GET['operation']) : '';
+		if(!count(self::$userInfo)) {
+			$cachedInfo = self::loadUserInfo();
+			if($cachedInfo === false) {
+				return self::$userInfo;
+			}
+
+			// Load cached data since there wasn't any info set.
+			self::$userInfo = $cachedInfo;
+		}
 		
 		Products::set();
 		
 		// Not showing lights as of yet.
 		return array(
-			Products::get($style, 'lights', $cost),
-			Products::get($style, 'fixtures-faucets', $function),
-			Products::get($style, 'toilets', $cost),
-			Products::get($style, 'baths-showers', $color),
-			Products::get($style, 'accessories', $color)
+			Products::get(self::$userInfo['style'], 'lights', self::$userInfo['cost']),
+			Products::get(self::$userInfo['style'], 'fixtures-faucets', self::$userInfo['function']),
+			Products::get(self::$userInfo['style'], 'toilets', self::$userInfo['cost']),
+			Products::get(self::$userInfo['style'], 'baths-showers', self::$userInfo['color']),
+			Products::get(self::$userInfo['style'], 'accessories', self::$userInfo['color'])
 		);
+	}
+
+	/**
+	 * Load the cached information, if it exists.
+	 */
+	private static function loadUserInfo() {
+		print_r($_SESSION['_userInfo']); exit;
+
+		if(isset($_SESSION['_userInfo']) && is_array($_SESSION['_userInfo']) && count($_SESSION['_userInfo'])) {
+			return $_SESSION['_userInfo'];
+		}
+
+		return false;
+	}
+
+	public static function setUserInfo() {
+		self::$userInfo = array(
+			'firstName' => isset($_GET['firstName']) ? $_GET['firstName'] : '',
+			'userName' => isset($_GET['userName']) ? $_GET['userName'] : '',
+			'style' => isset($_GET['style']) ? strtolower($_GET['style']) : '',
+			'color' => isset($_GET['color']) ? strtolower($_GET['color']) : '',
+			'cost' => isset($_GET['cost']) ? strtolower($_GET['cost']) : '',
+			'function' => isset($_GET['operation']) ? strtolower($_GET['operation']) : ''
+		);
+
+		// Cache user information in case user wants to download results
+		$_SESSION['_userInfo'] = self::$userInfo;
 	}
 }
