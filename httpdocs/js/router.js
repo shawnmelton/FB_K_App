@@ -49,6 +49,10 @@ define([
 					return;
 				}
 
+				if(number == 1) { // reset the background
+					$("#wrapper").fadeIn();
+				}
+
 				stepView.render(number, User);
 			}
 		});

@@ -88,14 +88,17 @@ define([
 			 * Reset the user's selections, but present a new set of preference questions.
 			 */
 			retakeQuiz: function() {
-				$("#wrapper, #portrait").removeClass(this.user.getStyle());
-				this.user.resetScores();
-				appRouter.navigate(fbkUrlroot +"questions/1", {
-					trigger:true,
-					replace:true
-				});
+				var _this = this;
 
-				// TODO change questions.
+				// Transition back to the first question.
+				$("#wrapper").fadeOut(250, function() {
+					$("#wrapper, #portrait").removeClass(_this.user.getStyle());
+					_this.user.resetScores();
+					appRouter.navigate(fbkUrlroot +"questions/1", {
+						trigger:true,
+						replace:true
+					});
+				});
 			},
 
 			setStyleMessage: function() {
