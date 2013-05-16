@@ -37,8 +37,8 @@ class Products {
 		self::add('modern', 'toilets', 'moderate', 'Kohler "Veil" Wall Hung Toilet', 'Kohler\'s "Veil" wall hung toilet saves space and water with its innovative and inspiring design.');
 		self::add('modern', 'toilets', 'low', 'Kohler "Persuade Circ" Two Piece Toilet', 'The "Persuade Circ" toilet from Kohler lends a contemporary and cost-effective flare to your modern bathroom.');
 		self::add('modern', 'baths-showers', 'gold', 'Kohler "Reve" Freestanding Tub', 'The striking "Reve" freestanding tub by Kohler accomodates a deep, relaxing soak for a modern woman.');
-		self::add('modern', 'baths-showers', 'silver', 'Kohler "Expanse" Soaking Tub', 'Simple but spacious, the "Escale" tub by Kohler offers a relaxing bath with a little extra room to soak.');
-		self::add('modern', 'baths-showers', 'other', 'Kohler "Escale" Tub', 'With its curved apron, the Kohler "Expanse" tub is a great choice for a compact bathroom.');
+		self::add('modern', 'baths-showers', 'silver', 'Kohler "Escale" Tub', 'Simple but spacious, the "Escale" tub by Kohler offers a relaxing bath with a little extra room to soak.');
+		self::add('modern', 'baths-showers', 'other', 'Kohler "Expanse" Soaking Tub', 'With its curved apron, the Kohler "Expanse" tub is a great choice for a compact bathroom.');
 
 		// Traditional
 		self::add('traditional', 'lights', 'high', 'Metropolitan 3 Bulb Bathroom Light', 'Classic as it is classy, this three bulb bathroom light in polished nickel from Metropolitan Lighting Fixture Co. exudes elegance.');
@@ -71,7 +71,7 @@ class Products {
 		self::add('transitional', 'toilets', 'moderate', 'Kohler "Tresham" Two Piece Toilet', '"Tresham" by Kohler is elegantly simplistic, offering you a just-right toilet at a just-right price.');
 		self::add('transitional', 'toilets', 'low', 'Kohler "Kelston" Two Piece Toilet', 'The "Kelston" two-piece toilet by Kohler combines the old with the new at an affordable price.');
 		self::add('transitional', 'baths-showers', 'gold', 'Kohler "Archer" Vibracoustic Tub', 'The "Archer" vibracoustic tub from Kohler serves as an impressive centerpiece to any transitional bathroom.');
-		self::add('transitional', 'baths-showers', 'silver', 'Mirabelle "Provincetown" Tub', 'The "Bellwether" soaking tub by Kohler offers us that "just-right" fit to your transitional bathroom.');
+		self::add('transitional', 'baths-showers', 'silver', 'Kohler "Bellwether" Soaking Tub', 'The "Bellwether" soaking tub by Kohler offers us that "just-right" fit to your transitional bathroom.');
 		self::add('transitional', 'baths-showers', 'other', 'Kohler "Seaforth" Tub', 'The "Seaforth" tub by Kohler a durable choice for a wide range of transitional bathrooms.');
 	}
 }

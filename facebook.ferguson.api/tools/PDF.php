@@ -35,7 +35,7 @@ class PDF {
 
 		$this->pdf->SetY(25);
 
-		$this->pdf->SetFont('myriadpro-bold', '', 38);
+		$this->pdf->SetFont('myriadpro', '', 38);
 		$this->pdf->SetTextColor(1, 71, 107);
 		$this->pdf->MultiCell(0, 15, strtoupper($this->firstName .', You\'re '. $this->style), 0, 'C');
 
@@ -77,10 +77,40 @@ class PDF {
 	}
 
 	public function showProducts($products) {
-		$this->pdf->SetY($this->pdf->GetY() + 8);
-		foreach($products as $product) {
-			$this->pdf->Image($this->imgPath .'/'. $product['src'], 15, $this->pdf->GetY(), 50, 50);
-			// title & description too
+		$this->pdf->SetY($this->pdf->GetY()-10); // First line fix.
+		$this->pdf->SetFillColor(204, 204, 204);
+
+		$currentX = 0;
+		$currentY = 0;
+		foreach($products as $index => $product) {
+			if($index % 2 == 1) {
+				$currentX = 115;
+			} else {
+				$currentX = 15;
+				$currentY = $this->pdf->GetY() + 25;
+			}
+
+			$imgWidth = 35;
+			$this->pdf->SetXY($currentX-0.5, $currentY-0.5);
+			
+			// border for image
+			$this->pdf->Cell($imgWidth + 1, $imgWidth + 1, "", 0, 0, 'C', 1);
+			$this->pdf->Image($this->imgPath .'/'. $product['src'], $currentX, $currentY, $imgWidth, $imgWidth);
+
+			$this->pdf->SetXY($currentX + $imgWidth + 3, $currentY);
+			$this->pdf->SetFont('myriadpro-bold', '', 12);
+			$this->pdf->SetTextColor(1, 71, 107);
+			$this->pdf->MultiCell(45, 4.5, $product['title'], 0, 'L');
+
+			$this->pdf->SetXY($currentX + $imgWidth + 3, $this->pdf->GetY() + 4);
+			$this->pdf->SetFont('myriadpro-bold', '', 12);
+			$this->pdf->SetTextColor(153, 153, 153);
+			$this->pdf->MultiCell(45, 4.5, 'Why?', 0, 'L');
+
+			$this->pdf->SetXY($currentX + $imgWidth + 3, $this->pdf->GetY() + 1);
+			$this->pdf->SetFont('myriadpro', '', 10);
+			$this->pdf->SetTextColor(102, 102, 102);
+			$this->pdf->MultiCell(45, 4, $product['description'], 0, 'L');
 		}
 	}
 
