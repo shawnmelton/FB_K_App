@@ -39,10 +39,32 @@ class PDF {
 		$this->pdf->SetTextColor(1, 71, 107);
 		$this->pdf->MultiCell(0, 15, strtoupper($this->firstName .', You\'re '. $this->style), 0, 'C');
 
+		// Description of users style
+		$this->pdf->SetFont('myriadpro', '', 12);
+		$this->pdf->SetTextColor(102, 102, 102);
+		$this->pdf->SetXY(19, $this->pdf->GetY() + 5);
+		$this->pdf->MultiCell(170, 6, $this->getStyleDescription(), 0, 'C');
 
 		$this->pdf->Output('Ferguson-Results.pdf', 'I');
 	}
 
+	private function getStyleDescription() {
+		switch($this->style) {
+			case 'modern': return 'Sleek styling with European influences and an infusion of clean and sharp finishes suits you. Your Ferguson consultant can guide you through the endless modern design possibilities in our showrooms. Come by today and experience a gallery where you\'re the artist.';
+			case 'traditional': return 'You show a preference for timeless designs that include simple, symmetrical lines, with elegant details. Visit your nearby Ferguson showroom today and let one of our consultants help you bring your masterpiece to life.';
+		}
+
+		// Transitional
+		return 'Your tastes lie somewhere between traditional and contemporary looks, and your Ferguson consultant can help you merge those styles in a complimentary way. Visit a nearby Ferguson showroom and see, touch, and feel your home the way you want it, right now.';
+	}
+
+	public function out() {
+		$this->pdf->Output('Ferguson-Results.pdf', 'I');
+	}
+
+	/**
+	 * Set the user info (their selected style, first name and FB username)
+	 */
 	public function setInfo() {
 		$info = array();
 		if(isset($_SESSION['_userInfo']) && is_array($_SESSION['_userInfo']) && count($_SESSION['_userInfo'])) {
@@ -52,5 +74,33 @@ class PDF {
 		$this->style = isset($info['style']) ? $info['style'] : '';
 		$this->firstName = isset($info['firstName']) ? $info['firstName'] : '';
 		$this->userName = isset($info['userName']) ? $info['userName'] : '';
+	}
+
+	public function showProducts($products) {
+		$this->pdf->SetY($this->pdf->GetY() + 8);
+		foreach($products as $product) {
+			$this->pdf->Image($this->imgPath .'/'. $product['src'], 15, $this->pdf->GetY(), 50, 50);
+			// title & description too
+		}
+	}
+
+	public function showTop() {
+		$this->init();
+
+		$this->pdf->AddPage();
+		$this->pdf->Image($this->imgPath .'/'. $this->style .'/bg.png', 10, 10, 190);
+		$this->pdf->Image($this->imgPath .'/logo.png', 10, 10);
+
+		$this->pdf->SetY(25);
+
+		$this->pdf->SetFont('myriadpro-bold', '', 38);
+		$this->pdf->SetTextColor(1, 71, 107);
+		$this->pdf->MultiCell(0, 15, strtoupper($this->firstName .', You\'re '. $this->style), 0, 'C');
+
+		// Description of users style
+		$this->pdf->SetFont('myriadpro', '', 12);
+		$this->pdf->SetTextColor(102, 102, 102);
+		$this->pdf->SetXY(19, $this->pdf->GetY() + 5);
+		$this->pdf->MultiCell(170, 6, $this->getStyleDescription(), 0, 'C');
 	}
 }

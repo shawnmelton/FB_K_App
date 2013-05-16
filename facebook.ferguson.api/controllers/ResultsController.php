@@ -12,6 +12,8 @@ class ResultsController {
 	public function pdf() {
 		$pdf = new PDF();
 		$pdf->setInfo();
-		$pdf->generate();
+		$pdf->showTop();
+		$pdf->showProducts(Results::determine());
+		$pdf->out();
 	}
 }

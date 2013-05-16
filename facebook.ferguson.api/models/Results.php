@@ -10,7 +10,7 @@ class Results {
 		if(!count(self::$userInfo)) {
 			$cachedInfo = self::loadUserInfo();
 			if($cachedInfo === false) {
-				return self::$userInfo;
+				return array();
 			}
 
 			// Load cached data since there wasn't any info set.
@@ -33,8 +33,6 @@ class Results {
 	 * Load the cached information, if it exists.
 	 */
 	private static function loadUserInfo() {
-		print_r($_SESSION['_userInfo']); exit;
-
 		if(isset($_SESSION['_userInfo']) && is_array($_SESSION['_userInfo']) && count($_SESSION['_userInfo'])) {
 			return $_SESSION['_userInfo'];
 		}
