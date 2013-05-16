@@ -15,7 +15,7 @@ class Question {
 	}
 
 	/**
-	 * Format the cost, color and function options to the necessary format.
+	 * Format the cost, space and function options to the necessary format.
 	 */
 	private function generateOptionsArr($options, $version, $folder) {
 		return array(
@@ -47,9 +47,9 @@ class Question {
 	}
 
 	/**
-	 * Color Options are: Gold, Silver, Other.
+	 * Space Options are: Gold, Silver, Other.
 	 */
-	private function getColorOptions() {
+	private function getSpaceOptions() {
 		$options = array(
 			array(
 				array(
@@ -100,7 +100,7 @@ class Question {
 
 		// Default to 1 if its out of scope.
 		$version = !isset($options[$this->version - 1]) ? 1 : $this->version;
-		return $this->generateOptionsArr($options, $version, 'questions/color');
+		return $this->generateOptionsArr($options, $version, 'questions/space');
 	}
 
 	/**
@@ -167,7 +167,7 @@ class Question {
 			case 1:
 			case 2:
 			case 3: return $this->getStyleOptions();
-			case 4:	return $this->getColorOptions();
+			case 4:	return $this->getSpaceOptions();
 			case 5:	return $this->getCostOptions();
 			case 6: return $this->getOperationOptions();
 		}
@@ -237,7 +237,7 @@ class Question {
 		 	case 1:
 		 	case 2:
 		 	case 3: return 'style';
-		 	case 4: return 'color';
+		 	case 4: return 'space';
 		 	case 5: return 'cost';
 		 	case 6: return 'operation';
 		}
@@ -343,7 +343,7 @@ class Question {
 			case 2:
 			case 3: return $this->getStyleSubheading();
 			
-			// Color
+			// Space
 			case 4: 
 				switch($this->version) {
 					case 1: return 'My favorite pair of earrings are:';

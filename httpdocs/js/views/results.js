@@ -59,7 +59,7 @@ define([
 				var _this = this;
 				$.getJSON(fbkUrlroot +"api/results/get", {
 					style: this.user.getStyle(),
-					color: this.user.get("color"),
+					space: this.user.get("space"),
 					cost: this.user.get("cost"),
 					operation: this.user.get("operation"),
 					userName: this.user.get("userName"),

@@ -10,7 +10,7 @@ define([
 			lastName: "",
 			city: "",
 			state: "",
-			color: "",
+			space: "",
 			cost: "",
 			operation: "",
 			loggedIn: false,
@@ -66,7 +66,7 @@ define([
 					modern: 0,
 					traditional: 0,
 					transitional: 0,
-					color: "",
+					space: "",
 					cost: "",
 					operation: "",
 					loggedIn: true,
@@ -107,7 +107,7 @@ define([
 					modern: 0,
 					traditional: 0,
 					transitional: 0,
-					color: "",
+					space: "",
 					cost: "",
 					operation: ""
 				});

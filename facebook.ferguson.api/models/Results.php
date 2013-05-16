@@ -24,8 +24,8 @@ class Results {
 			Products::get(self::$userInfo['style'], 'lights', self::$userInfo['cost']),
 			Products::get(self::$userInfo['style'], 'fixtures-faucets', self::$userInfo['function']),
 			Products::get(self::$userInfo['style'], 'toilets', self::$userInfo['cost']),
-			Products::get(self::$userInfo['style'], 'baths-showers', self::$userInfo['color']),
-			Products::get(self::$userInfo['style'], 'accessories', self::$userInfo['color'])
+			Products::get(self::$userInfo['style'], 'baths-showers', self::$userInfo['space']),
+			Products::get(self::$userInfo['style'], 'accessories', self::$userInfo['cost'])
 		);
 	}
 
@@ -47,7 +47,7 @@ class Results {
 			'firstName' => isset($_GET['firstName']) ? $_GET['firstName'] : '',
 			'userName' => isset($_GET['userName']) ? $_GET['userName'] : '',
 			'style' => isset($_GET['style']) ? strtolower($_GET['style']) : '',
-			'color' => isset($_GET['color']) ? strtolower($_GET['color']) : '',
+			'space' => isset($_GET['space']) ? strtolower($_GET['space']) : '',
 			'cost' => isset($_GET['cost']) ? strtolower($_GET['cost']) : '',
 			'function' => isset($_GET['operation']) ? strtolower($_GET['operation']) : ''
 		);

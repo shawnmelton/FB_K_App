@@ -72,7 +72,7 @@ define([
 				if(this.step < 6 && chkdValue !== false) { // one of the buckets has been selected.
 					switch(this.purpose) {
 						case "style": this.user.scoreStyle(chkdValue); break;
-						case "color": this.user.set({color: chkdValue}); break;
+						case "space": this.user.set({space: chkdValue}); break;
 						case "cost": this.user.set({cost: chkdValue}); break;
 					}
 

@@ -53,6 +53,7 @@ html {
 			font-size: @fontSize + 3;
 			text-align: center;
 		}
+		.home > p { margin-bottom: 53px; }
 		.results > a,
 		.step > a,
 		.home > a { margin: 0 auto; }
@@ -74,16 +75,23 @@ html {
 		.results > h2,
 		.step > h2 {
 			margin: 35px 0 0;
-			font-size: @fontSize + 40;
-			line-height: 52px;
 			color: @blue;
 			text-transform: uppercase;
 			text-align: center;
-			text-shadow: 0 0 1px #000;
+			text-shadow: 1px 0 3px #aaa;
 
 			>span { font-weight: normal; }
 		}
-		.step > p { margin: 25px 150px; }
+		.step {
+			>h2 {
+				font-size: @fontSize + 24;
+				line-height: 36px;
+			}
+			>p {
+				margin: 25px 150px;
+				font-size: @fontSize + 5;
+			}
+		}
 		#buckets {
 			min-height: 230px;
 			padding: 0 0 25px 85px;
@@ -196,6 +204,8 @@ html {
 		.results {
 			>h2 {
 				margin-bottom: 30px;
+				font-size: @fontSize + 40;
+				line-height: 52px;
 
 				>span { font-weight: normal; }
 			}
