@@ -53,47 +53,47 @@ class Question {
 		$options = array(
 			array(
 				array(
-					'text' => 'Gold',
-					'value' => 'gold'
+					'text' => 'A Personal Pan',
+					'value' => 'other'
 				), array(
-					'text' => 'Silver',
+					'text' => 'A Medium Pie',
 					'value' => 'silver'
 				), array(
-					'text' => 'Funky',
-					'value' => 'other'
+					'text' => 'The Biggest One<br>They Have',
+					'value' => 'gold'
 				)
 			), array(
 				array(
-					'text' => 'Autumn',
-					'value' => 'gold'
+					'text' => 'Under Around 5\'3',
+					'value' => 'other'
 				), array(
-					'text' => 'Winter',
+					'text' => 'Around 5\'3 to 5\'11',
 					'value' => 'silver'
 				), array(
-					'text' => 'Spring',
-					'value' => 'other'
+					'text' => 'Definitely Over 6\'0',
+					'value' => 'gold'
 				)
 			), array(
 				array(
-					'text' => 'Warm Tones',
-					'value' => 'gold'
+					'text' => 'Single',
+					'value' => 'other'
 				), array(
-					'text' => 'Cold Tones',
+					'text' => 'In a Relationship',
 					'value' => 'silver'
 				), array(
-					'text' => 'Bold tones',
-					'value' => 'other'
+					'text' => 'Married with Children',
+					'value' => 'gold'
 				)
 			), array(
 				array(
-					'text' => 'Saucer and plate',
-					'value' => 'gold'
+					'text' => 'A Single Bed',
+					'value' => 'other'
 				), array(
-					'text' => 'Stainless thermos',
+					'text' => 'A Queen-Sized Bed',
 					'value' => 'silver'
 				), array(
-					'text' => 'Crazy mug',
-					'value' => 'other'
+					'text' => 'A King-Sized Bed',
+					'value' => 'gold'
 				)
 			)
 		);
@@ -154,7 +154,7 @@ class Question {
 		 	case 1: return 'An Expression Of You.';
 		 	case 2: return 'Your Taste. Your Vision.';
 		 	case 3: return 'A Choice All Your Own.';
-		 	case 4: return 'Color To Canvas.';
+		 	case 4: return 'Down To The Details.';
 		 	case 5: return 'Perfection Is Priceless.';
 		 	case 6: return 'The Beauty In Every Day.';
 		}
@@ -322,7 +322,7 @@ class Question {
 	 */
 	private function getStyleSubheading() {
 		$options = array(
-			'I\'d most like to receive a bouquet of:',
+			'I\'d most like to receive an arrangement of:',
 			'On a night out with friends I\'ll order:',
 			'My favorite flicks are usually:',
 			'My dream vacation would be:',
@@ -346,10 +346,10 @@ class Question {
 			// Space
 			case 4: 
 				switch($this->version) {
-					case 1: return 'My favorite pair of earrings are:';
-					case 2: return 'My favorite season is:';
-					case 3: return 'I typically go for:';
-					case 4: return 'Which of these looks most like your coffee cup?';
+					case 1: return 'To feed my household it would take:';
+					case 2: return 'Without heels on, I\'m about:';
+					case 3: return 'My Facebook relationship status says I\'m:';
+					case 4: return 'Most nights, I sleep on:';
 				}
 
 				return '';
