@@ -32,7 +32,7 @@ define([
 				return "transitional";
 			},
 
-			initialize: function() {
+			determineStatus: function() {
 				if(fbkDevMode) {  // Avoid FB auth in dev mode.
 					this.loadTestData();
 					return;

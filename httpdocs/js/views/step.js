@@ -112,6 +112,8 @@ define([
 							$("#next").fadeOut(function() {
 								$("#see-your-results").css("display", "block");
 							});
+						} else if(_this.step == 1) { // Show content if user has chose to "retake quiz."
+							$("#wrapper").fadeIn();
 						}
 
 						$("#buckets > div").last().addClass("last");

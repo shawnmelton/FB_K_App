@@ -46,10 +46,6 @@ define([
 					return;
 				}
 
-				if(number == 1) { // reset the background
-					$("#wrapper").fadeIn();
-				}
-
 				stepView.render(number, User);
 			}
 		});
@@ -62,6 +58,8 @@ define([
 				Backbone.history.start({
 					pushState: !!(window.history && window.history.pushState)
 				});
+			} else { // See if the user is logged in.
+				User.determineStatus();
 			}
 		};
 		

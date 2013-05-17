@@ -96,6 +96,7 @@ define([
 				$("#wrapper").fadeOut(250, function() {
 					$("#wrapper, #portrait").removeClass(_this.user.getStyle());
 					_this.user.resetScores();
+					window.scrollTo(0,0);
 					appRouter.navigate(fbkUrlroot +"questions/1", {
 						trigger:true,
 						replace:true
