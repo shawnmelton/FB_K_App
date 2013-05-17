@@ -53,14 +53,7 @@ define([
 		var initialize = function(){
 			appRouter = new AppRouter();
 			// Routing is postponed until User model finishes authentication. See User.initialize()
-
-			if(fbkDevMode) { // Start routing immediately if in dev mode.
-				Backbone.history.start({
-					pushState: !!(window.history && window.history.pushState)
-				});
-			} else { // See if the user is logged in.
-				User.determineStatus();
-			}
+			User.determineStatus();
 		};
 		
 		return {

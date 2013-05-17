@@ -35,6 +35,10 @@ define([
 			determineStatus: function() {
 				if(fbkDevMode) {  // Avoid FB auth in dev mode.
 					this.loadTestData();
+
+					Backbone.history.start({
+						pushState: !!(window.history && window.history.pushState)
+					});
 					return;
 				}
 
