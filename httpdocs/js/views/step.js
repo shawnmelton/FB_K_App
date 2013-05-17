@@ -9,6 +9,7 @@ define([
 			step: 0,
 			user: false,
 			purpose: false,
+			buttonEnabled: false,
 
 			events: {
 				"click #next": "loadNextClickCallback",
@@ -68,18 +69,22 @@ define([
 			 * Handle what happens when the Next button is clicked.
 			 */
 			loadNextClickCallback: function() {
-				var chkdValue = this.getCheckedValue();
-				if(this.step < 6 && chkdValue !== false) { // one of the buckets has been selected.
-					switch(this.purpose) {
-						case "style": this.user.scoreStyle(chkdValue); break;
-						case "space": this.user.set({space: chkdValue}); break;
-						case "cost": this.user.set({cost: chkdValue}); break;
-					}
+				if(this.buttonEnabled === true) {
+					var chkdValue = this.getCheckedValue();
+					if(this.step < 6 && chkdValue !== false) { // one of the buckets has been selected.
+						this.buttonEnabled = false; // We have our value, turn off button.
 
-					appRouter.navigate(fbkUrlroot +"questions/"+ (this.step + 1), {
-						trigger:true,
-						replace:true
-					});
+						switch(this.purpose) {
+							case "style": this.user.scoreStyle(chkdValue); break;
+							case "space": this.user.set({space: chkdValue}); break;
+							case "cost": this.user.set({cost: chkdValue}); break;
+						}
+
+						appRouter.navigate(fbkUrlroot +"questions/"+ (this.step + 1), {
+							trigger:true,
+							replace:true
+						});
+					}
 				}
 			},
 
@@ -97,6 +102,7 @@ define([
 					version: this.user.get("version")
 				}, function(data) {
 					if(data.response && data.response.heading) {
+						_this.buttonEnabled = true;
 						_this.purpose = data.response.purpose; // What will the question help us determine?
 						_this.$el
 							.html(_.template(stepHTML, {
@@ -113,6 +119,8 @@ define([
 								$("#see-your-results").css("display", "block");
 							});
 						} else if(_this.step == 1) { // Show content if user has chose to "retake quiz."
+							FB.Canvas.setSize({width: 850, height: 721});
+							FB.Canvas.scrollTo(0,0);
 							$("#wrapper").fadeIn();
 						}
 

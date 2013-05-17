@@ -5,6 +5,7 @@
 @productWidth: 370px;
 @retakeQuizDarkBlue: #144e6d;
 @retakeQuizLightBlue: #3b7c9e;
+@footerBlue: #144e6d;
 
 html {
 	background: #fff;
@@ -76,24 +77,20 @@ html {
 		.step > h2 {
 			margin: 35px 0 0;
 			color: @blue;
+			font-size: @fontSize + 24;
+			line-height: 36px;
 			text-transform: uppercase;
 			text-align: center;
 			text-shadow: 1px 0 3px #aaa;
-
-			>span { font-weight: normal; }
 		}
 		.step {
-			>h2 {
-				font-size: @fontSize + 24;
-				line-height: 36px;
-			}
 			>p {
 				margin: 25px 150px;
 				font-size: @fontSize + 5;
 			}
 		}
 		#buckets {
-			min-height: 230px;
+			min-height: 232px;
 			padding: 0 0 25px 85px;
 			background: url(../img/loading.gif) no-repeat center center;
 
@@ -204,10 +201,6 @@ html {
 		.results {
 			>h2 {
 				margin-bottom: 30px;
-				font-size: @fontSize + 40;
-				line-height: 52px;
-
-				>span { font-weight: normal; }
 			}
 			>img {
 				display: block;
@@ -395,4 +388,53 @@ html {
 			}
 				>a > span { display: none; }
 		}
+
+	footer {
+		display: block;
+		height: 20px;
+		width: 780px;
+		padding: 20px 15px;
+		line-height: 20px;
+		border-top: 3px solid @footerBlue;
+		background: #dbe0e0;
+		background: -o-linear-gradient(#fff, #dbe0e0);
+		background: -ms-linear-gradient(#fff, #dbe0e0);
+		background: linear-gradient(#fff, #dbe0e0);
+		color: @footerBlue;
+
+		&:after {
+			clear: both;
+			content: " ";
+			display: table;
+		}
+
+		>h3 {
+			margin: 0;
+			font-weight: normal;
+			font-size: 16px;
+		}
+
+		>p, >a { 
+			float: right;
+			font-size: 9px;
+			font-family: arial;
+		}
+		>p {
+			margin: 0 7px 0 0;
+		}
+		>a {
+			display: block;
+			margin: 4px 0;
+			padding: 0 7px;
+			height: 12px;
+			line-height: 12px;
+			border-left: 1px solid @footerBlue;
+			color: @footerBlue;
+			text-decoration: none;
+			font-weight: bold;
+
+			&:hover { text-decoration: underline; }
+			&:active { color: darken(@footerBlue, 20%); }
+		}
+	}
 			

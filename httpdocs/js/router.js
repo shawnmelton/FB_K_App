@@ -30,6 +30,7 @@ define([
 					return;
 				}
 				
+				FB.Canvas.setAutoGrow(200);
 				resultsView.render(User);
 			},
 
@@ -54,6 +55,8 @@ define([
 			appRouter = new AppRouter();
 			// Routing is postponed until User model finishes authentication. See User.initialize()
 			User.determineStatus();
+
+			FB.Canvas.setSize({width: 850, height: 721});
 		};
 		
 		return {

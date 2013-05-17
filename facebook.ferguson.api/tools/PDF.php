@@ -26,28 +26,6 @@ class PDF {
 		}
 	}
 
-	public function generate() {
-		$this->init();
-
-		$this->pdf->AddPage();
-		$this->pdf->Image($this->imgPath .'/'. $this->style .'/bg.png', 10, 10, 190);
-		$this->pdf->Image($this->imgPath .'/logo.png', 10, 10);
-
-		$this->pdf->SetY(25);
-
-		$this->pdf->SetFont('myriadpro', '', 38);
-		$this->pdf->SetTextColor(1, 71, 107);
-		$this->pdf->MultiCell(0, 15, strtoupper($this->firstName .', You\'re '. $this->style), 0, 'C');
-
-		// Description of users style
-		$this->pdf->SetFont('myriadpro', '', 12);
-		$this->pdf->SetTextColor(102, 102, 102);
-		$this->pdf->SetXY(19, $this->pdf->GetY() + 5);
-		$this->pdf->MultiCell(170, 6, $this->getStyleDescription(), 0, 'C');
-
-		$this->pdf->Output('Ferguson-Results.pdf', 'I');
-	}
-
 	private function getStyleDescription() {
 		switch($this->style) {
 			case 'modern': return 'Sleek styling with European influences and an infusion of clean and sharp finishes suits you. Your Ferguson consultant can guide you through the endless modern design possibilities in our showrooms. Come by today and experience a gallery where you\'re the artist.';
@@ -123,9 +101,9 @@ class PDF {
 
 		$this->pdf->SetY(25);
 
-		$this->pdf->SetFont('myriadpro-bold', '', 38);
+		$this->pdf->SetFont('myriadpro-bold', '', 27);
 		$this->pdf->SetTextColor(1, 71, 107);
-		$this->pdf->MultiCell(0, 15, strtoupper($this->firstName .', You\'re '. $this->style), 0, 'C');
+		$this->pdf->MultiCell(0, 9, strtoupper($this->firstName .', You\'re '. $this->style), 0, 'C');
 
 		// Description of users style
 		$this->pdf->SetFont('myriadpro', '', 12);
