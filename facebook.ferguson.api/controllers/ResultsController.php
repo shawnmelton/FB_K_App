@@ -12,7 +12,8 @@ class ResultsController {
 	public function pdf() {
 		$pdf = new PDF();
 		if($pdf->setInfo() === false) {
-			header('Location: /session-expired');
+			$domain = preg_match('/facebook/i', $_SERVER['REQUEST_URI']) ? '/facebook.ferguson.com' : '';
+			header('Location: '. $domain .'/session-expired');
 			exit;
 		}
 
