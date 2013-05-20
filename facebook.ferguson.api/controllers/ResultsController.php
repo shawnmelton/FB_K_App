@@ -11,7 +11,11 @@ class ResultsController {
 
 	public function pdf() {
 		$pdf = new PDF();
-		$pdf->setInfo();
+		if($pdf->setInfo() === false) {
+			header('Location: /session-expired');
+			exit;
+		}
+
 		$pdf->showTop();
 		$pdf->showProducts(Results::determine());
 		$pdf->out();

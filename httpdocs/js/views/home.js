@@ -26,14 +26,15 @@ define([
 			 * login with FB.
 			 */
 			loginClickCallback: function() {
-				var _this = this;
+				window.parent.location = "https://graph.facebook.com/oauth/authorize?client_id=111378102282619&redirect_uri=https://apps.facebook.com/ferguson_recommends";
+				/*var _this = this;
 				FB.login(function(response) {
 					console.log(response);
 			        if (response.authResponse) {
 			    		_this.user.populate();
 			    		_this.getStartedClickCallback();
 			        }
-			    });
+			    });*/
 			},
 
 			/**

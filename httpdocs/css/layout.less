@@ -47,6 +47,7 @@ html {
 			width: 332px;
 			height: 134px;
 		}
+		.sessionExpired > p,
 		.step > p,
 		.home > p {
 			margin: 45px 150px;
@@ -73,6 +74,7 @@ html {
 		}
 
 		/* Step */
+		.sessionExpired > h2,
 		.results > h2,
 		.step > h2 {
 			margin: 35px 0 0;
@@ -83,6 +85,7 @@ html {
 			text-align: center;
 			text-shadow: 1px 0 3px #aaa;
 		}
+		.sessionExpired,
 		.step {
 			>p {
 				margin: 25px 150px;
@@ -348,6 +351,25 @@ html {
 				&:hover { background-position: -165px -160px; }
 				&:active { background-position: -330px -160px; }
 			}
+
+		.sessionExpired {
+			overflow: hidden;
+
+			>a {
+				display: block;
+				height: 43px;
+				width: 172px;
+				background: url(../img/retakeQuizButton.png) no-repeat 0 0;
+				margin: 30px auto 0;
+				cursor: pointer;
+				outline: none;
+
+				&:hover { background-position: 0 -43px; }
+				&:active { background-position: 0 -86px; }
+
+				>span { display: none; }
+			}
+		}
 
 		.buttonShadow {
 			margin: 40px auto 0;

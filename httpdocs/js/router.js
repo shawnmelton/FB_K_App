@@ -5,13 +5,15 @@ define([
 	'views/home',
 	'views/step',
 	'views/results',
+	'views/sessionExpired',
 	'models/user'
-	], function($, _, Backbone, homeView, stepView, resultsView, User){
+	], function($, _, Backbone, homeView, stepView, resultsView, sessionExpiredView, User){
 		var AppRouter = Backbone.Router.extend({
 			routes: {
 				'(:domain/)': 'showHome',
 				'(:domain/)questions/:number': 'showStep',
 				'(:domain/)see-your-results': 'showSeeYourResults',
+				'(:domain/)session-expired': 'showSessionExpired',
 				'(:domain/)*actions': 'show404'
 			},
 			
@@ -32,6 +34,10 @@ define([
 				
 				FB.Canvas.setAutoGrow(200);
 				resultsView.render(User);
+			},
+
+			showSessionExpired: function(domain) {
+				sessionExpiredView.render();
 			},
 
 			showStep: function(domain, number) {

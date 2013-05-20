@@ -47,6 +47,8 @@ class PDF {
 		$info = array();
 		if(isset($_SESSION['_userInfo']) && is_array($_SESSION['_userInfo']) && count($_SESSION['_userInfo'])) {
 			$info = $_SESSION['_userInfo'];
+		} else {
+			return false;
 		}
 
 		$this->style = isset($info['style']) ? $info['style'] : '';
