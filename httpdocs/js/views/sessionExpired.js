@@ -7,7 +7,7 @@ define([
 		var sessionExpiredView = Backbone.View.extend({
 			el: "#content",
 			events: {
-				"click a.buttons": "retakeQuizClickCallback"
+				"click #retake-quiz-2": "retakeQuizClickCallback"
 			},
 
 			render: function(){

@@ -9,30 +9,27 @@ define([
 	'models/user'
 	], function($, _, Backbone, homeView, stepView, resultsView, sessionExpiredView, User){
 		var AppRouter = Backbone.Router.extend({
-			routes: {
-				'(:domain/)': 'showHome',
-				'(:domain/)questions/:number': 'showStep',
-				'(:domain/)see-your-results': 'showSeeYourResults',
-				'(:domain/)session-expired': 'showSessionExpired',
-				'(:domain/)*actions': 'show404'
+			initialize: function() {
+				this.route(/^(facebook.ferguson.com\/){0,1}$/, 'showHome');
+				this.route(/^(facebook.ferguson.com\/){0,1}questions\/([0-9]{1})$/, 'showStep');
+				this.route(/^(facebook.ferguson.com\/){0,1}see-your-results$/, 'showSeeYourResults');
+				this.route(/^(facebook.ferguson.com\/){0,1}session-expired$/, 'showSessionExpired');
 			},
 			
 			showHome: function(domain){
 				homeView.render(User);
 			},
 
-			show404: function(actions) {
-				appRouter.navigate(fbkUrlroot, {trigger:true, replace:true});
-			},
-
 			showSeeYourResults: function(domain) {
 				// Make sure the user has logged in.
-				if(!User.get("isLoggedIn")) {
+				if(!User.isLoggedIn()) {
 					appRouter.navigate(fbkUrlroot, {trigger:true, replace:true});
 					return;
 				}
 				
-				FB.Canvas.setAutoGrow(200);
+				if(!fbkDevMode) {
+					FB.Canvas.setAutoGrow(200);
+				}	
 				resultsView.render(User);
 			},
 
@@ -42,7 +39,7 @@ define([
 
 			showStep: function(domain, number) {
 				// Make sure the user has logged in.
-				if(!User.get("isLoggedIn")) {
+				if(!User.isLoggedIn()) {
 					appRouter.navigate(fbkUrlroot, {trigger:true, replace:true});
 					return;
 				}
@@ -59,10 +56,13 @@ define([
 		
 		var initialize = function(){
 			appRouter = new AppRouter();
+
 			// Routing is postponed until User model finishes authentication. See User.initialize()
 			User.determineStatus();
 
-			FB.Canvas.setSize({width: 850, height: 721});
+			if(!fbkDevMode) {
+				FB.Canvas.setSize({width: 850, height: 721});
+			}	
 		};
 		
 		return {

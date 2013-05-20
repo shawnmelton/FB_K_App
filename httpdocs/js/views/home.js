@@ -14,7 +14,7 @@ define([
 			},
 
 			getStartedClickCallback: function() {
-				this.user.set({isLoggedIn: true});
+				this.user.set({loggedIn: true});
 				appRouter.navigate(fbkUrlroot +"questions/1", {
 					trigger:true,
 					replace:true

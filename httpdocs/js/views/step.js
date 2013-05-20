@@ -119,8 +119,11 @@ define([
 								$("#see-your-results").css("display", "block");
 							});
 						} else if(_this.step == 1) { // Show content if user has chose to "retake quiz."
-							FB.Canvas.setSize({width: 850, height: 721});
-							FB.Canvas.scrollTo(0,0);
+							if(!fbkDevMode) {
+								FB.Canvas.setSize({width: 850, height: 721});
+								FB.Canvas.scrollTo(0,0);
+							}
+
 							$("#wrapper").fadeIn();
 						}
 

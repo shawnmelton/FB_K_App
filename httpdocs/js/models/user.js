@@ -93,7 +93,8 @@ define([
 						modern: 0,
 						traditional: 0,
 						transitional: 0,
-						version: 1
+						version: 1,
+						loggedIn: true
 					});
 
 					if(response.hometown && response.hometown.name) {
