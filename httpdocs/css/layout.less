@@ -212,9 +212,69 @@ html {
 			>p {
 				width: 670px;
 				margin: 25px auto;
-				font-size: @fontSize + 3;
-				color: #666;
+				font-size: @fontSize + 2;
+				line-height: @fontSize + 6;
+				font-weight: bold;
+				color: #1d5274;
 				text-align: center;
+			}
+		}
+
+		div#my-showroom {
+			text-align: center;
+
+			&:after,
+			div:after {
+				clear: both;
+				content: " ";
+				display: table;
+			}
+
+			>h4 {
+				margin: 10px 0 5px;
+				color: #666;
+				font-weight: normal;
+				font-size: @fontSize;
+			}
+			>h5 {
+				font-size: @fontSize;
+				font-weight: bold;
+				margin: 1px 0 15px;
+				color: @blue;
+				display: none;
+			}
+			>p {
+				margin: 12px auto 25px;
+				width: 532px;
+
+				&:after {
+					clear: both;
+					content: " ";
+					display: table;
+				}
+
+				>a { float: left; }
+			}
+
+			a#get-directions {
+				background-position: 0 -120px;
+				margin-right: 20px;
+
+				&:hover { background-position: -165px -120px; }
+				&:active { background-position: -330px -120px; }
+			}
+			a#download-results {
+				background-position: 0 -240px;
+
+				&:hover { background-position: -165px -240px; }
+				&:active { background-position: -330px -240px; }					
+			}
+			a#share-your-results { 
+				background-position: 0 -160px;
+				margin-right: 20px;
+
+				&:hover { background-position: -165px -160px; }
+				&:active { background-position: -330px -160px; }
 			}
 		}
 
@@ -235,7 +295,7 @@ html {
 
 				>img {
 					float: left;
-					margin: 0 15px 50px 0;
+					margin: 0 15px 40px 0;
 					border: 1px solid #d2d2d2;
 					width: 178px;
 				}
@@ -258,59 +318,6 @@ html {
 					line-height: 17px;
 				}
 			}
-
-			>div#my-showroom {
-				width: @productWidth - 35;
-				padding: 20px 20px 25px;
-				margin-left: 25px;
-				text-align: center;
-
-				&:after,
-				div:after {
-					clear: both;
-					content: " ";
-					display: table;
-				}
-
-				>h4 {
-					margin: 10px 0 5px;
-					color: #666;
-					font-weight: normal;
-					font-size: @fontSize;
-				}
-				>h5 {
-					font-size: @fontSize;
-					font-weight: bold;
-					margin: 1px 0 15px;
-					color: @blue;
-					display: none;
-				}
-				>a#get-directions {
-					background-position: 0 -120px;
-					margin: 8px auto 15px;
-
-					&:hover { background-position: -165px -120px; }
-					&:active { background-position: -330px -120px; }
-				}
-				>a#download-results {
-					display: block;
-					float: left;
-					outline: none;
-					cursor: pointer;
-					font-weight: bold;
-					color: @blue;
-					text-decoration: none;
-					font-size: @fontSize;
-					height: 20px;
-					line-height: 20px;
-					padding-right: 24px;
-					margin-left: 87px;
-					background: url(../img/pdf-icon.png) no-repeat top right;
-
-					&:hover { color: #369; }
-					&:active { color: #222; }
-				}
-			}	
 		}
 
 		#retake-quiz {
@@ -345,12 +352,6 @@ html {
 				>span { display: none; }
 			}
 		}
-			a#share-your-results { 
-				background-position: 0 -160px;
-
-				&:hover { background-position: -165px -160px; }
-				&:active { background-position: -330px -160px; }
-			}
 
 		.sessionExpired {
 			overflow: hidden;

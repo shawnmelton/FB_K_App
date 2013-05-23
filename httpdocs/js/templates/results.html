@@ -1,7 +1,15 @@
 <h2><span><%= firstName %>, You're</span> <%= style %></h2>
 <div id="portrait"><img src="https://graph.facebook.com/<%= userName %>/picture?<%= photoSize %>" alt="<%= firstName %> <%= lastName %>"></div>
 <p id="style-message"></p>
-<a class="buttons" id="share-your-results"><span>Share Your Results</span></a>
+<div id="my-showroom">
+	<h4>See your masterpiece at your local Ferguson showroom:</h4>
+	<h5></h5>
+	<p>
+		<a class="buttons" id="get-directions" href="<%= locationsUrl %>" target="_blank"><span>Get Directions</span></a>
+		<a class="buttons" id="share-your-results"><span>Share Your Results</span></a>
+		<a class="buttons" id="download-results" href="<%= domain %>api/results/pdf" target="_blank"><span>Download Results</span></a>
+	</p>
+</div>
 <div id="products">
 <% _.each(products, function(product) { %>
 	<div>
@@ -11,12 +19,6 @@
 		<p><%= product.description %></p>
 	</div>
 <% }); %>
-	<div id="my-showroom">
-		<h4>See your masterpiece at your Ferguson Showroom:</h4>
-		<h5></h5>
-		<a class="buttons" id="get-directions" href="<%= locationsUrl %>" target="_blank"><span>Get Directions</span></a>
-		<a id="download-results" href="<%= domain %>api/results/pdf" target="_blank">Download your results:</a>
-	</div>
 </div>
 <div id="retake-quiz">
 	<h4>Did we get it right?</h4>

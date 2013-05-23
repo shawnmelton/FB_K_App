@@ -55,6 +55,14 @@ define([
 				});
 			},
 
+			/**
+			 * Has the user made a selection yet?
+			 * @return boolean
+			 */
+			hasMadeASelection: function() {
+				return (parseInt(this.get("modern")) > 0 || parseInt(this.get("transitional")) > 0 || parseInt(this.get("traditional")) > 0);
+			},
+
 			isLoggedIn: function() {
 				return this.get("loggedIn");
 			},

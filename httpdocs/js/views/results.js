@@ -117,14 +117,12 @@ define([
 			shareYourResultsClickCallback: function() {
 				FB.ui({
 					method: 'feed',
-					name: ("I'm "+ this.user.getStyle()).toUpperCase(),
-					link: 'http://swaydevsite.com/facebook.ferguson.com/',
-					picture: 'http://swaydevsite.com/facebook.ferguson.com/img/logo.png',
+					name: ("My Style is "+ this.user.getStyle() +". What's Yours?").toUpperCase(),
+					link: 'https://apps.facebook.com/ferguson_recommends',
+					picture: 'https://swaydevsite.com/facebook.ferguson.com/img/share-logo.png',
 					caption: 'Ferguson Asks, "What\'s Your Style?"',
 					description: 'Uncover your own style, and learn how Ferguson can help you bring your vision of your perfect bathroom to life.'
-				}, function(response) {
-					// console.log(response);
-				});
+				}, function(response) {});
 			}
 		});
 		

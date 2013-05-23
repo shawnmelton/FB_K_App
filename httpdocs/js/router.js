@@ -22,7 +22,7 @@ define([
 
 			showSeeYourResults: function(domain) {
 				// Make sure the user has logged in.
-				if(!User.isLoggedIn()) {
+				if(!User.isLoggedIn() || !User.hasMadeASelection()) {
 					appRouter.navigate(fbkUrlroot, {trigger:true, replace:true});
 					return;
 				}
@@ -39,7 +39,7 @@ define([
 
 			showStep: function(domain, number) {
 				// Make sure the user has logged in.
-				if(!User.isLoggedIn()) {
+				if(!User.isLoggedIn() || (!User.hasMadeASelection()) && parseInt(number) > 1) {
 					appRouter.navigate(fbkUrlroot, {trigger:true, replace:true});
 					return;
 				}
