@@ -57,7 +57,7 @@ class PDF {
 	}
 
 	public function showProducts($products) {
-		$this->pdf->SetY($this->pdf->GetY()-10); // First line fix.
+		$this->pdf->SetY($this->pdf->GetY()-15); // First line fix.
 		$this->pdf->SetFillColor(204, 204, 204);
 
 		$currentX = 0;
@@ -108,9 +108,9 @@ class PDF {
 		$this->pdf->MultiCell(0, 9, strtoupper($this->firstName .', You\'re '. $this->style), 0, 'C');
 
 		// Description of users style
-		$this->pdf->SetFont('myriadpro', '', 12);
-		$this->pdf->SetTextColor(102, 102, 102);
+		$this->pdf->SetFont('myriadpro-bold', '', 11);
+		$this->pdf->SetTextColor(29, 82, 116);
 		$this->pdf->SetXY(19, $this->pdf->GetY() + 5);
-		$this->pdf->MultiCell(170, 6, $this->getStyleDescription(), 0, 'C');
+		$this->pdf->MultiCell(170, 5.5, $this->getStyleDescription(), 0, 'C');
 	}
 }
