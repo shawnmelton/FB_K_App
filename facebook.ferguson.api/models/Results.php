@@ -21,11 +21,12 @@ class Results {
 		
 		// Not showing lights as of yet.
 		return array(
-			Products::get(self::$userInfo['style'], 'lights', self::$userInfo['cost']),
-			Products::get(self::$userInfo['style'], 'fixtures-faucets', self::$userInfo['function']),
-			Products::get(self::$userInfo['style'], 'toilets', self::$userInfo['cost']),
+			Products::get(self::$userInfo['style'], 'accessories', self::$userInfo['cost']),
 			Products::get(self::$userInfo['style'], 'baths-showers', self::$userInfo['space']),
-			Products::get(self::$userInfo['style'], 'accessories', self::$userInfo['cost'])
+			Products::get(self::$userInfo['style'], 'toilets', self::$userInfo['cost']),
+			Products::get(self::$userInfo['style'], 'fixtures-faucets', self::$userInfo['function']),
+			Products::get(self::$userInfo['style'], 'lights', self::$userInfo['cost']),
+			Products::get(self::$userInfo['style'], 'sinks', self::$userInfo['cost'])
 		);
 	}
 

@@ -28,7 +28,7 @@ class Products {
 		self::add('modern', 'lights', 'moderate', 'Brizo "Odin" 1 Bulb Wall Sconce', 'Brizo\'s "Odin" light sconce adds a contemporary touch to your modern canvas. ');
 		self::add('modern', 'lights', 'low', 'Minka Lighting "City Square" 3 Bulb Bathroom Light', 'Minka Lighting\'s "City Square" breaks conventional design barriers without breaking the bank.');
 		self::add('modern', 'fixtures-faucets', 'high', 'Grohe "Thermo Valve" Showerhead', 'This shower faucet by Grohe is perfect for the modern woman who expects both form and function.');
-		self::add('modern', 'fixtures-faucets', 'moderate', 'Brizo "Odin" Shwoer Faucet', 'The "Odin" shower faucet by Brizo creates a modern aesthetic that enhances any bathroom.');
+		self::add('modern', 'fixtures-faucets', 'moderate', 'Brizo "Odin" Shower Faucet', 'The "Odin" shower faucet by Brizo creates a modern aesthetic that enhances any bathroom.');
 		self::add('modern', 'fixtures-faucets', 'low', 'Moen "90 Degree" Shower Faucet', 'The "90 Degree" faucet by Moen offers a minimalist and modern fit for your shower.');
 		self::add('modern', 'accessories', 'high', 'Grohe "Atrio" Toilet Paper Holder', 'The Grohe "Atrio" toilet paper adds a chic modern aesthetic to your contemporary bathroom.');
 		self::add('modern', 'accessories', 'moderate', 'Brizo "Odin" Towel Ring', 'The sleek design of the Brizo "Odin" toilet paper holder sets off any modern bathroom.');
@@ -39,6 +39,9 @@ class Products {
 		self::add('modern', 'baths-showers', 'gold', 'Kohler "Reve" Freestanding Tub', 'The striking "Reve" freestanding tub by Kohler accomodates a deep, relaxing soak for a modern woman.');
 		self::add('modern', 'baths-showers', 'silver', 'Kohler "Escale" Tub', 'Simple but spacious, the "Escale" tub by Kohler offers a relaxing bath with a little extra room to soak.');
 		self::add('modern', 'baths-showers', 'other', 'Kohler "Expanse" Soaking Tub', 'With its curved apron, the Kohler "Expanse" tub is a great choice for a compact bathroom.');
+		self::add('modern', 'sinks', 'high', 'Coming soon ...', 'Coming soon ...');
+		self::add('modern', 'sinks', 'moderate', 'Coming soon ...', 'Coming soon ...');
+		self::add('modern', 'sinks', 'low', 'Coming soon ...', 'Coming soon ...');
 
 		// Traditional
 		self::add('traditional', 'lights', 'high', 'Metropolitan 3 Bulb Bathroom Light', 'Classic as it is classy, this three bulb bathroom light in polished nickel from Metropolitan Lighting Fixture Co. exudes elegance.');
@@ -56,6 +59,9 @@ class Products {
 		self::add('traditional', 'baths-showers', 'gold', 'Kohler "Kathryn" Bubble Massage Tub', 'With tons of room to relax in, the "Kathryn" bubble massage is the perfect centerpiece to any classic bathroom.');
 		self::add('traditional', 'baths-showers', 'silver', 'Kohler "Bancroft" Bubble Massage Tub', 'Kohler\'s "Bancroft" bubble massage tub adds comfort and class to any traditional bathroom motif.');
 		self::add('traditional', 'baths-showers', 'other', 'Kohler "Devonshire" Bubble Massage Tub', 'Kohler\'s traditional "Devonshire" tub makes a big impression even in smaller spaces.');
+		self::add('traditional', 'sinks', 'high', 'Coming soon ...', 'Coming soon ...');
+		self::add('traditional', 'sinks', 'moderate', 'Coming soon ...', 'Coming soon ...');
+		self::add('traditional', 'sinks', 'low', 'Coming soon ...', 'Coming soon ...');
 	
 		// Transitional
 		self::add('transitional', 'lights', 'high', 'Kohler "Margaux" 1 Bulb Wall Sconce', 'Combining traditional edges with modern touches, "Margaux" by Kohler offers the best in bathroom brilliance.');
@@ -73,5 +79,8 @@ class Products {
 		self::add('transitional', 'baths-showers', 'gold', 'Kohler "Archer" Vibracoustic Tub', 'The "Archer" vibracoustic tub from Kohler serves as an impressive centerpiece to any transitional bathroom.');
 		self::add('transitional', 'baths-showers', 'silver', 'Kohler "Bellwether" Soaking Tub', 'The "Bellwether" soaking tub by Kohler offers us that "just-right" fit to your transitional bathroom.');
 		self::add('transitional', 'baths-showers', 'other', 'Kohler "Seaforth" Tub', 'The "Seaforth" tub by Kohler a durable choice for a wide range of transitional bathrooms.');
+		self::add('transitional', 'sinks', 'high', 'Coming soon ...', 'Coming soon ...');
+		self::add('transitional', 'sinks', 'moderate', 'Coming soon ...', 'Coming soon ...');
+		self::add('transitional', 'sinks', 'low', 'Coming soon ...', 'Coming soon ...');
 	}
 }
