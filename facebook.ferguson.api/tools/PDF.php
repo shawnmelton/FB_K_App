@@ -28,12 +28,12 @@ class PDF {
 
 	private function getStyleDescription() {
 		switch($this->style) {
-			case 'modern': return 'Sleek styling with European influences and an infusion of clean and sharp finishes suits you. Your Ferguson consultant can guide you through the endless modern design possibilities in our showrooms. Come by today and experience a gallery where you\'re the artist.';
-			case 'traditional': return 'You show a preference for timeless designs that include simple, symmetrical lines, with elegant details. Visit your nearby Ferguson showroom today and let one of our consultants help you bring your masterpiece to life.';
+			case 'modern': return 'Sleek styling with European influences and an infusion of clean and sharp finishes suits you. Your Ferguson consultant can guide you through the endless modern design possibilities at any of our locations. Come by your local Ferguson Bath, Kitchen & Lighting Gallery showroom today and experience a gallery where you\'re the artist.';
+			case 'traditional': return 'You show a preference for timeless designs that include simple, symmetrical lines, with elegant details. Visit your nearby Ferguson Bath, Kitchen & Lighting Gallery showroom today and let one of our consultants help you bring your masterpiece to life.';
 		}
 
 		// Transitional
-		return 'Your tastes lie somewhere between traditional and contemporary looks, and your Ferguson consultant can help you merge those styles in a complimentary way. Visit a nearby Ferguson showroom and see, touch, and feel your home the way you want it, right now.';
+		return 'Your tastes lie somewhere between traditional and contemporary, and your Ferguson consultant can help you merge those styles in a complementary way. Visit a nearby Ferguson Bath, Kitchen & Lighting Gallery showroom and see, touch, and feel your home the way you want it, right now.';
 	}
 
 	public function out() {
