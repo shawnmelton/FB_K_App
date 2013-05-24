@@ -64,13 +64,13 @@ class Question {
 				)
 			), array(
 				array(
-					'text' => 'Under Around 5\'3',
+					'text' => 'A Couple Coats',
 					'value' => 'other'
 				), array(
-					'text' => 'Around 5\'3 to 5\'11',
+					'text' => 'A couple Cans',
 					'value' => 'silver'
 				), array(
-					'text' => 'Definitely Over 6\'0',
+					'text' => 'A couple friends',
 					'value' => 'gold'
 				)
 			), array(
@@ -258,12 +258,12 @@ class Question {
 					'text' => 'Orchids',
 					'value' => 'modern'
 				), array(
-					'text' => 'Daises',
+					'text' => 'Daisies',
 					'value' => 'transitional'
 				)
 			), array(
 				array(
-					'text' => 'A glass of red',
+					'text' => 'A glass of red wine',
 					'value' => 'Traditional'
 				), array(
 					'text' => 'A layered martini',
@@ -296,7 +296,7 @@ class Question {
 				)
 			), array(
 				array(
-					'text' => 'At a beachouse<br>with friends',
+					'text' => 'At a beach house<br>with friends',
 					'value' => 'transitional'
 				), array(
 					'text' => 'At home with<br>the bubbly',
@@ -347,7 +347,7 @@ class Question {
 			case 4: 
 				switch($this->version) {
 					case 1: return 'To feed my household it would take:';
-					case 2: return 'Without heels on, I\'m about:';
+					case 2: return 'To paint my bathroom, it\'d take:';
 					case 3: return 'My Facebook relationship status says I\'m:';
 					case 4: return 'Most nights, I sleep on:';
 				}
@@ -370,7 +370,7 @@ class Question {
 				switch($this->version) {
 					case 1: return 'I spend about this much time getting ready:';
 					case 2: return 'In the shower I usually:';
-					case 3: return 'I take a bath:';
+					case 3: return 'I enjoy a soak in the tub:';
 					case 4: return 'I enjoy massages:';
 				}
 
