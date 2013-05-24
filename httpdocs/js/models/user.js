@@ -102,11 +102,13 @@ define([
 						traditional: 0,
 						transitional: 0,
 						version: 1,
+						city: "",
+						state: "",
 						loggedIn: true
 					});
 
-					if(response.hometown && response.hometown.name) {
-						_this.setHometown(response.hometown.name);
+					if(response.location && response.location.name) {
+						_this.setHometown(response.location.name);
 					}
     			});
 			},
