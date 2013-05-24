@@ -49,7 +49,7 @@ class PDF {
 	}
 
 	public function showProducts($products) {
-		$this->pdf->SetY($this->pdf->GetY()-18); // First line fix.
+		$this->pdf->SetY($this->pdf->GetY()-8); // First line fix.
 		$this->pdf->SetFillColor(204, 204, 204);
 
 		$currentX = 0;
@@ -59,7 +59,7 @@ class PDF {
 				$currentX = 115;
 			} else {
 				$currentX = 15;
-				$currentY = $this->pdf->GetY() + (30 - ($index * 4));
+				$currentY = $this->pdf->GetY() + 18;
 			}
 
 			$imgWidth = 35;
