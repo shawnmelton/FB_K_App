@@ -17,7 +17,7 @@ class ResultsController {
 			exit;
 		}
 
-		$pdf->showTop();
+		$pdf->showStyleIntro();
 		$pdf->showProducts(Results::determine());
 		$pdf->out();
 	}
