@@ -111,13 +111,18 @@ define([
 				} else {
 					$("#style-message").html(_.template(transitionalHTML));
 				}
+				
+				var _this = this;
+				$("#style-message > a").click(function() {
+					_this.shareYourResultsClickCallback(_this.user.getStyle());
+				});
 			},
 
 			/* The current user's facebook status update message. */
-			shareYourResultsClickCallback: function() {
+			shareYourResultsClickCallback: function(userStyle) {
 				FB.ui({
 					method: 'feed',
-					name: ("My Style is "+ this.user.getStyle() +". What's Yours?").toUpperCase(),
+					name: ("My Style is "+ ((typeof userStyle === "string") ? userStyle : this.user.getStyle()) +". What's Yours?").toUpperCase(),
 					link: 'https://apps.facebook.com/ferguson_recommends',
 					picture: 'https://swaydevsite.com/facebook.ferguson.com/img/share-logo.png',
 					caption: 'Ferguson Asks, "What\'s Your Style?"',
