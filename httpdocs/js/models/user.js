@@ -14,7 +14,11 @@ define([
 			cost: "",
 			operation: "",
 			loggedIn: false,
-			version: 1,
+			questionVersions: [], // Tracks which question versions have been presented to the user.
+
+			addQuestionVersion: function(v) {
+				this.questionVersions.push(v);
+			},
 
 			/**
 			 * Based on the style score, get the style that applies to this user.
@@ -56,6 +60,18 @@ define([
 			},
 
 			/**
+			 * Get a comma separated list of question versions.
+			 */
+			getQuestionVersionsString: function() {
+				var qString = "";
+				for(var idx in this.questionVersions) {
+					qString += this.questionVersions[idx] +",";
+				}
+
+				return (qString != "") ? qString.substring(0, qString.length-1) : "";
+			},
+
+			/**
 			 * Has the user made a selection yet?
 			 * @return boolean
 			 */
@@ -82,7 +98,7 @@ define([
 					cost: "",
 					operation: "",
 					loggedIn: true,
-					version: 1
+					questionVersions: []
 				});
 
 				this.setHometown("Los Angeles, CA");
@@ -101,10 +117,10 @@ define([
 						modern: 0,
 						traditional: 0,
 						transitional: 0,
-						version: 1,
 						city: "",
 						state: "",
-						loggedIn: true
+						loggedIn: true,
+						questionVersions: []
 					});
 
 					if(response.location && response.location.name) {
@@ -115,7 +131,7 @@ define([
 
 			/**
 			 * Clear out any scores the user may have.
-			 * Update version 
+			 * Clear question versions
 			 */
 			resetScores: function() {
 				this.set({
@@ -127,12 +143,7 @@ define([
 					operation: ""
 				});
 
-				var version = parseInt(this.get("version"));
-				if(version < 4) {
-					this.set({version: version + 1});
-				} else {
-					this.set({version: 1});
-				}
+				this.questionVersions = [];
 			},
 
 			/**

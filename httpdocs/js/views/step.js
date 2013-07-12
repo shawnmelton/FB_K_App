@@ -99,7 +99,7 @@ define([
 				$.getJSON(fbkUrlroot +"api/steps/load", {
 					placement: this.step,
 					style: this.user.getStyle(),
-					version: this.user.get("version")
+					versions: this.user.getQuestionVersionsString()
 				}, function(data) {
 					if(data.response && data.response.heading) {
 						_this.buttonEnabled = true;
@@ -115,6 +115,9 @@ define([
 							.attr("class", "step");
 
 						if(_this.step == 6) {
+							// Event tracking for button click.
+							ga('send', 'event', 'button', 'click', 'See Your Results');
+
 							$("#next").fadeOut(function() {
 								$("#see-your-results").css("display", "block");
 							});
@@ -125,6 +128,10 @@ define([
 							}
 
 							$("#wrapper").fadeIn();
+						}
+
+						if(_this.step < 4) { // Save question version that was just used.
+							_this.user.addQuestionVersion(data.response.version);
 						}
 
 						$("#buckets > div").last().addClass("last");

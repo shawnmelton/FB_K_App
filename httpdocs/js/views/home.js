@@ -26,7 +26,7 @@ define([
 			 * login with FB.
 			 */
 			loginClickCallback: function() {
-				window.parent.location = "https://graph.facebook.com/oauth/authorize?client_id=111378102282619&redirect_uri=https://apps.facebook.com/ferguson_recommends";
+				window.parent.location = "https://graph.facebook.com/oauth/authorize?client_id=111378102282619&redirect_uri=https://apps.facebook.com/fergusonstylequiz";
 				/*var _this = this;
 				FB.login(function(response) {
 					console.log(response);

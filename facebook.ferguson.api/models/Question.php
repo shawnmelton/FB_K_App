@@ -9,9 +9,20 @@ class Question {
 	private $version;
 
 	public function __construct($p, $s, $v) {
+		if(count($v) > 4) { // We have used all of the versions.  Start over.
+			$v = array();
+		}
+
 		$this->placement = $p;
 		$this->style = $s;
-		$this->version = $v;
+		$this->version = $p < 4 ? rand(1, 5) : rand(1, 4);
+
+		// Make sure that version has not been used yet.  Only happens for first 3 steps.
+		if($p < 4) {
+			while(in_array($this->version, $v)) {
+				$this->version = rand(1, 5);
+			}
+		}
 	}
 
 	/**
@@ -39,6 +50,7 @@ class Question {
 
 	public function getArray() {
 		return array(
+			'version' => $this->version,
 			'heading' => $this->getHeading(),
 			'subHeading' => $this->getSubheading(),
 			'purpose' => $this->getPurpose(),
@@ -308,12 +320,12 @@ class Question {
 			)
 		);
 
-		$index = ((($this->version - 1) * 3) + $this->placement) - 1;
+		/*$index = ((($this->version - 1) * 3) + $this->placement) - 1;
 		if($index >= count($options)) {
 			$index %= count($options);
-		}
-
-		return $this->generateOptionsArr($options, ($index + 1), 'questions/style');
+		}*/
+		$version = !isset($options[$this->version - 1]) ? 1 : $this->version;
+		return $this->generateOptionsArr($options, $version, 'questions/style');
 	}
 
 	/**
@@ -329,12 +341,12 @@ class Question {
 			'I\'d rather spend New Year\'s Eve:'
 		);
 
-		$index = ((($this->version - 1) * 3) + $this->placement) - 1;
+		/*$index = ((($this->version - 1) * 3) + $this->placement) - 1;
 		if($index >= count($options)) {
 			$index %= count($options);
-		}
+		}*/
 
-		return isset($options[$index]) ? $options[$index] : '';
+		return isset($options[$this->version - 1]) ? $options[$this->version - 1] : '';
 	}
 
 	private function getSubheading() {

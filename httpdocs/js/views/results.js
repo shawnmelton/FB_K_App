@@ -13,7 +13,13 @@ define([
 
 			events: {
 				"click a#share-your-results": "shareYourResultsClickCallback",
-				"click #retake-quiz > a": "retakeQuiz"
+				"click #retake-quiz > a": "retakeQuiz",
+				"click #download-results": "downloadResultsClickCallback"
+			},
+
+			downloadResultsClickCallback: function() {
+				// Event tracking for button click.
+				ga('send', 'event', 'button', 'click', 'Download Results');
 			},
 
 			/**
@@ -21,6 +27,9 @@ define([
 			 * information, then send them to the Locations Finder page on the site.
 			 */
 			getDirectionsUrl: function() {
+				// Event tracking for button click.
+				ga('send', 'event', 'button', 'click', 'Get Directions');
+
 				if(this.user.get("city") != "" && this.user.get("state") != "") {
 					return "http://www.ferguson.com/locations-finder#search?address="+ this.user.get("city") +"%2C"+ this.user.get("state") +"&radius=25&opt_showroom=true";
 				}
@@ -83,6 +92,13 @@ define([
 						_this.setStyleMessage();
 						_this.locateNearestShowroom();
 				});
+
+				// Event tracking the style of results page this user has landed on.
+				ga('send', {
+					'hitType': 'pageview',
+					'page': '/facebook.ferguson.com/see-your-results',
+					'title': _this.user.getStyle() +' Results Page'
+				});
 			},
 
 			/**
@@ -90,6 +106,9 @@ define([
 			 * Reset the user's selections, but present a new set of preference questions.
 			 */
 			retakeQuiz: function() {
+				// Event tracking for button click.
+				ga('send', 'event', 'button', 'click', 'Retake Quiz');
+
 				var _this = this;
 
 				// Transition back to the first question.
@@ -120,10 +139,13 @@ define([
 
 			/* The current user's facebook status update message. */
 			shareYourResultsClickCallback: function(userStyle) {
+				// Event tracking for button click.
+				ga('send', 'event', 'button', 'click', 'Share Your Results');
+
 				FB.ui({
 					method: 'feed',
 					name: ("My Style is "+ ((typeof userStyle === "string") ? userStyle : this.user.getStyle()) +". What's Yours?").toUpperCase(),
-					link: 'https://apps.facebook.com/ferguson_recommends',
+					link: 'https://apps.facebook.com/fergusonstylequiz',
 					picture: 'https://swaydevsite.com/facebook.ferguson.com/img/share-logo.png',
 					caption: 'Ferguson Asks, "What\'s Your Style?"',
 					description: 'Uncover your own style, and learn how Ferguson can help you bring your vision of your perfect bathroom to life.'

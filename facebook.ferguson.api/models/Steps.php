@@ -6,9 +6,8 @@ class Steps {
 	public static function get() {
 		$placement = isset($_GET['placement']) ? intval($_GET['placement']) : 0;
 		$style = isset($_GET['style']) ? strtolower($_GET['style']) : '';
-		$version = isset($_GET['version']) ? intval($_GET['version']) : 1;
+		$versions = isset($_GET['versions']) ? explode(',', $_GET['versions']) : array();
 
-		$q = new Question($placement, $style, $version);
-		return $q->getArray();
+		return (new Question($placement, $style, $versions))->getArray();
 	}
 }
